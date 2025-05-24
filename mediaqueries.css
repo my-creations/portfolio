@@ -1,3 +1,38 @@
+/* Large desktop screens */
+@media screen and (min-width: 1401px) {
+  /* Large desktop carousel - single focused project with larger scale */
+  .swiper-container {
+    padding: 0 20px;
+    margin: 2rem 1rem;
+    overflow: visible;
+  }
+  
+  .swiper-slide {
+    width: 380px !important;
+  }
+  
+  .swiper-slide .details-container {
+    max-width: 360px;
+  }
+  
+  .swiper-button-prev {
+    left: calc(50% - 220px) !important; /* Adjusted for larger container */
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .swiper-button-next {
+    right: calc(50% - 220px) !important; /* Adjusted for larger container */
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 20px !important;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   #profile {
     height: 83vh;
@@ -9,6 +44,29 @@
   #contact,
   #projects {
     height: fit-content;
+  }
+  
+  /* Desktop carousel - single focused project */
+  .swiper-container {
+    padding: 0 20px;
+    margin: 2rem 1rem;
+    overflow: visible;
+  }
+  
+  .swiper-slide {
+    width: 350px !important;
+  }
+  
+  .swiper-slide .details-container {
+    max-width: 320px;
+  }
+  
+  .swiper-button-prev {
+    left: calc(50% - 200px) !important;
+  }
+  
+  .swiper-button-next {
+    right: calc(50% - 200px) !important;
   }
 }
 
@@ -46,6 +104,38 @@
     margin-top: 0;
   }
   
+  /* Tablet carousel - single focused project */
+  .swiper-container {
+    padding: 0 20px;
+    margin: 1.5rem 0.5rem;
+    overflow: visible;
+  }
+  
+  .swiper-slide {
+    width: 320px !important;
+  }
+  
+  .swiper-slide .details-container {
+    max-width: 300px;
+  }
+  
+  .swiper-button-prev {
+    left: calc(50% - 185px) !important; /* Adjusted for smaller container */
+    width: 45px !important;
+    height: 45px !important;
+  }
+  
+  .swiper-button-next {
+    right: calc(50% - 185px) !important; /* Adjusted for smaller container */
+    width: 45px !important;
+    height: 45px !important;
+  }
+  
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 16px !important;
+  }
+  
   /* Hamburger menu responsive sizing */
   .menu-links a {
     font-size: 2.2rem;
@@ -66,6 +156,38 @@
   #experience .about-containers .details-container:nth-child(3) {
     flex: 0 1 80%;
     max-width: 80%;
+  }
+  
+  /* Small tablet carousel - single focused project */
+  .swiper-container {
+    padding: 0 20px;
+    margin: 1rem 0.25rem;
+    overflow: visible;
+  }
+  
+  .swiper-slide {
+    width: 300px !important;
+  }
+  
+  .swiper-slide .details-container {
+    max-width: 280px;
+  }
+  
+  .swiper-button-prev {
+    left: calc(50% - 170px) !important; /* Adjusted for smaller container */
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .swiper-button-next {
+    right: calc(50% - 170px) !important; /* Adjusted for smaller container */
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 14px !important;
   }
   
   /* Hamburger menu tablet sizing */
@@ -111,27 +233,28 @@
     width: 100%;
   }
   
-  /* Projects carousel - show only one slide on mobile */
+  /* Mobile carousel - single focused project */
   .swiper-container {
     margin: 1rem 0;
-    padding: 0 50px;
+    padding: 0 15px;
     position: relative;
+    overflow: visible;
   }
   
   .swiper-slide {
-    width: 100% !important;
+    width: 280px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
   }
   
   .swiper-slide .details-container {
-    width: 90%;
-    max-width: 350px;
+    width: 95%;
+    max-width: 260px;
     margin: 0 auto;
   }
   
-  /* Ensure navigation arrows are visible and positioned correctly */
+  /* Navigation arrows for mobile - positioned beside container */
   .swiper-button-next,
   .swiper-button-prev {
     display: flex !important;
@@ -141,18 +264,29 @@
     position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    z-index: 10 !important;
+    z-index: 15 !important;
     width: 40px !important;
     height: 40px !important;
     margin-top: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(163, 163, 163, 0.3) !important;
   }
   
   .swiper-button-next {
-    right: 10px !important;
+    right: calc(50% - 155px) !important; /* Beside mobile container */
   }
   
   .swiper-button-prev {
-    left: 10px !important;
+    left: calc(50% - 155px) !important; /* Beside mobile container */
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 14px !important;
+    color: rgb(53, 53, 53) !important;
+    font-weight: bold !important;
   }
   
   article {
@@ -308,17 +442,27 @@
     padding: 1rem 0.75rem;
   }
   
-  /* Projects navigation improvements */
+  /* Projects navigation improvements - single focused */
   .swiper-container {
-    padding: 0 45px;
+    padding: 0 15px;
+    overflow: visible;
+  }
+  
+  .swiper-slide {
+    width: 250px !important;
+  }
+  
+  .swiper-slide .details-container {
+    width: 95%;
+    max-width: 240px;
   }
   
   .swiper-button-next,
   .swiper-button-prev {
     background: rgba(255, 255, 255, 0.9) !important;
     border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
+    width: 35px !important;
+    height: 35px !important;
     margin-top: 0 !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
@@ -327,23 +471,18 @@
   }
   
   .swiper-button-next {
-    right: 5px !important;
+    right: calc(50% - 140px) !important; /* Beside small mobile container */
   }
   
   .swiper-button-prev {
-    left: 5px !important;
+    left: calc(50% - 140px) !important; /* Beside small mobile container */
   }
   
   .swiper-button-next:after,
   .swiper-button-prev:after {
-    font-size: 16px !important;
+    font-size: 12px !important;
     color: rgb(53, 53, 53) !important;
     font-weight: bold !important;
-  }
-  
-  .swiper-slide .details-container {
-    width: 95%;
-    max-width: 320px;
   }
   
   .swiper-pagination {

@@ -505,32 +505,82 @@ footer p {
 /* Ensure the container has relative positioning */
 .swiper-container {
   position: relative;
-  margin: 1rem;
-  overflow: hidden;
+  margin: 2rem 1rem;
+  overflow: visible;
+  padding: 0 20px; /* Reduced padding to accommodate buttons beside container */
 }
 
 /* Style for the visible slides */
 .swiper-slide {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
+  width: 350px !important; /* Fixed width for consistent sizing */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform-origin: center;
 }
 
 .swiper-slide .details-container {
   width: 100%;
-  max-width: none;
+  max-width: 320px;
+  margin: 0 auto;
+  transition: all 0.4s ease;
 }
 
-.swiper-container .swiper-button-prev {
-  left: -35px;
+/* Enhanced active slide styling */
+.swiper-slide-active-custom .details-container {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
-.swiper-container .swiper-button-next {
-  right: -35px;
+/* Navigation buttons - positioned beside the focused project container */
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 15 !important;
+  width: 50px !important;
+  height: 50px !important;
+  margin-top: 0 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(163, 163, 163, 0.3) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.swiper-button-prev {
+  left: calc(50% - 200px) !important; /* Position beside left edge of focused container */
+}
+
+.swiper-button-next {
+  right: calc(50% - 200px) !important; /* Position beside right edge of focused container */
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: rgb(53, 53, 53) !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-50%) scale(1.1) !important;
 }
 
 .swiper-pagination {
-  margin-bottom: -2.5rem;
+  position: relative !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0 !important;
 }
 
 
