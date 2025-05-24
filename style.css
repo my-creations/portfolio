@@ -49,6 +49,12 @@ nav {
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center; /* Align list items vertically in the center */
 }
 
 a {
@@ -69,6 +75,72 @@ a:hover {
 
 .logo:hover {
   cursor: default;
+}
+
+/* Language Toggle */
+
+.language-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: black;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 0.5rem;
+  transition: all 300ms ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center; /* Align language toggle text and icon vertically */
+}
+
+.language-toggle:hover {
+  color: grey;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.language-toggle .lang-separator {
+  margin: 0 0.25rem;
+  color: rgb(163, 163, 163);
+}
+
+.language-toggle .inactive {
+  color: rgb(163, 163, 163);
+  transition: all 300ms ease;
+}
+
+.language-toggle:hover .inactive {
+  color: rgb(120, 120, 120);
+}
+
+/* Mobile language toggle */
+.language-toggle.mobile {
+  font-size: 2.5rem;
+  line-height: 2.5rem; /* Match line height with font size */
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  display: block;
+  text-align: center;
+  width: auto;
+  margin: 0;
+}
+
+/* Override mobile toggle font-size inside hamburger menu */
+#hamburger-nav .language-toggle.mobile {
+  font-size: 2.5rem; /* matches mobile nav link size */
+}
+
+@media screen and (max-width: 600px) {
+  #hamburger-nav .language-toggle.mobile {
+    font-size: 2rem; /* slightly smaller for smaller screen */
+  }
+}
+
+/* Ensure menu links and toggle share same font settings */
+.menu-links a,
+.language-toggle.mobile {
+  font-family: inherit;
+  font-weight: 400;
 }
 
 /* Hamburger Menu */
@@ -323,7 +395,7 @@ section {
 }
 
 .about-text-container{
-  text-align: left;
+  text-align: justify;
   margin: 1rem auto 0 auto;
   padding: 1.5rem;
   background: white;
@@ -595,6 +667,23 @@ footer p {
   text-align: center !important;
   display: block !important;
   width: 100% !important;
+}
+
+/* Language Toggle Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .language-toggle {
+    display: none; /* Hide desktop language toggle on mobile */
+  }
+  
+  .language-toggle.mobile {
+    display: block; /* Show mobile language toggle */
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .language-toggle.mobile {
+    display: none; /* Hide mobile language toggle on desktop */
+  }
 }
 
 

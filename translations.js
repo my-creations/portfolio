@@ -189,13 +189,207 @@ const translations = {
       linkedinIcon: "LinkedIn icon",
       githubIcon: "Github icon"
     }
+  },
+  
+  pt: {
+    // Navigation
+    nav: {
+      about: "Sobre",
+      experience: "Experiência",
+      projects: "Projetos",
+      contact: "Contacto"
+    },
+    
+    // Profile Section
+    profile: {
+      greeting: "Olá, eu sou",
+      name: "Pedro Robalo",
+      title: "Engenheiro de Software",
+      downloadCV: "Descarregar CV",
+      contactInfo: "Contactos"
+    },
+    
+    // About Section
+    about: {
+      sectionSubtitle: "Conhece Mais",
+      sectionTitle: "Sobre Mim",
+      experienceTitle: "Experiência",
+      experienceText: "4.5+ anos / 4.5+ anos<br/>Engenheiro de Automação de Testes / Enfermeiro",
+      educationTitle: "Educação",
+      educationText: "Licenciatura em Ciências da Computação<br/>Licenciatura em Enfermagem",
+      description: "Sou um Engenheiro de Software apaixonado com uma formação única que abrange tanto a área da saúde como a tecnologia. Com mais de 4.5 anos de experiência como Engenheiro de Automação de Testes e uma base em enfermagem, trago uma mentalidade orientada para os detalhes e resolução de problemas a tudo o que faço. A minha jornada da saúde para a tecnologia ensinou-me a importância da precisão, pensamento centrado no utilizador e aprendizagem contínua. Especializo-me em frameworks de automação de testes e quality assurance, enquanto expando constantemente as minhas competências em desenvolvimento full-stack. Prospero na construção de soluções robustas e escaláveis e estou sempre ansioso por enfrentar novos desafios e explorar tecnologias emergentes."
+    },
+    
+    // Experience Section
+    experience: {
+      sectionSubtitle: "Explora a Minha",
+      sectionTitle: "Experiência",
+      frontend: {
+        title: "Desenvolvimento Frontend",
+        skills: {
+          html: { name: "HTML", level: "Experiente" },
+          css: { name: "CSS", level: "Básico" },
+          tailwind: { name: "Tailwind", level: "Intermédio" },
+          react: { name: "React", level: "Básico" },
+          svelte: { name: "Svelte", level: "Básico" },
+          nextjs: { name: "Next.js", level: "Básico" }
+        }
+      },
+      backend: {
+        title: "Desenvolvimento Backend",
+        skills: {
+          nodejs: { name: "Node.js", level: "Intermédio" },
+          prisma: { name: "Prisma", level: "Básico" },
+          django: { name: "Django", level: "Básico" },
+          mongodb: { name: "MongoDB", level: "Básico" },
+          mysql: { name: "MySQL", level: "Básico" },
+          graphql: { name: "GraphQL", level: "Básico" }
+        }
+      },
+      testAutomation: {
+        title: "Automação de Testes",
+        skills: {
+          javascript: { name: "JavaScript", level: "Experiente" },
+          typescript: { name: "TypeScript", level: "Experiente" },
+          python: { name: "Python", level: "Experiente" },
+          selenium: { name: "Selenium", level: "Intermédio" },
+          appium: { name: "Appium", level: "Experiente" },
+          cypress: { name: "Cypress", level: "Experiente" },
+          detox: { name: "Detox", level: "Experiente" },
+          playwright: { name: "Playwright", level: "Experiente" }
+        }
+      }
+    },
+    
+    // Projects Section
+    projects: {
+      sectionSubtitle: "Navega pelos Meus",
+      sectionTitle: "Projetos Recentes",
+      projectOne: {
+        title: "Joke Teller",
+        description: "Este projeto é sobre um robô divertido que conta piadas.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectTwo: {
+        title: "Nike Store",
+        description: "Este projeto é uma plataforma de e-commerce para produtos Nike.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectThree: {
+        title: "Music Player",
+        description: "Este projeto é uma aplicação de leitor de música construída com JavaScript vanilla.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectFour: {
+        title: "Animated Navigation",
+        description: "Este projeto mostra um menu de navegação animado.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectFive: {
+        title: "Animated Template",
+        description: "Este projeto é um template animado que mostra várias animações e transições.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectSix: {
+        title: "Quote Generator",
+        description: "Este projeto é um gerador de citações inspiradoras que obtém citações aleatórias de uma API.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectSeven: {
+        title: "Infinite Scroll",
+        description: "Este projeto demonstra funcionalidade de scroll infinito com carregamento dinâmico de conteúdo.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectEight: {
+        title: "Custom Countdown",
+        description: "Uma aplicação interativa de cronômetro com eventos e datas personalizáveis.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectNine: {
+        title: "Book Keeper",
+        description: "Uma aplicação de marcadores para organizar e gerir os teus sites e recursos favoritos.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectTen: {
+        title: "Form Validator",
+        description: "Uma aplicação de validação de formulários do lado do cliente com feedback em tempo real e sanitização de entrada.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectEleven: {
+        title: "Spock Rock Game",
+        description: "Um jogo melhorado de Pedra-Papel-Tesoura com Spock e Lagarto com jogabilidade animada.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectTwelve: {
+        title: "NASA APOD",
+        description: "Explora a Imagem Astronômica do Dia da NASA com esta aplicação interativa com imagens do espaço.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectThirteen: {
+        title: "Math Sprint Game",
+        description: "Um jogo de quiz matemático rápido para testar e melhorar as tuas habilidades aritméticas sob pressão de tempo.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectFourteen: {
+        title: "Drag and Drop",
+        description: "Uma aplicação interativa de arrastar e soltar demonstrando eventos HTML5 de arrastar e interações dinâmicas de UI.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      },
+      projectFifteen: {
+        title: "Calculator",
+        description: "Uma aplicação de calculadora totalmente funcional com operações matemáticas simples.",
+        github: "GitHub",
+        liveDemo: "Demo Ao Vivo"
+      }
+    },
+    
+    // Contact Section
+    contact: {
+      sectionSubtitle: "Entra em Contacto",
+      sectionTitle: "Contacta-me",
+      email: "pmrobalo@gmail.com",
+      linkedin: "LinkedIn"
+    },
+    
+    // Footer
+    footer: {
+      copyright: "Copyright © 2025 Pedro Robalo. Todos os Direitos Reservados."
+    },
+    
+    // Alt text for images
+    alt: {
+      profilePicture: "Foto de perfil de Pedro Robalo",
+      experienceIcon: "Ícone de experiência",
+      educationIcon: "Ícone de educação",
+      checkmarkIcon: "Ícone de experiência",
+      emailIcon: "Ícone de email",
+      linkedinIcon: "Ícone do LinkedIn",
+      githubIcon: "Ícone do Github"
+    }
   }
 };
 
+// Global variable to track current language
+let currentLanguage = 'en';
+
 // Function to get translation text
-function getText(key) {
+function getText(key, language = currentLanguage) {
   const keys = key.split('.');
-  let result = translations.en;
+  let result = translations[language];
   
   for (const k of keys) {
     if (result && result[k]) {
@@ -209,12 +403,11 @@ function getText(key) {
   return result;
 }
 
-// Function to initialize translations on page load
-function initializeTranslations() {
-  // Update navigation
+// Function to update all translated elements
+function updateTranslations(language = currentLanguage) {
   document.querySelectorAll('[data-translate]').forEach(element => {
     const key = element.getAttribute('data-translate');
-    const text = getText(key);
+    const text = getText(key, language);
     
     if (element.tagName === 'INPUT' && element.type === 'button') {
       element.value = text;
@@ -224,6 +417,57 @@ function initializeTranslations() {
       element.textContent = text;
     }
   });
+  
+  // Update language toggle buttons
+  updateLanguageToggleButtons();
+}
+
+// Function to update skill levels in experience section (removed as it's handled by data-translate)
+// This function is no longer needed since all skills have data-translate attributes
+
+// Function to switch language
+function switchLanguage(language) {
+  if (language === currentLanguage) return;
+  
+  currentLanguage = language;
+  updateTranslations(language);
+  
+  // Store language preference
+  localStorage.setItem('preferredLanguage', language);
+}
+
+// Function to update language toggle buttons
+function updateLanguageToggleButtons() {
+  const desktopToggle = document.querySelector('#desktop-lang-toggle');
+  const mobileToggle = document.querySelector('#mobile-lang-toggle');
+  
+  if (desktopToggle) {
+    desktopToggle.innerHTML = currentLanguage === 'en' ? 
+      'EN <span class="lang-separator">/</span> <span class="inactive">PT</span>' : 
+      '<span class="inactive">EN</span> <span class="lang-separator">/</span> PT';
+  }
+  
+  if (mobileToggle) {
+    mobileToggle.innerHTML = currentLanguage === 'en' ? 
+      'EN <span class="lang-separator">/</span> <span class="inactive">PT</span>' : 
+      '<span class="inactive">EN</span> <span class="lang-separator">/</span> PT';
+  }
+}
+
+// Function to toggle between languages
+function toggleLanguage() {
+  const newLanguage = currentLanguage === 'en' ? 'pt' : 'en';
+  switchLanguage(newLanguage);
+}
+
+// Function to initialize translations on page load
+function initializeTranslations() {
+  // Get saved language preference or default to English
+  const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+  currentLanguage = savedLanguage;
+  
+  // Update all translations
+  updateTranslations(currentLanguage);
 }
 
 // Initialize translations when DOM is loaded
