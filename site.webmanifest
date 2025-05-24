@@ -1,0 +1,31 @@
+{
+  "name": "Pedro Robalo - Portfolio",
+  "short_name": "PR Portfolio",
+  "description": "Pedro Robalo's personal portfolio showcasing software engineering and test automation expertise",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#353535",
+  "icons": [
+    {
+      "src": "./assets/favicon-16x16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./assets/favicon-48x48.svg",
+      "sizes": "48x48",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./assets/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

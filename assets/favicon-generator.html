@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+</head>
+<body>
+    <canvas id="favicon16" width="16" height="16" style="border: 1px solid #ccc; margin: 5px;"></canvas>
+    <canvas id="favicon32" width="32" height="32" style="border: 1px solid #ccc; margin: 5px;"></canvas>
+    <canvas id="favicon64" width="64" height="64" style="border: 1px solid #ccc; margin: 5px;"></canvas>
+    
+    <div>
+        <a id="download16" download="favicon-16x16.png">Download 16x16</a> |
+        <a id="download32" download="favicon-32x32.png">Download 32x32</a> |
+        <a id="download64" download="favicon-64x64.png">Download 64x64</a>
+    </div>
+
+    <script>
+        function createFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, 'rgb(255,255,255)');
+            gradient.addColorStop(1, 'rgb(250,250,250)');
+            
+            // Draw background circle
+            const margin = Math.max(1, size / 16);
+            const radius = (size - margin * 2) / 2;
+            const centerX = size / 2;
+            const centerY = size / 2;
+            
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            // Draw border
+            ctx.strokeStyle = 'rgb(163,163,163)';
+            ctx.lineWidth = Math.max(0.5, size / 64);
+            ctx.stroke();
+            
+            // Draw inner circle for depth
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius - Math.max(1, size / 16), 0, 2 * Math.PI);
+            ctx.strokeStyle = 'rgba(163,163,163,0.3)';
+            ctx.lineWidth = Math.max(0.5, size / 64);
+            ctx.stroke();
+            
+            // Draw text
+            const fontSize = Math.max(6, size / 2.5);
+            ctx.font = `600 ${fontSize}px system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif`;
+            ctx.fillStyle = 'rgb(53,53,53)';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Add slight vertical adjustment
+            const textY = centerY - Math.max(0, size / 64);
+            ctx.fillText('PR', centerX, textY);
+            
+            return canvas.toDataURL('image/png');
+        }
+        
+        // Generate favicons
+        const dataUrl16 = createFavicon('favicon16', 16);
+        const dataUrl32 = createFavicon('favicon32', 32);
+        const dataUrl64 = createFavicon('favicon64', 64);
+        
+        // Set download links
+        document.getElementById('download16').href = dataUrl16;
+        document.getElementById('download32').href = dataUrl32;
+        document.getElementById('download64').href = dataUrl64;
+        
+        console.log('Favicons generated successfully!');
+    </script>
+</body>
+</html>

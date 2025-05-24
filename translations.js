@@ -75,32 +75,92 @@ const translations = {
       sectionSubtitle: "Browse My Recent",
       sectionTitle: "Projects",
       projectOne: {
-        title: "Project One",
-        description: "Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Joke Teller",
+        description: "This project is about a funny robot that tells jokes.",
         github: "GitHub",
         liveDemo: "Live Demo"
       },
       projectTwo: {
-        title: "Project Two",
-        description: "Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Nike Store",
+        description: "This project is an e-commerce platform for Nike products.",
         github: "GitHub",
         liveDemo: "Live Demo"
       },
       projectThree: {
-        title: "Project Three",
-        description: "Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Music Player",
+        description: "This project is a music player application built with vanilla JavaScript.",
         github: "GitHub",
         liveDemo: "Live Demo"
       },
       projectFour: {
-        title: "Project Four",
-        description: "Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Animated Navigation",
+        description: "This project showcases an animated navigation menu.",
         github: "GitHub",
         liveDemo: "Live Demo"
       },
       projectFive: {
-        title: "Project Fifth",
-        description: "Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Animated Template",
+        description: "This project is an animated template showcasing various animations and transitions.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectSix: {
+        title: "Quote Generator",
+        description: "This project is an inspirational quote generator that fetches random quotes from an API.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectSeven: {
+        title: "Infinite Scroll",
+        description: "This project demonstrates infinite scroll functionality with dynamic content loading.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectEight: {
+        title: "Custom Countdown",
+        description: "An interactive countdown timer application with customizable events and dates.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectNine: {
+        title: "Book Keeper",
+        description: "A bookmarking application for organizing and managing your favorite websites and resources.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectTen: {
+        title: "Form Validator",
+        description: "A client-side form validation application with real-time feedback and input sanitization.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectEleven: {
+        title: "Spock Rock Game",
+        description: "An enhanced Rock-Paper-Scissors game featuring Spock and Lizard with animated gameplay.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectTwelve: {
+        title: "NASA APOD",
+        description: "Explore NASA's Astronomy Picture of the Day with this interactive application featuring space imagery.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectThirteen: {
+        title: "Math Sprint Game",
+        description: "A fast-paced mathematical quiz game to test and improve your arithmetic skills under time pressure.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectFourteen: {
+        title: "Drag and Drop",
+        description: "An interactive drag-and-drop application demonstrating HTML5 drag events and dynamic UI interactions.",
+        github: "GitHub",
+        liveDemo: "Live Demo"
+      },
+      projectFifteen: {
+        title: "Calculator",
+        description: "A fully functional calculator application with simple mathematical operations.",
         github: "GitHub",
         liveDemo: "Live Demo"
       }
