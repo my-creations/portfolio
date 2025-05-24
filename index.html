@@ -9,359 +9,454 @@
     <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="translations.js"></script>
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">Pedro Robalo</div>
+    <nav id="desktop-nav" data-test="desktop-navigation">
+      <div class="logo" data-test="desktop-logo">Pedro Robalo</div>
       <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links" data-test="desktop-nav-links">
+          <li><a href="#about" data-translate="nav.about" data-test="desktop-nav-about"></a></li>
+          <li><a href="#experience" data-translate="nav.experience" data-test="desktop-nav-experience"></a></li>
+          <li><a href="#projects" data-translate="nav.projects" data-test="desktop-nav-projects"></a></li>
+          <li><a href="#contact" data-translate="nav.contact" data-test="desktop-nav-contact"></a></li>
         </ul>
       </div>
     </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Pedro Robalo</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
+    <nav id="hamburger-nav" data-test="hamburger-navigation">
+      <div class="logo" data-translate="profile.name" data-test="hamburger-logo"></div>
+      <div class="hamburger-menu" data-test="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()" data-test="hamburger-icon">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <div class="menu-links" data-test="hamburger-menu-links">
+          <li><a href="#about" onclick="toggleMenu()" data-translate="nav.about" data-test="hamburger-nav-about"></a></li>
+          <li><a href="#experience" onclick="toggleMenu()" data-translate="nav.experience" data-test="hamburger-nav-experience"></a></li>
+          <li><a href="#projects" onclick="toggleMenu()" data-translate="nav.projects" data-test="hamburger-nav-projects"></a></li>
+          <li><a href="#contact" onclick="toggleMenu()" data-translate="nav.contact" data-test="hamburger-nav-contact"></a></li>
         </div>
       </div>
     </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Pedro Robalo profile picture" />
+    <section id="profile" data-test="profile-section">
+      <div class="section__pic-container" data-test="profile-image-container">
+        <img src="./assets/profile-pic.png" alt="Pedro Robalo profile picture" data-test="profile-image" />
       </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Pedro Robalo</h1>
-        <p class="section__text__p2">Software Engineer</p>
-        <div class="btn-container">
+      <div class="section__text" data-test="profile-text">
+        <p class="section__text__p1" data-translate="profile.greeting" data-test="profile-greeting"></p>
+        <h1 class="title" data-translate="profile.name" data-test="profile-name"></h1>
+        <p class="section__text__p2" data-translate="profile.title" data-test="profile-title"></p>
+        <div class="btn-container" data-test="profile-buttons">
           <button
             class="btn btn-color-2"
-            onclick="window.open('./assets/resume-example.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
+            onclick="window.open('./assets/PedroRobalo_CV.pdf')"
+            data-translate="profile.downloadCV"
+            data-test="download-cv-button"
+          ></button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'" data-translate="profile.contactInfo" data-test="contact-info-button">
           </button>
         </div>
-        <div id="socials-container">
+        <div id="socials-container" data-test="social-links">
           <img
             src="./assets/linkedin.png"
             alt="My LinkedIn profile"
             class="icon"
-            onclick="window.open('https://www.linkedin.com/in/pedro-robalo-42a39212a/', '_blank')" 
+            onclick="window.open('https://www.linkedin.com/in/pedro-robalo-42a39212a/', '_blank')"
+            data-test="linkedin-link"
           />
           <img
             src="./assets/github.png"
             alt="My Github profile"
             class="icon"
             onclick="window.open('https://github.com/PedroRobalo1994', '_blank')"
+            data-test="github-link"
           />
         </div>
       </div>
     </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
+    <section id="about" data-test="about-section">
+      <p class="section__text__p1" data-translate="about.sectionSubtitle" data-test="about-subtitle"></p>
+      <h1 class="title" data-translate="about.sectionTitle" data-test="about-title"></h1>
       <div class="section-container">
         <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
+          <div class="about-containers" data-test="about-containers">
+            <div class="details-container" data-test="experience-info-card">
               <img
                 src="./assets/experience.png"
                 alt="Experience icon"
                 class="icon"
+                data-test="experience-icon"
               />
-              <h3>Experience</h3>
-              <p>4+ years / 4.5+ years<br/>Test Automation Engineer / Registered Nurse</p>
+              <h3 data-translate="about.experienceTitle" data-test="experience-title"></h3>
+              <p data-translate="about.experienceText" data-test="experience-text"></p>
             </div>
-            <div class="details-container">
+            <div class="details-container" data-test="education-info-card">
               <img
                 src="./assets/education.png"
                 alt="Education icon"
                 class="icon"
+                data-test="education-icon"
               />
-              <h3>Education</h3>
-              <p>Bachelor’s Degree in Computer Science<br/>Bachelor’s Degree in Nursing</p>
+              <h3 data-translate="about.educationTitle" data-test="education-title"></h3>
+              <p data-translate="about.educationText" data-test="education-text"></p>
             </div>
           </div>
-          <div class="about-text-container">
-            <p>
-              I am an intusiastic and motivated person that loves everything about techology and inovations, you can see by my background that I do not contempt with just one area of expertise, I am always looking for new challenges and new things to learn. I love automating and testing things and also have curiosity to build my personal projects and try new technologies.
+          <div class="about-text-container" data-test="about-description-container">
+            <p data-translate="about.description" data-test="about-description">
             </p>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
     </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
+    <section id="experience" data-test="experience-section">
+      <p class="section__text__p1" data-translate="experience.sectionSubtitle" data-test="experience-subtitle"></p>
+      <h1 class="title" data-translate="experience.sectionTitle" data-test="experience-title"></h1>
+      <div class="experience-details-container" data-test="experience-details-container">
+        <div class="about-containers" data-test="experience-containers">
+          <div class="details-container" data-test="frontend-skills-container">
+            <h2 class="experience-sub-title" data-translate="experience.frontend.title" data-test="frontend-title"></h2>
+            <div class="article-container" data-test="frontend-skills-list">
+              <article data-test="html-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="html-skill-icon"
                 />
                 <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
+                  <h3 data-translate="experience.frontend.skills.html.name" data-test="html-skill-name"></h3>
+                  <p data-translate="experience.frontend.skills.html.level" data-test="html-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="css-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="css-skill-icon"
                 />
                 <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
+                  <h3 data-translate="experience.frontend.skills.css.name" data-test="css-skill-name"></h3>
+                  <p data-translate="experience.frontend.skills.css.level" data-test="css-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="tailwind-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="tailwind-skill-icon"
                 />
                 <div>
-                  <h3>SASS</h3>
-                  <p>Intermediate</p>
+                  <h3 data-translate="experience.frontend.skills.tailwind.name" data-test="tailwind-skill-name"></h3>
+                  <p data-translate="experience.frontend.skills.tailwind.level" data-test="tailwind-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="react-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="react-skill-icon"
                 />
                 <div>
-                  <h3>JavaScript</h3>
-                  <p>Basic</p>
+                  <h3 data-translate="experience.frontend.skills.react.name" data-test="react-skill-name"></h3>
+                  <p data-translate="experience.frontend.skills.react.level" data-test="react-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="svelte-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="svelte-skill-icon"
                 />
                 <div>
-                  <h3>TypeScript</h3>
-                  <p>Basic</p>
+                  <h3 data-translate="experience.frontend.skills.svelte.name" data-test="svelte-skill-name"></h3>
+                  <p data-translate="experience.frontend.skills.svelte.level" data-test="svelte-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="nextjs-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="nextjs-skill-icon"
                 />
                 <div>
-                  <h3>Material UI</h3>
-                  <p>Intermediate</p>
+                  <h3 data-translate="experience.frontend.skills.nextjs.name" data-test="nextjs-skill-name"></h3>
+                  <p data-translate="experience.frontend.skills.nextjs.level" data-test="nextjs-skill-level"></p>
+                </div>
+            </div>
+          </div>
+          <div class="details-container" data-test="backend-skills-container">
+            <h2 class="experience-sub-title" data-translate="experience.backend.title" data-test="backend-title"></h2>
+            <div class="article-container" data-test="backend-skills-list">
+              <article data-test="nodejs-skill">
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="nodejs-skill-icon" />
+                <div>
+                  <h3 data-translate="experience.backend.skills.nodejs.name" data-test="nodejs-skill-name"></h3>
+                  <p data-translate="experience.backend.skills.nodejs.level" data-test="nodejs-skill-level"></p>
+                </div>
+              </article>
+
+              <article data-test="prisma-skill">
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="prisma-skill-icon" />
+                <div>
+                  <h3 data-translate="experience.backend.skills.prisma.name" data-test="prisma-skill-name"></h3>
+                  <p data-translate="experience.backend.skills.prisma.level" data-test="prisma-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="django-skill">
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="django-skill-icon" />
+                <div>
+                  <h3 data-translate="experience.backend.skills.django.name" data-test="django-skill-name"></h3>
+                  <p data-translate="experience.backend.skills.django.level" data-test="django-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="mongodb-skill">
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="mongodb-skill-icon" />
+                <div>
+                  <h3 data-translate="experience.backend.skills.mongodb.name" data-test="mongodb-skill-name"></h3>
+                  <p data-translate="experience.backend.skills.mongodb.level" data-test="mongodb-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="mysql-skill">
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="mysql-skill-icon" />
+                <div>
+                  <h3 data-translate="experience.backend.skills.mysql.name" data-test="mysql-skill-name"></h3>
+                  <p data-translate="experience.backend.skills.mysql.level" data-test="mysql-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="graphql-skill">
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="graphql-skill-icon" />
+                <div>
+                  <h3 data-translate="experience.backend.skills.graphql.name" data-test="graphql-skill-name"></h3>
+                  <p data-translate="experience.backend.skills.graphql.level" data-test="graphql-skill-level"></p>
                 </div>
               </article>
             </div>
           </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
+          <div class="details-container" data-test="test-automation-skills-container">
+            <h2 class="experience-sub-title" data-translate="experience.testAutomation.title" data-test="test-automation-title"></h2>
+            <div class="article-container" data-test="test-automation-skills-list">
+              <article data-test="javascript-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="javascript-skill-icon"
                 />
                 <div>
-                  <h3>PostgreSQL</h3>
-                  <p>Basic</p>
+                  <h3 data-translate="experience.testAutomation.skills.javascript.name" data-test="javascript-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.javascript.level" data-test="javascript-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="typescript-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="typescript-skill-icon"
                 />
                 <div>
-                  <h3>Node JS</h3>
-                  <p>Intermediate</p>
+                  <h3 data-translate="experience.testAutomation.skills.typescript.name" data-test="typescript-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.typescript.level" data-test="typescript-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="python-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="python-skill-icon"
                 />
                 <div>
-                  <h3>Express JS</h3>
-                  <p>Intermediate</p>
+                  <h3 data-translate="experience.testAutomation.skills.python.name" data-test="python-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.python.level" data-test="python-skill-level"></p>
                 </div>
               </article>
-              <article>
+              <article data-test="selenium-skill">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  data-test="selenium-skill-icon"
                 />
                 <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
+                  <h3 data-translate="experience.testAutomation.skills.selenium.name" data-test="selenium-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.selenium.level" data-test="selenium-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="appium-skill">
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                  data-test="appium-skill-icon"
+                />
+                <div>
+                  <h3 data-translate="experience.testAutomation.skills.appium.name" data-test="appium-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.appium.level" data-test="appium-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="cypress-skill">
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                  data-test="cypress-skill-icon"
+                />
+                <div>
+                  <h3 data-translate="experience.testAutomation.skills.cypress.name" data-test="cypress-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.cypress.level" data-test="cypress-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="detox-skill">
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                  data-test="detox-skill-icon"
+                />
+                <div>
+                  <h3 data-translate="experience.testAutomation.skills.detox.name" data-test="detox-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.detox.level" data-test="detox-skill-level"></p>
+                </div>
+              </article>
+              <article data-test="playwright-skill">
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                  data-test="playwright-skill-icon"
+                />
+                <div>
+                  <h3 data-translate="experience.testAutomation.skills.playwright.name" data-test="playwright-skill-name"></h3>
+                  <p data-translate="experience.testAutomation.skills.playwright.level" data-test="playwright-skill-level"></p>
                 </div>
               </article>
             </div>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
     </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="swiper-container">
-          <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                  <div class="details-container color-container">
-                      <div class="article-container">
-                          <img src="./assets/project-1.png" alt="Project 1" class="project-img">
+    <section id="projects" data-test="projects-section">
+      <p class="section__text__p1" data-translate="projects.sectionSubtitle" data-test="projects-subtitle"></p>
+      <h1 class="title" data-translate="projects.sectionTitle" data-test="projects-title"></h1>
+      <div class="swiper-container" data-test="projects-carousel">
+          <div class="swiper-wrapper" data-test="projects-wrapper">
+              <div class="swiper-slide" data-test="project-1-slide">
+                  <div class="details-container color-container" data-test="project-1-container">
+                      <div class="article-container" data-test="project-1-image-container">
+                          <img src="./assets/project-1.png" alt="Project 1" class="project-img" data-test="project-1-image">
                       </div>
-                      <h2 class="experience-sub-title project-title">Project One</h2>
-                      <div class="text-container">
-                          <p>Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      <h2 class="experience-sub-title project-title" data-translate="projects.projectOne.title" data-test="project-1-title"></h2>
+                      <div class="text-container" data-test="project-1-description-container">
+                          <p data-translate="projects.projectOne.description" data-test="project-1-description"></p>
                       </div>
-                      <div class="btn-container">
-                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'">GitHub</button>
-                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://giithub.com'">Live Demo</button>
-                      </div>
-                  </div>
-              </div>
-              <div class="swiper-slide">
-                  <div class="details-container color-container">
-                      <div class="article-container">
-                          <img src="./assets/project-2.png" alt="Project 2" class="project-img">
-                      </div>
-                      <h2 class="experience-sub-title project-title">Project Two</h2>
-                      <div class="text-container">
-                          <p>Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                      </div>
-                      <div class="btn-container">
-                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'">GitHub</button>
-                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://giithub.com'">Live Demo</button>
+                      <div class="btn-container" data-test="project-1-buttons">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'" data-translate="projects.projectOne.github" data-test="project-1-github-button"></button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://giithub.com'" data-translate="projects.projectOne.liveDemo" data-test="project-1-demo-button"></button>
                       </div>
                   </div>
               </div>
-              <div class="swiper-slide">
-                  <div class="details-container color-container">
-                      <div class="article-container">
-                          <img src="./assets/project-3.png" alt="Project 3" class="project-img">
+              <div class="swiper-slide" data-test="project-2-slide">
+                  <div class="details-container color-container" data-test="project-2-container">
+                      <div class="article-container" data-test="project-2-image-container">
+                          <img src="./assets/project-2.png" alt="Project 2" class="project-img" data-test="project-2-image">
                       </div>
-                      <h2 class="experience-sub-title project-title">Project Three</h2>
-                      <div class="text-container">
-                          <p>Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      <h2 class="experience-sub-title project-title" data-translate="projects.projectTwo.title" data-test="project-2-title"></h2>
+                      <div class="text-container" data-test="project-2-description-container">
+                          <p data-translate="projects.projectTwo.description" data-test="project-2-description"></p>
                       </div>
-                      <div class="btn-container">
-                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'">GitHub</button>
-                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://giithub.com'">Live Demo</button>
+                      <div class="btn-container" data-test="project-2-buttons">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'" data-translate="projects.projectTwo.github" data-test="project-2-github-button"></button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://giithub.com'" data-translate="projects.projectTwo.liveDemo" data-test="project-2-demo-button"></button>
+                      </div>
+                  </div>
+              </div>
+              <div class="swiper-slide" data-test="project-3-slide">
+                  <div class="details-container color-container" data-test="project-3-container">
+                      <div class="article-container" data-test="project-3-image-container">
+                          <img src="./assets/project-3.png" alt="Project 3" class="project-img" data-test="project-3-image">
+                      </div>
+                      <h2 class="experience-sub-title project-title" data-translate="projects.projectThree.title" data-test="project-3-title"></h2>
+                      <div class="text-container" data-test="project-3-description-container">
+                          <p data-translate="projects.projectThree.description" data-test="project-3-description"></p>
+                      </div>
+                      <div class="btn-container" data-test="project-3-buttons">
+                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'" data-translate="projects.projectThree.github" data-test="project-3-github-button"></button>
+                          <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://giithub.com'" data-translate="projects.projectThree.liveDemo" data-test="project-3-demo-button"></button>
                       </div>
                   </div>
               </div>
               <!-- Add more swiper-slide divs for additional projects -->
-              <div class="swiper-slide">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-3.png" alt="Project 4" class="project-img">
+              <div class="swiper-slide" data-test="project-4-slide">
+                <div class="details-container color-container" data-test="project-4-container">
+                    <div class="article-container" data-test="project-4-image-container">
+                        <img src="./assets/project-3.png" alt="Project 4" class="project-img" data-test="project-4-image">
                     </div>
-                    <h2 class="experience-sub-title project-title">Project Four</h2>
-                    <div class="text-container">
-                        <p>Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h2 class="experience-sub-title project-title" data-translate="projects.projectFour.title" data-test="project-4-title"></h2>
+                    <div class="text-container" data-test="project-4-description-container">
+                        <p data-translate="projects.projectFour.description" data-test="project-4-description"></p>
                     </div>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'">GitHub</button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'">Live Demo</button>
+                    <div class="btn-container" data-test="project-4-buttons">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'" data-translate="projects.projectFour.github" data-test="project-4-github-button"></button>
+                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'" data-translate="projects.projectFour.liveDemo" data-test="project-4-demo-button"></button>
                     </div>
                 </div>
               </div>
-              <div class="swiper-slide">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-3.png" alt="Project 5" class="project-img">
+              <div class="swiper-slide" data-test="project-5-slide">
+                <div class="details-container color-container" data-test="project-5-container">
+                    <div class="article-container" data-test="project-5-image-container">
+                        <img src="./assets/project-3.png" alt="Project 5" class="project-img" data-test="project-5-image">
                     </div>
-                    <h2 class="experience-sub-title project-title">Project Fifth</h2>
-                    <div class="text-container">
-                        <p>Description of the project. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h2 class="experience-sub-title project-title" data-translate="projects.projectFive.title" data-test="project-5-title"></h2>
+                    <div class="text-container" data-test="project-5-description-container">
+                        <p data-translate="projects.projectFive.description" data-test="project-5-description"></p>
                     </div>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'">GitHub</button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'">Live Demo</button>
+                    <div class="btn-container" data-test="project-5-buttons">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'" data-translate="projects.projectFive.github" data-test="project-5-github-button"></button>
+                        <button class="btn btn-color-2 project-btn" onclick="location.href = 'https://github.com'" data-translate="projects.projectFive.liveDemo" data-test="project-5-demo-button"></button>
                     </div>
                 </div>
               </div>
           </div>
           <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination" data-test="projects-pagination"></div>
           <!-- Add Navigation -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next" data-test="projects-next-button"></div>
+          <div class="swiper-button-prev" data-test="projects-prev-button"></div>
       </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img src="./assets/email.png" alt="Email icon" class="icon email-icon">
-          <p><a href="mailto:examplemail@gmail.com">pmrobalo@gmail.com</a></p>
-          <div class="contact-info-container">
-            <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon">
-            <p><a href="https://www.linkedin.com/in/pedro-robalo-42a39212a/">LinkedIn</a></p>
+    <section id="contact" data-test="contact-section">
+      <p class="section__text__p1" data-translate="contact.sectionSubtitle" data-test="contact-subtitle"></p>
+      <h1 class="title" data-translate="contact.sectionTitle" data-test="contact-title"></h1>
+      <div class="contact-info-upper-container" data-test="contact-info-container">
+        <div class="contact-info-container" data-test="email-contact-container">
+          <img src="./assets/email.png" alt="Email icon" class="icon email-icon" data-test="email-icon">
+          <p><a href="mailto:examplemail@gmail.com" data-translate="contact.email" data-test="email-link"></a></p>
+          <div class="contact-info-container" data-test="linkedin-contact-container">
+            <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" data-test="linkedin-contact-icon">
+            <p><a href="https://www.linkedin.com/in/pedro-robalo-42a39212a/" data-translate="contact.linkedin" data-test="linkedin-contact-link"></a></p>
           </div>
         </div>
       </div>
     </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+    <footer data-test="footer-section">
+      <nav data-test="footer-navigation">
+        <div class="nav-links-container" data-test="footer-nav-links-container">
+          <ul class="nav-links" data-test="footer-nav-links">
+            <li><a href="#about" data-translate="nav.about" data-test="footer-nav-about"></a></li>
+            <li><a href="#experience" data-translate="nav.experience" data-test="footer-nav-experience"></a></li>
+            <li><a href="#projects" data-translate="nav.projects" data-test="footer-nav-projects"></a></li>
+            <li><a href="#contact" data-translate="nav.contact" data-test="footer-nav-contact"></a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2024 Pedro Robalo. All Rights Reserved.</p>
+      <p data-translate="footer.copyright" data-test="footer-copyright"></p>
     </footer>
     <script src="script.js"></script>
     <script src="swiper-init.js"></script>

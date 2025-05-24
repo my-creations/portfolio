@@ -75,11 +75,14 @@ a:hover {
 
 #hamburger-nav {
   display: none;
+  position: relative;
+  z-index: 1001;
 }
 
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  z-index: 1001;
 }
 
 .hamburger-icon {
@@ -89,6 +92,8 @@ a:hover {
   height: 24px;
   width: 30px;
   cursor: pointer;
+  position: relative;
+  z-index: 1001;
 }
 
 .hamburger-icon span {
@@ -99,24 +104,39 @@ a:hover {
 }
 
 .menu-links {
-  position: absolute;
-  top: 100%;
-  right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: white;
-  width: fit-content;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3 ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .menu-links a {
   display: block;
-  padding: 10px;
+  padding: 1rem 2rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   color: black;
   text-decoration: none;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 1rem;
+}
+
+.menu-links a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  background-color: rgb(240, 240, 240);
 }
 
 .menu-links li {
@@ -124,7 +144,8 @@ a:hover {
 }
 
 .menu-links.open {
-  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
 }
 
 .hamburger-icon.open span:first-child {
@@ -287,7 +308,7 @@ section {
 .about-containers {
   gap: 2rem;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .about-details-container {
@@ -298,14 +319,18 @@ section {
 .about-containers,
 .about-details-container {
   display: flex;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
 }
 
 .about-text-container{
   text-align: justify;
-  margin-top: 1rem;
-  margin-right: 15rem;
-  margin-left: 15rem;
+  margin: 1rem auto 0 auto;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  width: 55%;
 }
 
 .arrow {
@@ -339,6 +364,23 @@ section {
 
 #experience {
   position: relative;
+}
+
+/* Arrange experience containers so the third (backend) wraps and centers */
+#experience .about-containers {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 2rem;
+}
+
+#experience .about-containers .details-container {
+  flex: 0 1 45%;
+  max-width: 45%;
+}
+
+#experience .about-containers .details-container:nth-child(3) {
+  flex: 0 1 45%;
+  max-width: 45%;
 }
 
 .experience-sub-title {
@@ -464,16 +506,27 @@ footer p {
 .swiper-container {
   position: relative;
   margin: 1rem;
+  overflow: hidden;
 }
 
 /* Style for the visible slides */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide .details-container {
+  width: 100%;
+  max-width: none;
+}
 
 .swiper-container .swiper-button-prev {
-  left: -35px; /* Adjust this value as needed */
+  left: -35px;
 }
 
 .swiper-container .swiper-button-next {
-  right: -35px; /* Adjust this value as needed */
+  right: -35px;
 }
 
 .swiper-pagination {
