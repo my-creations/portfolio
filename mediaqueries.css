@@ -379,25 +379,6 @@
     font-size: 13px !important;
     color: rgb(53, 53, 53) !important;
   }
-  
-  /* Contact section centering */
-  #contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .contact-info-upper-container {
-    margin: 1rem auto;
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  /* Hamburger menu iPad mini sizing */
-  .menu-links a {
-    font-size: 1.9rem;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -480,10 +461,12 @@
   
   .swiper-button-next {
     right: calc(50% - 155px) !important; /* Beside mobile container */
+    right: max(10px, calc(50% - 155px)) !important; /* Prevent overflow */
   }
   
   .swiper-button-prev {
     left: calc(50% - 155px) !important; /* Beside mobile container */
+    left: max(10px, calc(50% - 155px)) !important; /* Prevent overflow */
   }
   
   .swiper-button-next:after,
@@ -662,6 +645,40 @@
     max-width: 200px;
   }
   
+  /* Comprehensive button color protection for mobile */
+  button.btn,
+  button.btn-color-1,
+  button.btn-color-2,
+  .btn,
+  .btn:visited,
+  .btn:link,
+  .btn:active,
+  .btn:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  button.btn-color-1,
+  .btn-color-1,
+  .btn-color-1:visited,
+  .btn-color-1:link,
+  .btn-color-1:active,
+  .btn-color-1:focus {
+    background: rgb(53, 53, 53) !important;
+    color: white !important;
+  }
+  
+  button.btn-color-2,
+  .btn-color-2,
+  .btn-color-2:visited,
+  .btn-color-2:link,
+  .btn-color-2:active,
+  .btn-color-2:focus {
+    background: none !important;
+    color: black !important;
+  }
+  
   /* Additional padding for very small devices */
   .about-details-container,
   .experience-details-container {
@@ -720,10 +737,12 @@
   
   .swiper-button-next {
     right: calc(50% - 140px) !important; /* Beside small mobile container */
+    right: max(10px, calc(50% - 140px)) !important; /* Ensure minimum 10px from edge */
   }
   
   .swiper-button-prev {
     left: calc(50% - 140px) !important; /* Beside small mobile container */
+    left: max(10px, calc(50% - 140px)) !important; /* Ensure minimum 10px from edge */
   }
   
   .swiper-button-next:after,
@@ -791,6 +810,30 @@
     font-size: 0.9rem;
   }
   
+  /* Force button colors on very small devices */
+  button.btn,
+  button.btn-color-1,
+  button.btn-color-2,
+  .btn,
+  .btn-color-1,
+  .btn-color-2 {
+    color: inherit !important;
+    text-decoration: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  button.btn-color-1,
+  .btn-color-1 {
+    background: rgb(53, 53, 53) !important;
+    color: white !important;
+  }
+  
+  button.btn-color-2,
+  .btn-color-2 {
+    background: none !important;
+    color: black !important;
+  }
+  
   .nav-links {
     font-size: 1.25rem;
   }
@@ -817,4 +860,76 @@
   .menu-links {
     gap: 1.5rem;
   }
+}
+
+/* Additional overflow protection for very small devices */
+@media screen and (max-width: 320px) {
+  section {
+    margin: 0 2% !important;
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+    width: 96% !important;
+    max-width: 96vw !important;
+  }
+  
+  .swiper-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 5px !important;
+  }
+  
+  .swiper-slide {
+    width: 200px !important;
+  }
+  
+  .swiper-slide .details-container {
+    width: 95% !important;
+    max-width: 190px !important;
+  }
+  
+  .swiper-button-next {
+    right: 5px !important;
+  }
+  
+  .swiper-button-prev {
+    left: 5px !important;
+  }
+  
+  /* Ensure all containers fit within viewport */
+  .about-details-container,
+  .experience-details-container,
+  .contact-info-upper-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 1% !important;
+    overflow: hidden !important;
+  }
+  
+  .details-container {
+    width: 98% !important;
+    max-width: 98vw !important;
+  }
+}
+
+/* Ensure button visited states work on mobile */
+.btn:visited,
+.btn:link,
+.btn:active,
+.btn:focus,
+.btn-color-1:visited,
+.btn-color-1:link,
+.btn-color-1:active,
+.btn-color-1:focus {
+  background: rgb(53, 53, 53) !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.btn-color-2:visited,
+.btn-color-2:link,
+.btn-color-2:active,
+.btn-color-2:focus {
+  background: none !important;
+  color: black !important;
+  text-decoration: none !important;
 }

@@ -10,15 +10,19 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 p {
@@ -367,27 +371,73 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-/* Fix for visited button state */
+/* Comprehensive fix for visited button state and blue hyperlink prevention */
 .btn:visited,
+.btn:link,
+.btn:active,
+.btn:focus,
 .btn-color-1:visited,
-.btn-color-2:visited {
-  color: inherit;
-  background: inherit;
-  border-color: inherit;
+.btn-color-1:link,
+.btn-color-1:active,
+.btn-color-1:focus,
+.btn-color-2:visited,
+.btn-color-2:link,
+.btn-color-2:active,
+.btn-color-2:focus {
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
-.btn-color-1:visited {
-  background: rgb(53, 53, 53);
-  color: white;
+.btn-color-1,
+.btn-color-1:visited,
+.btn-color-1:link,
+.btn-color-1:active,
+.btn-color-1:focus {
+  background: rgb(53, 53, 53) !important;
+  color: white !important;
+  border: rgb(53, 53, 53) 0.1rem solid !important;
 }
 
-.btn-color-2:visited {
-  background: none;
-  color: black;
+.btn-color-2,
+.btn-color-2:visited,
+.btn-color-2:link,
+.btn-color-2:active,
+.btn-color-2:focus {
+  background: none !important;
+  color: black !important;
+  border: rgb(53, 53, 53) 0.1rem solid !important;
 }
 
 .btn-container {
   gap: 1rem;
+}
+
+/* Prevent any blue link styling on buttons regardless of implementation */
+button.btn,
+button.btn-color-1,
+button.btn-color-2,
+input[type="button"].btn,
+input[type="submit"].btn {
+  color: inherit !important;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+button.btn-color-1,
+input[type="button"].btn-color-1,
+input[type="submit"].btn-color-1 {
+  background: rgb(53, 53, 53) !important;
+  color: white !important;
+}
+
+button.btn-color-2,
+input[type="button"].btn-color-2,
+input[type="submit"].btn-color-2 {
+  background: none !important;
+  color: black !important;
 }
 
 /* About Section */
@@ -703,6 +753,13 @@ footer p {
   .language-toggle.mobile {
     display: none; /* Hide mobile language toggle on desktop */
   }
+}
+
+/* Main container to prevent horizontal overflow */
+.main-container {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 
