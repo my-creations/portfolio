@@ -367,6 +367,25 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
+/* Fix for visited button state */
+.btn:visited,
+.btn-color-1:visited,
+.btn-color-2:visited {
+  color: inherit;
+  background: inherit;
+  border-color: inherit;
+}
+
+.btn-color-1:visited {
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.btn-color-2:visited {
+  background: none;
+  color: black;
+}
+
 .btn-container {
   gap: 1rem;
 }
