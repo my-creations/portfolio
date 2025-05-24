@@ -142,6 +142,58 @@
   }
 }
 
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  /* iPad mini landscape and similar devices */
+  section {
+    margin: 0 auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    max-width: 100%;
+  }
+  
+  .section-container {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-container {
+    padding: 0 20px;
+    margin: 1.5rem auto;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .swiper-slide {
+    width: 300px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .swiper-slide .details-container {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .swiper-button-prev {
+    left: calc(50% - 170px) !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+  
+  .swiper-button-next {
+    right: calc(50% - 170px) !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+  
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 15px !important;
+  }
+}
+
 @media screen and (max-width: 900px) {
   /* Tablet/small desktop improvements */
   .about-text-container {
@@ -193,6 +245,106 @@
   /* Hamburger menu tablet sizing */
   .menu-links a {
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* iPad mini portrait and similar devices */
+  section {
+    margin: 0 auto;
+    padding-left: 4%;
+    padding-right: 4%;
+    max-width: 100%;
+  }
+  
+  .section-container {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #profile {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .about-text-container {
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  #experience .about-containers {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #experience .about-containers .details-container {
+    flex: 0 1 90%;
+    max-width: 90%;
+    margin: 0 auto 1rem auto;
+  }
+  
+  #experience .about-containers .details-container:nth-child(3) {
+    flex: 0 1 90%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  /* iPad mini carousel - optimized for smaller width */
+  .swiper-container {
+    padding: 0 15px;
+    margin: 1rem auto;
+    overflow: visible;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .swiper-slide {
+    width: 280px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .swiper-slide .details-container {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  
+  .swiper-button-prev {
+    left: calc(50% - 155px) !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+  
+  .swiper-button-next {
+    right: calc(50% - 155px) !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+  
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 13px !important;
+  }
+  
+  /* Contact section centering */
+  #contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .contact-info-upper-container {
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  /* Hamburger menu iPad mini sizing */
+  .menu-links a {
+    font-size: 1.9rem;
   }
 }
 
