@@ -10,19 +10,19 @@
     <title>Pedro Robalo - Portfolio</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico?v=1.0">
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=1.0">
-    <link rel="shortcut icon" href="./assets/favicon.ico?v=1.0">
-    <link rel="apple-touch-icon" sizes="48x48" href="./assets/favicon-48x48.svg?v=1.0">
-    <link rel="icon" sizes="16x16" type="image/svg+xml" href="./assets/favicon-16x16.svg?v=1.0">
-    <link rel="icon" sizes="32x32" type="image/svg+xml" href="./assets/favicon.svg?v=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/favicons/favicon.ico?v=1.0">
+    <link rel="icon" type="image/svg+xml" href="./assets/favicons/favicon.svg?v=1.0">
+    <link rel="shortcut icon" href="./assets/favicons/favicon.ico?v=1.0">
+    <link rel="apple-touch-icon" sizes="48x48" href="./assets/favicons/favicon-48x48.svg?v=1.0">
+    <link rel="icon" sizes="16x16" type="image/svg+xml" href="./assets/favicons/favicon-16x16.svg?v=1.0">
+    <link rel="icon" sizes="32x32" type="image/svg+xml" href="./assets/favicons/favicon.svg?v=1.0">
     <link rel="manifest" href="./site.webmanifest?v=1.0">
     
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="translations.js"></script>
+    <script src="./scripts/translations.js"></script>
   </head>
   <body>
     <nav id="desktop-nav" data-test="desktop-navigation">
@@ -65,7 +65,7 @@
     <div class="main-container">
     <section id="profile" data-test="profile-section">
       <div class="section__pic-container" data-test="profile-image-container">
-        <img src="./assets/profile-pic.png" alt="Pedro Robalo profile picture" data-test="profile-image" />
+        <img src="./assets/general/profile-pic.png" alt="Pedro Robalo profile picture" data-test="profile-image" />
       </div>
       <div class="section__text" data-test="profile-text">
         <p class="section__text__p1" data-translate="profile.greeting" data-test="profile-greeting"></p>
@@ -74,7 +74,7 @@
         <div class="btn-container" data-test="profile-buttons">
           <button
             class="btn btn-color-2"
-            onclick="window.open('./assets/PedroRobalo_CV.pdf')"
+            onclick="window.open('./assets/docs/PedroRobalo_CV.pdf')"
             data-translate="profile.downloadCV"
             data-test="download-cv-button"
           ></button>
@@ -83,14 +83,14 @@
         </div>
         <div id="socials-container" data-test="social-links">
           <img
-            src="./assets/linkedin.png"
+            src="./assets/general/linkedin.png"
             alt="My LinkedIn profile"
             class="icon"
             onclick="window.open('https://www.linkedin.com/in/pedro-robalo-42a39212a/', '_blank')"
             data-test="linkedin-link"
           />
           <img
-            src="./assets/github.png"
+            src="./assets/general/github.png"
             alt="My Github profile"
             class="icon"
             onclick="window.open('https://github.com/PedroRobalo1994', '_blank')"
@@ -107,7 +107,7 @@
           <div class="about-containers" data-test="about-containers">
             <div class="details-container" data-test="experience-info-card">
               <img
-                src="./assets/experience.png"
+                src="./assets/general/experience.png"
                 alt="Experience icon"
                 class="icon"
                 data-test="experience-icon"
@@ -117,7 +117,7 @@
             </div>
             <div class="details-container" data-test="education-info-card">
               <img
-                src="./assets/education.png"
+                src="./assets/general/education.png"
                 alt="Education icon"
                 class="icon"
                 data-test="education-icon"
@@ -143,7 +143,7 @@
             <div class="article-container" data-test="frontend-skills-list">
               <article data-test="html-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="html-skill-icon"
@@ -155,7 +155,7 @@
               </article>
               <article data-test="css-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="css-skill-icon"
@@ -167,7 +167,7 @@
               </article>
               <article data-test="tailwind-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="tailwind-skill-icon"
@@ -179,7 +179,7 @@
               </article>
               <article data-test="react-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="react-skill-icon"
@@ -191,7 +191,7 @@
               </article>
               <article data-test="svelte-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="svelte-skill-icon"
@@ -203,7 +203,7 @@
               </article>
               <article data-test="nextjs-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="nextjs-skill-icon"
@@ -218,7 +218,7 @@
             <h2 class="experience-sub-title" data-translate="experience.backend.title" data-test="backend-title"></h2>
             <div class="article-container" data-test="backend-skills-list">
               <article data-test="nodejs-skill">
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="nodejs-skill-icon" />
+                <img src="./assets/general/checkmark.png" alt="Experience icon" class="icon" data-test="nodejs-skill-icon" />
                 <div>
                   <h3 data-translate="experience.backend.skills.nodejs.name" data-test="nodejs-skill-name"></h3>
                   <p data-translate="experience.backend.skills.nodejs.level" data-test="nodejs-skill-level"></p>
@@ -226,35 +226,35 @@
               </article>
 
               <article data-test="prisma-skill">
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="prisma-skill-icon" />
+                <img src="./assets/general/checkmark.png" alt="Experience icon" class="icon" data-test="prisma-skill-icon" />
                 <div>
                   <h3 data-translate="experience.backend.skills.prisma.name" data-test="prisma-skill-name"></h3>
                   <p data-translate="experience.backend.skills.prisma.level" data-test="prisma-skill-level"></p>
                 </div>
               </article>
               <article data-test="django-skill">
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="django-skill-icon" />
+                <img src="./assets/general/checkmark.png" alt="Experience icon" class="icon" data-test="django-skill-icon" />
                 <div>
                   <h3 data-translate="experience.backend.skills.django.name" data-test="django-skill-name"></h3>
                   <p data-translate="experience.backend.skills.django.level" data-test="django-skill-level"></p>
                 </div>
               </article>
               <article data-test="mongodb-skill">
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="mongodb-skill-icon" />
+                <img src="./assets/general/checkmark.png" alt="Experience icon" class="icon" data-test="mongodb-skill-icon" />
                 <div>
                   <h3 data-translate="experience.backend.skills.mongodb.name" data-test="mongodb-skill-name"></h3>
                   <p data-translate="experience.backend.skills.mongodb.level" data-test="mongodb-skill-level"></p>
                 </div>
               </article>
               <article data-test="mysql-skill">
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="mysql-skill-icon" />
+                <img src="./assets/general/checkmark.png" alt="Experience icon" class="icon" data-test="mysql-skill-icon" />
                 <div>
                   <h3 data-translate="experience.backend.skills.mysql.name" data-test="mysql-skill-name"></h3>
                   <p data-translate="experience.backend.skills.mysql.level" data-test="mysql-skill-level"></p>
                 </div>
               </article>
               <article data-test="graphql-skill">
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" data-test="graphql-skill-icon" />
+                <img src="./assets/general/checkmark.png" alt="Experience icon" class="icon" data-test="graphql-skill-icon" />
                 <div>
                   <h3 data-translate="experience.backend.skills.graphql.name" data-test="graphql-skill-name"></h3>
                   <p data-translate="experience.backend.skills.graphql.level" data-test="graphql-skill-level"></p>
@@ -267,7 +267,7 @@
             <div class="article-container" data-test="test-automation-skills-list">
               <article data-test="javascript-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="javascript-skill-icon"
@@ -279,7 +279,7 @@
               </article>
               <article data-test="typescript-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="typescript-skill-icon"
@@ -291,7 +291,7 @@
               </article>
               <article data-test="python-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="python-skill-icon"
@@ -303,7 +303,7 @@
               </article>
               <article data-test="selenium-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="selenium-skill-icon"
@@ -315,7 +315,7 @@
               </article>
               <article data-test="appium-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="appium-skill-icon"
@@ -327,7 +327,7 @@
               </article>
               <article data-test="cypress-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="cypress-skill-icon"
@@ -339,7 +339,7 @@
               </article>
               <article data-test="detox-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="detox-skill-icon"
@@ -351,7 +351,7 @@
               </article>
               <article data-test="playwright-skill">
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/general/checkmark.png"
                   alt="Experience icon"
                   class="icon"
                   data-test="playwright-skill-icon"
@@ -374,7 +374,7 @@
               <div class="swiper-slide" data-test="project-1-slide">
                   <div class="details-container color-container" data-test="project-1-container">
                       <div class="article-container" data-test="project-1-image-container">
-                          <img src="./assets/joke-teller-project.png" alt="Joke Teller Project" class="project-img" data-test="project-1-image">
+                          <img src="./assets/projects/joke-teller-project.png" alt="Joke Teller Project" class="project-img" data-test="project-1-image">
                       </div>
                       <h2 class="experience-sub-title project-title" data-translate="projects.projectOne.title" data-test="project-1-title"></h2>
                       <div class="text-container" data-test="project-1-description-container">
@@ -389,7 +389,7 @@
               <div class="swiper-slide" data-test="project-2-slide">
                   <div class="details-container color-container" data-test="project-2-container">
                       <div class="article-container" data-test="project-2-image-container">
-                          <img src="./assets/nike-project.png" alt="Nike Store Project" class="project-img" data-test="project-2-image">
+                          <img src="./assets/projects/nike-project.png" alt="Nike Store Project" class="project-img" data-test="project-2-image">
                       </div>
                       <h2 class="experience-sub-title project-title" data-translate="projects.projectTwo.title" data-test="project-2-title"></h2>
                       <div class="text-container" data-test="project-2-description-container">
@@ -404,7 +404,7 @@
               <div class="swiper-slide" data-test="project-3-slide">
                   <div class="details-container color-container" data-test="project-3-container">
                       <div class="article-container" data-test="project-3-image-container">
-                          <img src="./assets/music-player-project.png" alt="Music Player Project" class="project-img" data-test="project-3-image">
+                          <img src="./assets/projects/music-player-project.png" alt="Music Player Project" class="project-img" data-test="project-3-image">
                       </div>
                       <h2 class="experience-sub-title project-title" data-translate="projects.projectThree.title" data-test="project-3-title"></h2>
                       <div class="text-container" data-test="project-3-description-container">
@@ -420,7 +420,7 @@
               <div class="swiper-slide" data-test="project-4-slide">
                 <div class="details-container color-container" data-test="project-4-container">
                     <div class="article-container" data-test="project-4-image-container">
-                        <img src="./assets/animated-navigation-project.png" alt="Animated Navigation Project" class="project-img" data-test="project-4-image">
+                        <img src="./assets/projects/animated-navigation-project.png" alt="Animated Navigation Project" class="project-img" data-test="project-4-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectFour.title" data-test="project-4-title"></h2>
                     <div class="text-container" data-test="project-4-description-container">
@@ -435,7 +435,7 @@
               <div class="swiper-slide" data-test="project-5-slide">
                 <div class="details-container color-container" data-test="project-5-container">
                     <div class="article-container" data-test="project-5-image-container">
-                        <img src="./assets/animated-template-project.png" alt="Animated Template Project" class="project-img" data-test="project-5-image">
+                        <img src="./assets/projects/animated-template-project.png" alt="Animated Template Project" class="project-img" data-test="project-5-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectFive.title" data-test="project-5-title"></h2>
                     <div class="text-container" data-test="project-5-description-container">
@@ -450,7 +450,7 @@
               <div class="swiper-slide" data-test="project-6-slide">
                 <div class="details-container color-container" data-test="project-6-container">
                     <div class="article-container" data-test="project-6-image-container">
-                        <img src="./assets/quote-generator-project.png" alt="Quote Generator Project" class="project-img" data-test="project-6-image">
+                        <img src="./assets/projects/quote-generator-project.png" alt="Quote Generator Project" class="project-img" data-test="project-6-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectSix.title" data-test="project-6-title"></h2>
                     <div class="text-container" data-test="project-6-description-container">
@@ -465,7 +465,7 @@
               <div class="swiper-slide" data-test="project-7-slide">
                 <div class="details-container color-container" data-test="project-7-container">
                     <div class="article-container" data-test="project-7-image-container">
-                        <img src="./assets/infinite-scroll-project.png" alt="Infinite Scroll Project" class="project-img" data-test="project-7-image">
+                        <img src="./assets/projects/infinite-scroll-project.png" alt="Infinite Scroll Project" class="project-img" data-test="project-7-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectSeven.title" data-test="project-7-title"></h2>
                     <div class="text-container" data-test="project-7-description-container">
@@ -480,7 +480,7 @@
               <div class="swiper-slide" data-test="project-8-slide">
                 <div class="details-container color-container" data-test="project-8-container">
                     <div class="article-container" data-test="project-8-image-container">
-                        <img src="./assets/custom-countdown-project.png" alt="Custom Countdown Project" class="project-img" data-test="project-8-image">
+                        <img src="./assets/projects/custom-countdown-project.png" alt="Custom Countdown Project" class="project-img" data-test="project-8-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectEight.title" data-test="project-8-title"></h2>
                     <div class="text-container" data-test="project-8-description-container">
@@ -495,7 +495,7 @@
               <div class="swiper-slide" data-test="project-9-slide">
                 <div class="details-container color-container" data-test="project-9-container">
                     <div class="article-container" data-test="project-9-image-container">
-                        <img src="./assets/book-keeper-project.png" alt="Book Keeper Project" class="project-img" data-test="project-9-image">
+                        <img src="./assets/projects/book-keeper-project.png" alt="Book Keeper Project" class="project-img" data-test="project-9-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectNine.title" data-test="project-9-title"></h2>
                     <div class="text-container" data-test="project-9-description-container">
@@ -510,7 +510,7 @@
               <div class="swiper-slide" data-test="project-10-slide">
                 <div class="details-container color-container" data-test="project-10-container">
                     <div class="article-container" data-test="project-10-image-container">
-                        <img src="./assets/form-validator-project.png" alt="Form Validator Project" class="project-img" data-test="project-10-image">
+                        <img src="./assets/projects/form-validator-project.png" alt="Form Validator Project" class="project-img" data-test="project-10-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectTen.title" data-test="project-10-title"></h2>
                     <div class="text-container" data-test="project-10-description-container">
@@ -525,7 +525,7 @@
               <div class="swiper-slide" data-test="project-11-slide">
                 <div class="details-container color-container" data-test="project-11-container">
                     <div class="article-container" data-test="project-11-image-container">
-                        <img src="./assets/spock-rock-game-project.png" alt="Spock Rock Game Project" class="project-img" data-test="project-11-image">
+                        <img src="./assets/projects/spock-rock-game-project.png" alt="Spock Rock Game Project" class="project-img" data-test="project-11-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectEleven.title" data-test="project-11-title"></h2>
                     <div class="text-container" data-test="project-11-description-container">
@@ -540,7 +540,7 @@
               <div class="swiper-slide" data-test="project-12-slide">
                 <div class="details-container color-container" data-test="project-12-container">
                     <div class="article-container" data-test="project-12-image-container">
-                        <img src="./assets/nasa-apod-project.png" alt="NASA APOD Project" class="project-img" data-test="project-12-image">
+                        <img src="./assets/projects/nasa-apod-project.png" alt="NASA APOD Project" class="project-img" data-test="project-12-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectTwelve.title" data-test="project-12-title"></h2>
                     <div class="text-container" data-test="project-12-description-container">
@@ -555,7 +555,7 @@
               <div class="swiper-slide" data-test="project-13-slide">
                 <div class="details-container color-container" data-test="project-13-container">
                     <div class="article-container" data-test="project-13-image-container">
-                        <img src="./assets/math-sprint-game-project.png" alt="Math Sprint Game Project" class="project-img" data-test="project-13-image">
+                        <img src="./assets/projects/math-sprint-game-project.png" alt="Math Sprint Game Project" class="project-img" data-test="project-13-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectThirteen.title" data-test="project-13-title"></h2>
                     <div class="text-container" data-test="project-13-description-container">
@@ -570,7 +570,7 @@
               <div class="swiper-slide" data-test="project-14-slide">
                 <div class="details-container color-container" data-test="project-14-container">
                     <div class="article-container" data-test="project-14-image-container">
-                        <img src="./assets/drag-and-drop-project.png" alt="Drag and Drop Project" class="project-img" data-test="project-14-image">
+                        <img src="./assets/projects/drag-and-drop-project.png" alt="Drag and Drop Project" class="project-img" data-test="project-14-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectFourteen.title" data-test="project-14-title"></h2>
                     <div class="text-container" data-test="project-14-description-container">
@@ -585,7 +585,7 @@
               <div class="swiper-slide" data-test="project-15-slide">
                 <div class="details-container color-container" data-test="project-15-container">
                     <div class="article-container" data-test="project-15-image-container">
-                        <img src="./assets/calculator-project.png" alt="Calculator Project" class="project-img" data-test="project-15-image">
+                        <img src="./assets/projects/calculator-project.png" alt="Calculator Project" class="project-img" data-test="project-15-image">
                     </div>
                     <h2 class="experience-sub-title project-title" data-translate="projects.projectFifteen.title" data-test="project-15-title"></h2>
                     <div class="text-container" data-test="project-15-description-container">
@@ -610,10 +610,10 @@
       <h1 class="title" data-translate="contact.sectionTitle" data-test="contact-title"></h1>
       <div class="contact-info-upper-container" data-test="contact-info-container">
         <div class="contact-info-container" data-test="email-contact-container">
-          <img src="./assets/email.png" alt="Email icon" class="icon email-icon" data-test="email-icon">
+          <img src="./assets/general/email.png" alt="Email icon" class="icon email-icon" data-test="email-icon">
           <p><a href="mailto:examplemail@gmail.com" data-translate="contact.email" data-test="email-link"></a></p>
           <div class="contact-info-container" data-test="linkedin-contact-container">
-            <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" data-test="linkedin-contact-icon">
+            <img src="./assets/general/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" data-test="linkedin-contact-icon">
             <p><a href="https://www.linkedin.com/in/pedro-robalo-42a39212a/" data-translate="contact.linkedin" data-test="linkedin-contact-link"></a></p>
           </div>
         </div>
@@ -633,8 +633,8 @@
       </nav>
       <p data-translate="footer.copyright" data-test="footer-copyright"></p>
     </footer>
-    <script src="script.js"></script>
-    <script src="swiper-init.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/swiper-init.js"></script>
     </script>
   </body>
 </html>
