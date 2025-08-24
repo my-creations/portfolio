@@ -1,4 +1,74 @@
 // Translation file for portfolio content
+
+/**
+ * Calculates and formats experience duration between two dates with internationalization support
+ * 
+ * @param {string} startDate - The start date in ISO format (YYYY-MM-DD)
+ * @param {string} [language='en'] - The language for formatting ('en' for English, 'pt' for Portuguese)
+ * @param {string|null} [endDate=null] - The end date in ISO format. If null, uses current date
+ * 
+ * @returns {string} Formatted experience duration string
+ * 
+ * @example
+ * // For ongoing experience (no end date)
+ * calculateExperience('2021-01-01', 'en') // Returns "4 years+" (as of Aug 2025)
+ * calculateExperience('2021-01-01', 'pt') // Returns "4 anos+" (as of Aug 2025)
+ * 
+ * // For completed experience (with end date)
+ * calculateExperience('2018-01-01', 'en', '2023-01-01') // Returns "5 years"
+ * calculateExperience('2018-01-01', 'pt', '2023-01-01') // Returns "5 anos"
+ * 
+ * // For short duration
+ * calculateExperience('2024-01-01', 'en') // Returns "8 months" (as of Aug 2025)
+ */
+function calculateExperience(startDate, language = 'en', endDate = null) {
+  // Parse dates
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : new Date();
+  
+  // Calculate time difference
+  const diffTime = Math.abs(end - start);
+  const diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
+  
+  // Define language-specific text mappings
+  const textMappings = {
+    en: {
+      month: { singular: 'month', plural: 'months' },
+      year: { singular: 'year', plural: 'years' }
+    },
+    pt: {
+      month: { singular: 'mês', plural: 'meses' },
+      year: { singular: 'ano', plural: 'anos' }
+    }
+  };
+  
+  const texts = textMappings[language] || textMappings.en;
+  
+  // Handle duration less than 1 year
+  if (diffYears < 1) {
+    const months = Math.floor(diffYears * 12);
+    const monthText = months === 1 ? texts.month.singular : texts.month.plural;
+    return `${months} ${monthText}`;
+  }
+  
+  // Handle duration of 1+ years
+  const years = Math.floor(diffYears);
+  const remainingMonths = Math.floor((diffYears - years) * 12);
+  const yearText = years === 1 ? texts.year.singular : texts.year.plural;
+  
+  // Return with or without plus sign based on remaining months
+  return remainingMonths === 0 ? `${years} ${yearText}` : `${years} ${yearText}+`;
+}
+
+// Start dates for different experiences
+const EXPERIENCE_START_DATES = {
+  testAutomation: '2021-01-01',
+  nursing: {
+    start: '2018-01-01',
+    end: '2023-01-01'
+  }
+};
+
 const translations = {
   en: {
     // Navigation
@@ -23,10 +93,10 @@ const translations = {
       sectionSubtitle: "Get To Know More",
       sectionTitle: "About Me",
       experienceTitle: "Experience",
-      experienceText: "4.5+ years / 4.5+ years<br/>Test Automation Engineer / Registered Nurse",
+      experienceText: `${calculateExperience(EXPERIENCE_START_DATES.testAutomation, 'en')} / ${calculateExperience(EXPERIENCE_START_DATES.nursing.start, 'en', EXPERIENCE_START_DATES.nursing.end)}<br/>Test Automation Engineer / Registered Nurse`,
       educationTitle: "Education",
       educationText: "Bachelor's Degree in Computer Science<br/>Bachelor's Degree in Nursing",
-      description: "I am a passionate Software Engineer with a unique background spanning both healthcare and technology. With over 4.5 years of experience as a Test Automation Engineer and a foundation in nursing, I bring a detail-oriented, problem-solving mindset to everything I do. My journey from healthcare to tech has taught me the importance of precision, user-centered thinking, and continuous learning. I specialize in test automation frameworks and quality assurance, while constantly expanding my skills in full-stack development. I thrive on building robust, scalable solutions and am always eager to tackle new challenges and explore emerging technologies."
+      description: `I am a passionate Software Engineer with a unique background spanning both healthcare and technology. With over ${calculateExperience(EXPERIENCE_START_DATES.testAutomation, 'en')} of experience as a Test Automation Engineer and a foundation in nursing, I bring a detail-oriented, problem-solving mindset to everything I do. My journey from healthcare to tech has taught me the importance of precision, user-centered thinking, and continuous learning. I specialize in test automation frameworks and quality assurance, while constantly expanding my skills in full-stack development. I thrive on building robust, scalable solutions and am always eager to tackle new challenges and explore emerging technologies.`
     },
     
     // Experience Section
@@ -214,10 +284,10 @@ const translations = {
       sectionSubtitle: "Conhece Mais",
       sectionTitle: "Sobre Mim",
       experienceTitle: "Experiência",
-      experienceText: "4.5+ anos / 4.5+ anos<br/>Engenheiro de Automação de Testes / Enfermeiro",
+      experienceText: `${calculateExperience(EXPERIENCE_START_DATES.testAutomation, 'pt')} / ${calculateExperience(EXPERIENCE_START_DATES.nursing.start, 'pt', EXPERIENCE_START_DATES.nursing.end)}<br/>Engenheiro de Automação de Testes / Enfermeiro`,
       educationTitle: "Educação",
       educationText: "Licenciatura em Ciências da Computação<br/>Licenciatura em Enfermagem",
-      description: "Sou um Engenheiro de Software apaixonado com uma formação única que abrange tanto a área da saúde como a tecnologia. Com mais de 4.5 anos de experiência como Engenheiro de Automação de Testes e uma base em enfermagem, trago uma mentalidade orientada para os detalhes e resolução de problemas a tudo o que faço. A minha jornada da saúde para a tecnologia ensinou-me a importância da precisão, pensamento centrado no utilizador e aprendizagem contínua. Especializo-me em frameworks de automação de testes e quality assurance, enquanto expando constantemente as minhas competências em desenvolvimento full-stack. Prospero na construção de soluções robustas e escaláveis e estou sempre ansioso por enfrentar novos desafios e explorar tecnologias emergentes."
+      description: `Sou um Engenheiro de Software apaixonado com uma formação única que abrange tanto a área da saúde como a tecnologia. Com mais de ${calculateExperience(EXPERIENCE_START_DATES.testAutomation, 'pt')} de experiência como Engenheiro de Automação de Testes e uma base em enfermagem, trago uma mentalidade orientada para os detalhes e resolução de problemas a tudo o que faço. A minha jornada da saúde para a tecnologia ensinou-me a importância da precisão, pensamento centrado no utilizador e aprendizagem contínua. Especializo-me em frameworks de automação de testes e quality assurance, enquanto expando constantemente as minhas competências em desenvolvimento full-stack. Prospero na construção de soluções robustas e escaláveis e estou sempre ansioso por enfrentar novos desafios e explorar tecnologias emergentes.`
     },
     
     // Experience Section
@@ -421,9 +491,6 @@ function updateTranslations(language = currentLanguage) {
   // Update language toggle buttons
   updateLanguageToggleButtons();
 }
-
-// Function to update skill levels in experience section (removed as it's handled by data-translate)
-// This function is no longer needed since all skills have data-translate attributes
 
 // Function to switch language
 function switchLanguage(language) {

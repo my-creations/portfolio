@@ -74,31 +74,36 @@ portfolio/
 ## 🎨 Sections Overview
 
 ### Navigation
+
 - Desktop navigation with smooth scrolling and active section highlighting
 - Mobile hamburger menu with slide-out animation and accessible controls
 - Language toggle between English and Portuguese
 
 ### Profile Section
+
 - Professional headshot with optimized image loading
 - Dynamic multilingual greeting and professional title
 - Call-to-action buttons with hover effects (Download CV, Contact Info)
 - Responsive layout for all screen sizes
 
 ### About Section
+
 - Comprehensive professional background highlighting healthcare to tech transition
-- Experience timeline showing 4.5+ years in test automation and nursing
+- Dynamic experience timeline that automatically calculates years based on start dates
 - Education credentials with dual bachelor's degrees
 - Personal story emphasizing problem-solving mindset and continuous learning
 
 ### Experience Section
+
 - Three specialized skill categories with visual progress indicators:
   - **Frontend Development**: HTML, CSS, Tailwind, React, Svelte, Next.js
-  - **Backend Development**: Node.js, Prisma, Django, MongoDB, MySQL, GraphQL  
+  - **Backend Development**: Node.js, Prisma, Django, MongoDB, MySQL, GraphQL
   - **Test Automation**: JavaScript, TypeScript, Python, Selenium, Appium, Cypress, Detox, Playwright
 - Skill level indicators (Basic, Intermediate, Experienced)
 - Icon-based visual representation
 
 ### Projects Section
+
 - Interactive Swiper carousel with touch/swipe support
 - 12+ portfolio projects showcasing diverse technical skills:
   - JavaScript applications (Calculator, Music Player, Quote Generator)
@@ -111,6 +116,7 @@ portfolio/
 - Responsive grid layout with hover effects
 
 ### Contact Section
+
 - Professional email integration with mailto functionality
 - Social media links (LinkedIn, GitHub) with external linking
 - Contact form or direct communication options
@@ -119,30 +125,34 @@ portfolio/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Web browser
 - Local web server (optional, for development)
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/pedrorobalo/portfolio.git
    cd portfolio
    ```
 
 2. **Open locally**
+
    - Simply open `index.html` in your web browser
    - Or use a local server for optimal experience:
+
      ```bash
      # Using Python 3
      python -m http.server 8000
-     
+
      # Using Python 2
      python -m SimpleHTTPServer 8000
-     
+
      # Using Node.js http-server
      npx http-server -p 8000
-     
+
      # Using Live Server (VS Code extension)
      # Right-click index.html → "Open with Live Server"
      ```
@@ -157,23 +167,27 @@ portfolio/
 ### Updating Personal Content
 
 1. **Personal Information & Text**
+
    - Edit `translations.js` for all text content in both English and Portuguese
    - Update personal details, descriptions, and project information
    - Modify skill levels and experience descriptions
 
 2. **Images & Documents**
+
    - Replace `assets/profile-pic.png` with your professional photo
    - Update `assets/PedroRobalo_CV.pdf` with your resume/CV
    - Add your project screenshots to the `assets/` folder
    - Ensure image optimization for web performance
 
 3. **Projects Showcase**
+
    - Add new project images following the naming convention: `project-name-project.png`
    - Update project information in `translations.js` under the `projects` section
    - Modify project links in `index.html` for GitHub repos and live demos
    - Customize Swiper settings in `swiper-init.js` for carousel behavior
 
 4. **Styling & Design**
+
    - Modify `style.css` for colors, fonts, and general styling
    - Update `mediaqueries.css` for responsive behavior and breakpoints
    - Customize animations, transitions, and hover effects
@@ -187,6 +201,7 @@ portfolio/
 ### Adding New Languages
 
 To add a new language (e.g., Spanish):
+
 1. Add a new language object to `translations.js` (e.g., `es: { ... }`)
 2. Update the language toggle functionality in your JavaScript
 3. Add the new language option to the UI
@@ -196,6 +211,7 @@ To add a new language (e.g., Spanish):
 ### Customizing Projects
 
 For each new project:
+
 1. Add high-quality project screenshot to `assets/`
 2. Update the translations object with project details
 3. Ensure GitHub and live demo links are functional
@@ -211,6 +227,7 @@ The portfolio is designed with a mobile-first approach and works seamlessly acro
 - **Mobile (<600px)**: Hamburger menu, single-column layout, optimized touch targets
 
 ### Key Responsive Features:
+
 - **Navigation**: Desktop horizontal nav transforms to mobile hamburger menu
 - **Typography**: Scalable font sizes and line heights
 - **Images**: Responsive images with proper aspect ratios
@@ -218,16 +235,24 @@ The portfolio is designed with a mobile-first approach and works seamlessly acro
 - **Performance**: Optimized loading for mobile networks
 
 ### Breakpoints:
+
 ```css
 /* Mobile First Approach */
-@media screen and (min-width: 600px) { /* Tablet */ }
-@media screen and (min-width: 1200px) { /* Laptop */ }
-@media screen and (min-width: 1400px) { /* Desktop */ }
+@media screen and (min-width: 600px) {
+  /* Tablet */
+}
+@media screen and (min-width: 1200px) {
+  /* Laptop */
+}
+@media screen and (min-width: 1400px) {
+  /* Desktop */
+}
 ```
 
 ## 📊 Performance & Optimization
 
 ### Performance Features
+
 - **Lightweight Build**: Vanilla JavaScript for fast loading and minimal bundle size
 - **Optimized Images**: Compressed project images and icons for web delivery
 - **Minimal Dependencies**: Only essential external library (Swiper.js)
@@ -236,6 +261,7 @@ The portfolio is designed with a mobile-first approach and works seamlessly acro
 - **PWA Ready**: Web App Manifest for mobile installation capabilities
 
 ### SEO & Accessibility
+
 - **Meta Tags**: Proper meta descriptions and viewport configuration
 - **Semantic HTML5**: Screen reader friendly structure
 - **Alt Attributes**: Descriptive alt text for all images
@@ -243,6 +269,7 @@ The portfolio is designed with a mobile-first approach and works seamlessly acro
 - **Cache Control**: Optimized caching headers for better performance
 
 ### Loading Optimization
+
 - **Critical CSS**: Inline critical styles for faster rendering
 - **Image Optimization**: Properly sized images for different screen densities
 - **Minimal HTTP Requests**: Consolidated resources where possible
@@ -251,18 +278,21 @@ The portfolio is designed with a mobile-first approach and works seamlessly acro
 ## 🌐 Browser Compatibility
 
 ### Desktop Browsers
+
 - **Chrome**: Version 90+ (Full support)
 - **Firefox**: Version 88+ (Full support)
 - **Safari**: Version 14+ (Full support)
 - **Edge**: Version 90+ (Full support)
 
 ### Mobile Browsers
+
 - **iOS Safari**: Version 14+ (Full support)
 - **Chrome Mobile**: Version 90+ (Full support)
 - **Samsung Internet**: Version 14+ (Full support)
 - **Firefox Mobile**: Version 88+ (Full support)
 
 ### Features & Fallbacks
+
 - **CSS Grid & Flexbox**: Modern layout with fallbacks
 - **ES6+ Features**: Modern JavaScript with graceful degradation
 - **Touch Events**: Optimized for mobile interactions
@@ -273,6 +303,7 @@ The portfolio is designed with a mobile-first approach and works seamlessly acro
 The portfolio is built with testing in mind and includes comprehensive data attributes for automated testing:
 
 ### Data Test Attributes
+
 ```html
 <!-- Navigation Testing -->
 <nav data-test="desktop-navigation">
@@ -288,6 +319,7 @@ The portfolio is built with testing in mind and includes comprehensive data attr
 ```
 
 ### Testing Framework Compatibility
+
 The project structure supports integration with popular testing frameworks:
 
 - **Cypress**: End-to-end testing with data-test selectors
@@ -296,12 +328,14 @@ The project structure supports integration with popular testing frameworks:
 - **Detox**: React Native testing (for mobile app versions)
 
 ### Testing Best Practices Implemented
+
 - Semantic HTML for accessibility testing
 - Consistent data-test attribute naming conventions
 - Logical element hierarchies for easy test navigation
 - Stable selectors that won't break with styling changes
 
 ### Manual Testing Checklist
+
 - [ ] Navigation menu functionality (desktop & mobile)
 - [ ] Language switching between English and Portuguese
 - [ ] Project carousel swipe/click interactions
@@ -318,6 +352,7 @@ The project structure supports integration with popular testing frameworks:
 The portfolio is a static website and can be deployed on various platforms:
 
 #### GitHub Pages
+
 ```bash
 # Push to main branch, then enable GitHub Pages in repository settings
 git add .
@@ -326,12 +361,14 @@ git push origin main
 ```
 
 #### Netlify
+
 1. Connect your GitHub repository to Netlify
 2. Set build command: (leave empty for static sites)
 3. Set publish directory: `/` (root)
 4. Deploy automatically on git push
 
 #### Vercel
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -341,11 +378,13 @@ vercel --prod
 ```
 
 #### Traditional Web Hosting
+
 - Upload all files to your web hosting service
 - Ensure `index.html` is in the root directory
 - Configure domain and SSL as needed
 
 ### Custom Domain Setup
+
 1. Purchase domain from registrar
 2. Configure DNS settings:
    - For GitHub Pages: Add CNAME record pointing to `username.github.io`
@@ -354,6 +393,7 @@ vercel --prod
 4. Enable HTTPS/SSL certificate
 
 ### Environment Configuration
+
 - No build process required (static site)
 - No environment variables needed
 - All assets are relative paths
@@ -383,6 +423,7 @@ While this is a personal portfolio, suggestions and improvements are welcome:
 6. **Open a Pull Request**
 
 ### Contribution Guidelines
+
 - Maintain responsive design principles
 - Follow accessibility best practices
 - Keep performance optimizations in mind
@@ -403,6 +444,7 @@ For questions about the portfolio structure or technical implementation, feel fr
 This project is open source and available under the [MIT License](LICENSE).
 
 ### MIT License Summary
+
 - ✅ Commercial use
 - ✅ Modification
 - ✅ Distribution
