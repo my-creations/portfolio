@@ -1,13 +1,13 @@
-name: Build & Push (Static Portfolio via Pi)
+name: Build & Push (Portfolio via Pi)
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "master"] # inclui master por segurança
   workflow_dispatch: {}
 
 jobs:
   build:
-    runs-on: [self-hosted, arm64] # your Raspberry Pi runner
+    runs-on: [self-hosted, arm64] # Raspberry Pi runner
     permissions:
       contents: read
       packages: write
@@ -20,13 +20,13 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ secrets.GHCR_USERNAME }}
-          password: ${{ secrets.GHCR_TOKEN }}
+          username: ${{ secrets.GHCR_USERNAME }} # teu username pessoal
+          password: ${{ secrets.GHCR_TOKEN }} # PAT com write:packages + acesso à org
 
       - name: Build image (native arm64)
         run: |
-          docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/portfolio:latest .
+          docker build -t ghcr.io/my-creations/portfolio:latest .
 
       - name: Push image
         run: |
-          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/portfolio:latest
+          docker push ghcr.io/my-creations/portfolio:latest
