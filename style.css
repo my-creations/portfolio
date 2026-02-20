@@ -344,6 +344,8 @@ section {
 .btn-color-1:hover,
 .btn-color-2:hover {
   cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-color-1,
@@ -362,6 +364,12 @@ section {
 
 .btn-color-2:hover {
   border: rgb(255, 255, 255) 0.1rem solid;
+  background: rgba(53, 53, 53, 0.08);
+}
+
+.btn-color-1:active,
+.btn-color-2:active {
+  transform: scale(0.98);
 }
 
 /* Comprehensive fix for visited button state and blue hyperlink prevention */
@@ -892,6 +900,16 @@ footer p {
   width: 8.7rem;
   font-size: 0.9rem;
   border-width: 1px;
+  transition: all 300ms ease;
+}
+
+#projects .project-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+#projects .project-btn:active {
+  transform: scale(0.98);
 }
 
 #projects .swiper-button-prev,
