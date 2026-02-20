@@ -81,7 +81,7 @@ var translations = {
       projectFifteen: { title: "Calculator", description: "A fully functional calculator application.", github: "GitHub", liveDemo: "Live Demo" }
     },
     contact: { sectionSubtitle: "Get in Touch", sectionTitle: "Contact Me", email: "pmrobalo@gmail.com", linkedin: "LinkedIn" },
-    footer: { copyright: "Copyright © 2025 Pedro Robalo. All Rights Reserved." },
+    footer: { copyright: "Copyright © 2026 Pedro Robalo. All Rights Reserved." },
     alt: { profilePicture: "Pedro Robalo profile picture", experienceIcon: "Experience icon", educationIcon: "Education icon", checkmarkIcon: "Experience icon", emailIcon: "Email icon", linkedinIcon: "LinkedIn icon", githubIcon: "Github icon" }
   },
   pt: {
@@ -123,7 +123,7 @@ var translations = {
       projectFifteen: { title: "Calculator", description: "Uma aplicação de calculadora.", github: "GitHub", liveDemo: "Demo Ao Vivo" }
     },
     contact: { sectionSubtitle: "Entra em Contacto", sectionTitle: "Contacta-me", email: "pmrobalo@gmail.com", linkedin: "LinkedIn" },
-    footer: { copyright: "Copyright © 2025 Pedro Robalo. Todos os Direitos Reservados." },
+    footer: { copyright: "Copyright © 2026 Pedro Robalo. Todos os Direitos Reservados." },
     alt: { profilePicture: "Foto de perfil de Pedro Robalo", experienceIcon: "Ícone de experiência", educationIcon: "Ícone de educação", checkmarkIcon: "Ícone de experiência", emailIcon: "Ícone de email", linkedinIcon: "Ícone do LinkedIn", githubIcon: "Ícone do Github" }
   }
 };
