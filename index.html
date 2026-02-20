@@ -50,10 +50,10 @@
           <span></span>
         </div>
         <div class="menu-links" data-test="hamburger-menu-links">
-          <li><a href="#about" onclick="toggleMenu()" data-translate="nav.about" data-test="hamburger-nav-about"></a></li>
-          <li><a href="#experience" onclick="toggleMenu()" data-translate="nav.experience" data-test="hamburger-nav-experience"></a></li>
-          <li><a href="#projects" onclick="toggleMenu()" data-translate="nav.projects" data-test="hamburger-nav-projects"></a></li>
-          <li><a href="#contact" onclick="toggleMenu()" data-translate="nav.contact" data-test="hamburger-nav-contact"></a></li>
+          <li><a href="#about" data-translate="nav.about" data-test="hamburger-nav-about"></a></li>
+          <li><a href="#experience" data-translate="nav.experience" data-test="hamburger-nav-experience"></a></li>
+          <li><a href="#projects" data-translate="nav.projects" data-test="hamburger-nav-projects"></a></li>
+          <li><a href="#contact" data-translate="nav.contact" data-test="hamburger-nav-contact"></a></li>
           <li>
             <button id="mobile-lang-toggle" class="language-toggle mobile" onclick="toggleLanguage()" data-test="mobile-lang-toggle">
               EN <span class="lang-separator">/</span> <span class="inactive">PT</span>
@@ -78,7 +78,7 @@
             data-translate="profile.downloadCV"
             data-test="download-cv-button"
           ></button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'" data-translate="profile.contactInfo" data-test="contact-info-button">
+          <button class="btn btn-color-1" onclick="scrollToSection('contact')" data-translate="profile.contactInfo" data-test="contact-info-button">
           </button>
         </div>
         <div id="socials-container" data-test="social-links">
@@ -406,6 +406,5 @@
     </footer>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/swiper-init.js"></script>
-    </script>
   </body>
 </html>

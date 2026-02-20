@@ -17,7 +17,7 @@ Visit my portfolio: [Portfolio Live Demo](https://pedrorobalo1994.github.io/port
 - **Contact Integration**: Direct email and social media links (LinkedIn, GitHub)
 - **Downloadable CV**: Easy access to PDF resume download
 - **Professional Sections**: About, Experience, Projects, and Contact sections
-- **Test-Ready**: Data attributes for automated testing integration
+- **Comprehensive Testing**: 142 automated tests (43 unit + 99 E2E) with CI/CD pipeline
 - **PWA Support**: Web app manifest for mobile installation
 - **Optimized Performance**: Fast loading with vanilla JavaScript and minimal dependencies
 
@@ -29,6 +29,12 @@ Visit my portfolio: [Portfolio Live Demo](https://pedrorobalo1994.github.io/port
 - **Swiper.js**: Touch-enabled carousel slider for project showcase
 - **PWA**: Web App Manifest for progressive web app capabilities
 
+### Testing Stack
+
+- **Vitest**: Fast unit testing with jsdom environment
+- **Playwright**: Cross-browser E2E testing (Chromium, Firefox, WebKit)
+- **GitHub Actions**: CI/CD pipeline on Blacksmith runners
+
 ## 📁 Project Structure
 
 ```
@@ -36,41 +42,44 @@ portfolio/
 ├── index.html              # Main HTML file with semantic structure
 ├── style.css               # Primary stylesheet with modern CSS
 ├── mediaqueries.css        # Responsive design breakpoints
+├── package.json            # Node.js dependencies and test scripts
+├── vitest.config.js        # Vitest unit test configuration
+├── playwright.config.js    # Playwright E2E test configuration
 ├── scripts/
 │   ├── main.js             # Core JavaScript functionality (menu interactions)
 │   ├── swiper-init.js      # Projects data, carousel behavior, and live preview lifecycle
 │   └── translations.js     # Multi-language content (EN/PT)
+├── tests/
+│   ├── unit/               # Unit tests (Vitest)
+│   │   ├── main.test.js
+│   │   ├── translations.test.js
+│   │   └── swiper-init.test.js
+│   └── e2e/                # E2E tests (Playwright)
+│       ├── navigation.spec.js
+│       ├── language.spec.js
+│       ├── projects.spec.js
+│       └── accessibility.spec.js
 ├── site.webmanifest        # PWA manifest file
-└── assets/                 # Images, documents, and icons
-    ├── profile-pic.png         # Profile image
-    ├── PedroRobalo_CV.pdf     # Downloadable resume
-    ├── favicon.ico            # Website favicon
-    ├── favicon.svg            # Vector favicon
-    ├── favicon-16x16.svg      # 16x16 favicon
-    ├── favicon-48x48.svg      # 48x48 favicon
-    ├── arrow.png              # UI arrow icon
-    ├── checkmark.png          # Checkmark icon
-    ├── education.png          # Education section icon
-    ├── experience.png         # Experience section icon
-    ├── email.png              # Email contact icon
-    ├── github.png             # GitHub social icon
-    ├── linkedin.png           # LinkedIn social icon
-    └── [project images]       # Optional fallback screenshots
-        ├── animated-navigation-project.png
-        ├── animated-template-project.png
-        ├── book-keeper-project.png
-        ├── calculator-project.png
-        ├── custom-countdown-project.png
-        ├── drag-and-drop-project.png
-        ├── form-validator-project.png
-        ├── infinite-scroll-project.png
-        ├── joke-teller-project.png
-        ├── math-sprint-game-project.png
-        ├── music-player-project.png
-        ├── nasa-apod-project.png
-        ├── nike-project.png
-        ├── quote-generator-project.png
-        └── spock-rock-game-project.png
+├── assets/                 # Images, documents, and icons
+│   ├── docs/
+│   │   └── PedroRobalo_CV.pdf # Downloadable resume
+│   ├── favicons/
+│   │   ├── favicon.ico
+│   │   ├── favicon.svg
+│   │   ├── favicon-16x16.svg
+│   │   └── favicon-48x48.svg
+│   └── general/
+│       ├── profile-pic.png     # Profile image
+│       ├── checkmark.png       # Skills icon
+│       ├── education.png       # Education section icon
+│       ├── experience.png      # Experience section icon
+│       ├── email.png           # Email contact icon
+│       ├── github.png          # GitHub social icon
+│       └── linkedin.png        # LinkedIn social icon
+└── .github/
+    └── workflows/
+        ├── ci.yml              # CI pipeline (unit + E2E tests)
+        └── build.yml           # Docker build and push
 ```
 
 ## 🎨 Sections Overview
@@ -131,6 +140,7 @@ portfolio/
 ### Prerequisites
 
 - Web browser
+- Node.js 18+ (for running tests)
 - Local web server (optional, for development)
 
 ### Installation
@@ -142,29 +152,39 @@ portfolio/
    cd portfolio
    ```
 
-2. **Open locally**
+2. **Install dependencies** (for testing)
+
+   ```bash
+   npm install
+   ```
+
+3. **Open locally**
 
    - Simply open `index.html` in your web browser
    - Or use a local server for optimal experience:
 
-     ```bash
-     # Using Python 3
-     python -m http.server 8000
+      ```bash
+      # Using npm
+      npm run serve
 
-     # Using Python 2
-     python -m SimpleHTTPServer 8000
+      # Using Python 3
+      python -m http.server 8000
 
-     # Using Node.js http-server
-     npx http-server -p 8000
+      # Using Live Server (VS Code extension)
+      # Right-click index.html → "Open with Live Server"
+      ```
 
-     # Using Live Server (VS Code extension)
-     # Right-click index.html → "Open with Live Server"
-     ```
-
-3. **View the portfolio**
-   - Navigate to `http://localhost:8000` (if using local server)
+4. **View the portfolio**
+   - Navigate to `http://localhost:8080` (if using npm serve)
    - Or directly open the `index.html` file in your browser
    - Test responsiveness by resizing browser window or using developer tools
+
+5. **Run tests** (optional)
+
+   ```bash
+   npm test              # Unit tests
+   npm run test:e2e      # E2E tests
+   ```
 
 ## 🔧 Customization
 
@@ -180,7 +200,7 @@ portfolio/
 
    - Replace `assets/profile-pic.png` with your professional photo
    - Update `assets/PedroRobalo_CV.pdf` with your resume/CV
-   - Add optional fallback project screenshots to the `assets/` folder
+   - Add optional fallback project screenshots only if you decide to re-enable image fallback behavior
    - Ensure image optimization for web performance
 
 3. **Projects Showcase**
@@ -305,39 +325,123 @@ The portfolio is designed with a mobile-first approach and works seamlessly acro
 
 ## 🧪 Testing & Quality Assurance
 
-The portfolio is built with testing in mind and includes comprehensive data attributes for automated testing:
+The portfolio includes a comprehensive test suite with **142 automated tests** covering unit and end-to-end scenarios.
+
+### Test Coverage
+
+| Type | Tests | Coverage |
+|------|-------|----------|
+| Unit Tests | 43 | JavaScript functions, translations, carousel logic |
+| E2E Tests | 99 | Cross-browser UI testing (Chromium, Firefox, WebKit) |
+
+### Running Tests Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Run unit tests
+npm test
+
+# Run unit tests in watch mode
+npm run test:watch
+
+# Run E2E tests (all browsers)
+npm run test:e2e
+
+# Run E2E tests on specific browser
+npm run test:e2e:chromium
+npm run test:e2e:firefox
+npm run test:e2e:webkit
+
+# Run E2E tests with UI mode
+npm run test:e2e:ui
+
+# Run E2E tests in debug mode
+npm run test:e2e:debug
+```
+
+### Unit Tests (43 tests)
+
+**`tests/unit/main.test.js`** - Menu and navigation functions:
+- `toggleMenu()` - Toggle behavior, null element handling
+- `closeMenu()` - Close behavior, graceful error handling
+- `scrollToSection()` - Smooth scroll with correct options
+- `clearLocationHash()` - URL hash cleanup
+
+**`tests/unit/translations.test.js`** - Internationalization:
+- `calculateExperience()` - Date calculations in EN/PT
+- `getText()` - Nested key resolution
+- `switchLanguage()` - Language switching and localStorage persistence
+- Translation structure validation (15 projects, all sections)
+
+**`tests/unit/swiper-init.test.js`** - Projects carousel:
+- `PROJECTS` array - 15 projects with valid URLs
+- `renderProjectSlides()` - DOM rendering
+- `setPreviewState()` / `setFallback()` - Preview state management
+- `mountPreview()` / `unmountPreview()` - Iframe lifecycle
+- `getVisibleSlideIndexes()` - Swiper integration
+
+### E2E Tests (99 tests = 33 × 3 browsers)
+
+**`tests/e2e/navigation.spec.js`** - 12 tests:
+- Desktop navigation visibility and links
+- Smooth scroll to all sections (About, Experience, Projects, Contact)
+- Mobile hamburger menu toggle
+- Mobile language toggle
+
+**`tests/e2e/language.spec.js`** - 5 tests:
+- Language toggle button visibility
+- EN ↔ PT language switching
+- Language persistence across page reload
+- Mobile language toggle
+
+**`tests/e2e/projects.spec.js`** - 9 tests:
+- Projects section and swiper visibility
+- Navigation buttons and pagination
+- Next/previous slide navigation
+- Project slides rendering
+- Carousel infinite loop
+
+**`tests/e2e/accessibility.spec.js`** - 7 tests:
+- Page title and meta tags
+- Alt text on images
+- Semantic HTML structure
+- Heading hierarchy
+- Email link accessibility
+- Keyboard navigation and focus management
+
+### CI/CD Pipeline
+
+Tests run automatically on push and pull requests via GitHub Actions on [Blacksmith](https://blacksmith.sh/) runners:
+
+```yaml
+# .github/workflows/ci.yml
+jobs:
+  unit-tests:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    steps: [npm test]
+
+  e2e-tests:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    steps: [npm run test:e2e]  # Chromium, Firefox, WebKit
+```
 
 ### Data Test Attributes
 
+All interactive elements include `data-test` attributes for reliable E2E testing:
+
 ```html
-<!-- Navigation Testing -->
 <nav data-test="desktop-navigation">
   <a href="#about" data-test="desktop-nav-about">About</a>
 </nav>
 
-<!-- Interactive Elements -->
 <button data-test="download-cv-button">Download CV</button>
-<div data-test="hamburger-menu">...</div>
+<div data-test="hamburger-icon">...</div>
 
-<!-- Section Testing -->
 <section data-test="projects-section">...</section>
+<article data-test="project-1-container">...</article>
 ```
-
-### Testing Framework Compatibility
-
-The project structure supports integration with popular testing frameworks:
-
-- **Cypress**: End-to-end testing with data-test selectors
-- **Playwright**: Cross-browser automation testing
-- **Selenium**: Web application testing automation
-- **Detox**: React Native testing (for mobile app versions)
-
-### Testing Best Practices Implemented
-
-- Semantic HTML for accessibility testing
-- Consistent data-test attribute naming conventions
-- Logical element hierarchies for easy test navigation
-- Stable selectors that won't break with styling changes
 
 ### Manual Testing Checklist
 
@@ -460,9 +564,11 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🌟 Acknowledgments
 
 - **Swiper.js**: For the beautiful touch carousel functionality
+- **Vitest**: For fast and modern unit testing
+- **Playwright**: For reliable cross-browser E2E testing
+- **Blacksmith**: For fast CI runners
 - **Modern CSS**: Utilizing CSS Grid and Flexbox for responsive layouts
 - **Web Standards**: Following HTML5 semantic markup and accessibility guidelines
-- **Testing Community**: For best practices in test automation and data attributes
 
 ---
 
@@ -470,4 +576,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 📝 **Last Updated**: February 2026
 
-🔄 **Version**: 2.1.0 - Projects carousel redesign with live web previews and seamless looping
+🔄 **Version**: 2.2.0 - Comprehensive test suite with Vitest unit tests and Playwright E2E tests

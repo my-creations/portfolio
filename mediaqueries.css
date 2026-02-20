@@ -85,9 +85,6 @@
   .section-container {
     display: block;
   }
-  .arrow {
-    display: none;
-  }
   section,
   .section-container {
     height: fit-content;

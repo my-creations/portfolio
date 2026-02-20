@@ -208,64 +208,88 @@ function updateSlideFocus(swiperInstance) {
   });
 }
 
-renderProjectSlides();
+function initSwiper() {
+  renderProjectSlides();
 
-const swiper = new Swiper('.swiper-container', {
-  slidesPerView: 'auto',
-  spaceBetween: 30,
-  centeredSlides: true,
-  loop: true,
-  loopedSlides: PROJECTS.length,
-  loopAdditionalSlides: 2,
-  speed: 420,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-    enabled: true,
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 'auto',
-      spaceBetween: 18,
-      centeredSlides: true,
+  const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: PROJECTS.length,
+    loopAdditionalSlides: 2,
+    speed: 420,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
-    768: {
-      slidesPerView: 'auto',
-      spaceBetween: 28,
-      centeredSlides: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+      enabled: true,
     },
-    1200: {
-      slidesPerView: 'auto',
-      spaceBetween: 38,
-      centeredSlides: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 'auto',
+        spaceBetween: 18,
+        centeredSlides: true,
+      },
+      768: {
+        slidesPerView: 'auto',
+        spaceBetween: 28,
+        centeredSlides: true,
+      },
+      1200: {
+        slidesPerView: 'auto',
+        spaceBetween: 38,
+        centeredSlides: true,
+      },
     },
-  },
-  watchOverflow: true,
-  observeParents: true,
-  observer: true,
-  watchSlidesProgress: true,
-  on: {
-    init() {
-      updateSlideFocus(this);
-      syncVisiblePreviews(this);
+    watchOverflow: true,
+    observeParents: true,
+    observer: true,
+    watchSlidesProgress: true,
+    on: {
+      init() {
+        updateSlideFocus(this);
+        syncVisiblePreviews(this);
+      },
+      slideChange() {
+        updateSlideFocus(this);
+        syncVisiblePreviews(this);
+      },
+      resize() {
+        updateSlideFocus(this);
+        syncVisiblePreviews(this);
+      },
     },
-    slideChange() {
-      updateSlideFocus(this);
-      syncVisiblePreviews(this);
-    },
-    resize() {
-      updateSlideFocus(this);
-      syncVisiblePreviews(this);
-    },
-  },
-});
-
-window.addEventListener('beforeunload', () => {
-  swiper.slides.forEach((slide) => {
-    unmountPreview(slide.querySelector('.project-preview'));
   });
-});
+
+  window.addEventListener('beforeunload', () => {
+    swiper.slides.forEach((slide) => {
+      unmountPreview(slide.querySelector('.project-preview'));
+    });
+  });
+
+  return swiper;
+}
+
+if (typeof window !== 'undefined' && typeof Swiper !== 'undefined') {
+  initSwiper();
+}
+
+try {
+  module.exports = {
+    PROJECTS,
+    PREVIEW_TIMEOUT_MS,
+    renderProjectSlides,
+    setPreviewState,
+    setFallback,
+    mountPreview,
+    unmountPreview,
+    getVisibleSlideIndexes,
+    syncVisiblePreviews,
+    updateSlideFocus,
+    initSwiper,
+  };
+} catch (e) {}

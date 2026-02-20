@@ -320,14 +320,6 @@ section {
   height: 2rem;
 }
 
-.icon.arrow {
-  cursor: pointer;
-  height: 2rem;
-  position: absolute; /* Position it absolutely */
-  right: 0; /* Align it to the right */
-  bottom: 1.8rem; /* Adjust vertical position */
-}
-
 /* Buttons */
 
 .btn-container {
@@ -475,12 +467,6 @@ input[type="submit"].btn-color-2 {
   width: 55%;
 }
 
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-}
-
 .details-container {
   padding: 1.5rem;
   flex: 1;
@@ -575,14 +561,6 @@ article .icon {
 .color-container {
   border-color: rgb(163, 163, 163);
   background: rgb(250, 250, 250);
-}
-
-.project-img {
-    border-radius: 2rem;
-    width: 90%;
-    height: 90%;
-    object-fit: cover;
-    object-position: center;
 }
 
 /* Fixed size for project image containers */
