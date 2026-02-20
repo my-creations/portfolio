@@ -224,6 +224,18 @@
   /* Tablet/small desktop improvements */
   .about-text-container {
     width: 70%;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.6;
+  }
+
+  .about-text-container p {
+    margin: 0;
+    text-align: inherit;
   }
   
   #experience .about-containers .details-container {
@@ -310,6 +322,10 @@
   .about-text-container {
     width: 85%;
     margin: 0 auto;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    line-height: 1.6;
   }
   
   #experience .about-containers {
@@ -533,6 +549,10 @@
     width: 90%;
     margin: 1rem auto 0 auto;
     padding: 1rem;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    line-height: 1.6;
   }
   
   .details-container {
@@ -598,8 +618,13 @@
     text-align: center;
   }
   .section__pic-container {
-    width: auto;
+    width: 46vw;
     height: 46vw;
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 180px;
+    min-height: 180px;
+    margin: 0 auto 1rem auto;
     justify-content: center;
   }
   .section__text__p2 {
@@ -689,6 +714,13 @@
   #experience .about-containers .details-container {
     width: 95%;
     padding: 1rem 0.75rem;
+  }
+
+  .about-text-container {
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    line-height: 1.6;
   }
   
   #experience .about-containers .details-container:nth-child(3) {
@@ -932,4 +964,149 @@
   background: none !important;
   color: black !important;
   text-decoration: none !important;
+}
+/* Projects Redesign Overrides */
+@media screen and (max-width: 1200px) {
+  #projects .swiper-container {
+    padding: 0 2.4rem 2.8rem !important;
+  }
+
+  #projects .swiper-slide {
+    width: 360px !important;
+  }
+
+  #projects .swiper-slide .details-container {
+    max-width: 340px;
+    min-height: 510px;
+  }
+
+  #projects .swiper-button-prev {
+    left: calc(50% - 205px) !important;
+  }
+
+  #projects .swiper-button-next {
+    right: calc(50% - 205px) !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #projects .swiper-container {
+    padding: 0 2.2rem 2.6rem !important;
+  }
+
+  #projects .swiper-slide {
+    width: 315px !important;
+  }
+
+  #projects .swiper-slide .details-container {
+    max-width: 300px;
+    min-height: 500px;
+  }
+
+  #projects .article-container {
+    height: 210px;
+  }
+
+  #projects .swiper-button-prev,
+  #projects .swiper-button-next {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  #projects .swiper-button-prev {
+    left: calc(50% - 175px) !important;
+  }
+
+  #projects .swiper-button-next {
+    right: calc(50% - 175px) !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #projects .swiper-container {
+    padding: 0 1.2rem 2.3rem !important;
+  }
+
+  #projects .swiper-slide {
+    width: 270px !important;
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+
+  #projects .swiper-slide .details-container {
+    max-width: 260px;
+    min-height: 470px;
+  }
+
+  #projects .article-container {
+    height: 180px;
+  }
+
+  #projects .project-title {
+    margin-top: 0.8rem;
+    min-height: 3rem;
+  }
+
+  #projects .text-container {
+    min-height: 4.2rem;
+  }
+
+  #projects .project-btn {
+    width: 7.3rem;
+    padding: 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  #projects .swiper-button-prev,
+  #projects .swiper-button-next {
+    width: 36px !important;
+    height: 36px !important;
+    top: 46% !important;
+  }
+
+  #projects .swiper-button-prev {
+    left: calc(50% - 144px) !important;
+  }
+
+  #projects .swiper-button-next {
+    right: calc(50% - 144px) !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #projects .swiper-container {
+    padding: 0 0.8rem 2.2rem !important;
+  }
+
+  #projects .swiper-slide {
+    width: 245px !important;
+  }
+
+  #projects .swiper-slide .details-container {
+    max-width: 240px;
+    min-height: 455px;
+  }
+
+  #projects .article-container {
+    height: 165px;
+  }
+
+  #projects .project-btn {
+    width: 6.7rem;
+    font-size: 0.78rem;
+  }
+
+  #projects .swiper-button-prev {
+    left: calc(50% - 132px) !important;
+  }
+
+  #projects .swiper-button-next {
+    right: calc(50% - 132px) !important;
+  }
+
+  #projects .swiper-button-prev,
+  #projects .swiper-button-next {
+    width: 34px !important;
+    height: 34px !important;
+  }
 }

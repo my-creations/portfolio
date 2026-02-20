@@ -4,7 +4,7 @@ A modern, responsive personal portfolio website showcasing my journey as a Softw
 
 ## 🚀 Live Demo
 
-Visit my portfolio: [Portfolio Live Demo](pedrorobalo1994.github.io/portfolio/)
+Visit my portfolio: [Portfolio Live Demo](https://pedrorobalo1994.github.io/portfolio/)
 
 ## 📋 Features
 
@@ -12,7 +12,8 @@ Visit my portfolio: [Portfolio Live Demo](pedrorobalo1994.github.io/portfolio/)
 - **Multi-language Support**: English and Portuguese language switching with dynamic content loading
 - **Interactive Components**: Smooth animations, hover effects, and touch interactions
 - **Mobile Navigation**: Hamburger menu with slide animation for mobile devices
-- **Project Showcase**: Interactive Swiper carousel displaying 12+ portfolio projects
+- **Project Showcase**: Interactive Swiper carousel displaying 15 projects with seamless loop navigation
+- **Live Project Previews**: Dynamic iframe previews for visible project cards with graceful fallback state
 - **Contact Integration**: Direct email and social media links (LinkedIn, GitHub)
 - **Downloadable CV**: Easy access to PDF resume download
 - **Professional Sections**: About, Experience, Projects, and Contact sections
@@ -35,9 +36,10 @@ portfolio/
 ├── index.html              # Main HTML file with semantic structure
 ├── style.css               # Primary stylesheet with modern CSS
 ├── mediaqueries.css        # Responsive design breakpoints
-├── script.js               # Core JavaScript functionality
-├── swiper-init.js          # Swiper carousel configuration
-├── translations.js         # Multi-language content (EN/PT)
+├── scripts/
+│   ├── main.js             # Core JavaScript functionality (menu interactions)
+│   ├── swiper-init.js      # Projects data, carousel behavior, and live preview lifecycle
+│   └── translations.js     # Multi-language content (EN/PT)
 ├── site.webmanifest        # PWA manifest file
 └── assets/                 # Images, documents, and icons
     ├── profile-pic.png         # Profile image
@@ -53,7 +55,7 @@ portfolio/
     ├── email.png              # Email contact icon
     ├── github.png             # GitHub social icon
     ├── linkedin.png           # LinkedIn social icon
-    └── [project images]       # 12+ project screenshots
+    └── [project images]       # Optional fallback screenshots
         ├── animated-navigation-project.png
         ├── animated-template-project.png
         ├── book-keeper-project.png
@@ -105,15 +107,17 @@ portfolio/
 ### Projects Section
 
 - Interactive Swiper carousel with touch/swipe support
-- 12+ portfolio projects showcasing diverse technical skills:
+- 15 portfolio projects showcasing diverse technical skills:
   - JavaScript applications (Calculator, Music Player, Quote Generator)
   - UI/UX projects (Animated Navigation, Nike Store)
   - API integrations (NASA APOD, Joke Teller)
   - Interactive games (Math Sprint, Spock Rock Game)
   - Productivity tools (Book Keeper, Form Validator, Infinite Scroll)
 - Each project includes GitHub repository and live demo links
+- Visible slides mount live web previews (active + adjacent), with automatic unmounting when not visible
+- Preview loading has timeout/error fallback to keep the card usable
 - Multilingual project descriptions
-- Responsive grid layout with hover effects
+- Seamless infinite carousel loop from end to beginning
 
 ### Contact Section
 
@@ -168,7 +172,7 @@ portfolio/
 
 1. **Personal Information & Text**
 
-   - Edit `translations.js` for all text content in both English and Portuguese
+   - Edit `scripts/translations.js` for all text content in both English and Portuguese
    - Update personal details, descriptions, and project information
    - Modify skill levels and experience descriptions
 
@@ -176,15 +180,15 @@ portfolio/
 
    - Replace `assets/profile-pic.png` with your professional photo
    - Update `assets/PedroRobalo_CV.pdf` with your resume/CV
-   - Add your project screenshots to the `assets/` folder
+   - Add optional fallback project screenshots to the `assets/` folder
    - Ensure image optimization for web performance
 
 3. **Projects Showcase**
 
-   - Add new project images following the naming convention: `project-name-project.png`
-   - Update project information in `translations.js` under the `projects` section
-   - Modify project links in `index.html` for GitHub repos and live demos
-   - Customize Swiper settings in `swiper-init.js` for carousel behavior
+   - Add a new project entry in `scripts/swiper-init.js` inside the `PROJECTS` array (`key`, `github`, `demo`)
+   - Add matching translation keys in `scripts/translations.js` under `projects`
+   - Optional: provide a fallback screenshot asset if desired
+   - Customize Swiper settings in `scripts/swiper-init.js` for carousel behavior
 
 4. **Styling & Design**
 
@@ -194,7 +198,7 @@ portfolio/
    - Adjust layout spacing and component sizing
 
 5. **Functionality**
-   - Update `script.js` for menu interactions and JavaScript functionality
+   - Update `scripts/main.js` for menu interactions and JavaScript functionality
    - Modify language switching logic if needed
    - Add new interactive features or animations
 
@@ -202,7 +206,7 @@ portfolio/
 
 To add a new language (e.g., Spanish):
 
-1. Add a new language object to `translations.js` (e.g., `es: { ... }`)
+1. Add a new language object to `scripts/translations.js` (e.g., `es: { ... }`)
 2. Update the language toggle functionality in your JavaScript
 3. Add the new language option to the UI
 4. Test all sections for proper translation display
@@ -212,10 +216,11 @@ To add a new language (e.g., Spanish):
 
 For each new project:
 
-1. Add high-quality project screenshot to `assets/`
-2. Update the translations object with project details
-3. Ensure GitHub and live demo links are functional
-4. Test responsive display in the Swiper carousel
+1. Add a project object to `scripts/swiper-init.js` with `key`, `github`, and `demo`
+2. Add the project title/description labels in `scripts/translations.js`
+3. Optional: add a fallback screenshot in `assets/`
+4. Ensure GitHub and live demo links are functional
+5. Test responsive display and preview loading in the Swiper carousel
 
 ## 📱 Responsive Design
 
@@ -463,6 +468,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ⭐ **If you found this portfolio helpful, please give it a star!**
 
-📝 **Last Updated**: May 2025
+📝 **Last Updated**: February 2026
 
-🔄 **Version**: 2.0.0 - Complete responsive redesign with enhanced features
+🔄 **Version**: 2.1.0 - Projects carousel redesign with live web previews and seamless looping
