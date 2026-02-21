@@ -1,19 +1,85 @@
 const PROJECTS = [
-  { key: 'projectOne', github: 'https://github.com/my-creations/joke-teller', demo: 'https://my-creations.github.io/joke-teller/' },
+  {
+    key: 'projectCufPrepara',
+    github: 'https://github.com/my-creations/cuf-prepara',
+    demo: 'https://my-creations.github.io/cuf-prepara/',
+  },
+  {
+    key: 'projectDoseSegura',
+    github: 'https://github.com/my-creations/dose-segura',
+    demo: 'https://my-creations.github.io/dose-segura/',
+  },
+  {
+    key: 'projectOne',
+    github: 'https://github.com/my-creations/joke-teller',
+    demo: 'https://my-creations.github.io/joke-teller/',
+  },
   { key: 'projectTwo', github: 'https://github.com/my-creations/nike', demo: 'https://my-creations.github.io/nike/' },
-  { key: 'projectThree', github: 'https://github.com/my-creations/music-player', demo: 'https://my-creations.github.io/music-player/' },
-  { key: 'projectFour', github: 'https://github.com/my-creations/animated-navigation', demo: 'https://my-creations.github.io/animated-navigation/' },
-  { key: 'projectFive', github: 'https://github.com/my-creations/animated-template', demo: 'https://my-creations.github.io/animated-template/' },
-  { key: 'projectSix', github: 'https://github.com/my-creations/quote-generator', demo: 'https://my-creations.github.io/quote-generator/' },
-  { key: 'projectSeven', github: 'https://github.com/my-creations/infinite-scroll', demo: 'https://my-creations.github.io/infinite-scroll/' },
-  { key: 'projectEight', github: 'https://github.com/my-creations/custom-countdown', demo: 'https://my-creations.github.io/custom-countdown/' },
-  { key: 'projectNine', github: 'https://github.com/my-creations/book-keeper', demo: 'https://my-creations.github.io/book-keeper/' },
-  { key: 'projectTen', github: 'https://github.com/my-creations/form-validator', demo: 'https://my-creations.github.io/form-validator/' },
-  { key: 'projectEleven', github: 'https://github.com/my-creations/spock-rock-game', demo: 'https://my-creations.github.io/spock-rock-game/' },
-  { key: 'projectTwelve', github: 'https://github.com/my-creations/nasa-apod', demo: 'https://my-creations.github.io/nasa-apod/' },
-  { key: 'projectThirteen', github: 'https://github.com/my-creations/math-sprint-game', demo: 'https://my-creations.github.io/math-sprint-game/' },
-  { key: 'projectFourteen', github: 'https://github.com/my-creations/drag-and-drop', demo: 'https://my-creations.github.io/drag-and-drop/' },
-  { key: 'projectFifteen', github: 'https://github.com/my-creations/calculator', demo: 'https://my-creations.github.io/calculator/' },
+  {
+    key: 'projectThree',
+    github: 'https://github.com/my-creations/music-player',
+    demo: 'https://my-creations.github.io/music-player/',
+  },
+  {
+    key: 'projectFour',
+    github: 'https://github.com/my-creations/animated-navigation',
+    demo: 'https://my-creations.github.io/animated-navigation/',
+  },
+  {
+    key: 'projectFive',
+    github: 'https://github.com/my-creations/animated-template',
+    demo: 'https://my-creations.github.io/animated-template/',
+  },
+  {
+    key: 'projectSix',
+    github: 'https://github.com/my-creations/quote-generator',
+    demo: 'https://my-creations.github.io/quote-generator/',
+  },
+  {
+    key: 'projectSeven',
+    github: 'https://github.com/my-creations/infinite-scroll',
+    demo: 'https://my-creations.github.io/infinite-scroll/',
+  },
+  {
+    key: 'projectEight',
+    github: 'https://github.com/my-creations/custom-countdown',
+    demo: 'https://my-creations.github.io/custom-countdown/',
+  },
+  {
+    key: 'projectNine',
+    github: 'https://github.com/my-creations/book-keeper',
+    demo: 'https://my-creations.github.io/book-keeper/',
+  },
+  {
+    key: 'projectTen',
+    github: 'https://github.com/my-creations/form-validator',
+    demo: 'https://my-creations.github.io/form-validator/',
+  },
+  {
+    key: 'projectEleven',
+    github: 'https://github.com/my-creations/spock-rock-game',
+    demo: 'https://my-creations.github.io/spock-rock-game/',
+  },
+  {
+    key: 'projectTwelve',
+    github: 'https://github.com/my-creations/nasa-apod',
+    demo: 'https://my-creations.github.io/nasa-apod/',
+  },
+  {
+    key: 'projectThirteen',
+    github: 'https://github.com/my-creations/math-sprint-game',
+    demo: 'https://my-creations.github.io/math-sprint-game/',
+  },
+  {
+    key: 'projectFourteen',
+    github: 'https://github.com/my-creations/drag-and-drop',
+    demo: 'https://my-creations.github.io/drag-and-drop/',
+  },
+  {
+    key: 'projectFifteen',
+    github: 'https://github.com/my-creations/calculator',
+    demo: 'https://my-creations.github.io/calculator/',
+  },
 ];
 
 const PREVIEW_TIMEOUT_MS = 5000;
@@ -99,7 +165,12 @@ function mountPreview(container) {
   const previewUrl = container.dataset.previewUrl;
   const frame = container.querySelector('.project-preview-frame');
 
-  if (!previewUrl || !frame || container.dataset.previewState === 'live' || container.dataset.previewState === 'loading') {
+  if (
+    !previewUrl ||
+    !frame ||
+    container.dataset.previewState === 'live' ||
+    container.dataset.previewState === 'loading'
+  ) {
     return;
   }
 
@@ -192,10 +263,7 @@ function updateSlideFocus(swiperInstance) {
       opacity = 1;
       scale = 1;
       slide.classList.add('swiper-slide-active-custom');
-    } else if (
-      slide.classList.contains('swiper-slide-next') ||
-      slide.classList.contains('swiper-slide-prev')
-    ) {
+    } else if (slide.classList.contains('swiper-slide-next') || slide.classList.contains('swiper-slide-prev')) {
       opacity = 0.72;
       scale = 0.94;
       slide.classList.remove('swiper-slide-active-custom');

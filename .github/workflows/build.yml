@@ -2,7 +2,7 @@ name: Build & Push (Portfolio via Pi)
 
 on:
   push:
-    branches: ["main", "master"] # inclui master por segurança
+    branches: ['main', 'master'] # inclui master por segurança
   workflow_dispatch: {}
 
 jobs:

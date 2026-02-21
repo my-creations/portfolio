@@ -1,123 +1,151 @@
-/* Large desktop screens */
+/* ===== Responsive Styles ===== */
+
+/*
+  Strategy:
+  - !important is ONLY used on Swiper overrides (needed to beat CDN styles)
+  - All other rules use normal specificity
+  - Common Swiper button properties are defined once per breakpoint range
+  - Skills grid / skill-chip responsive sizing is handled here
+*/
+
+/* ===== Large desktop (1401px+) ===== */
 @media screen and (min-width: 1401px) {
-  /* Large desktop carousel - single focused project with larger scale */
   .swiper-container {
     padding: 0 20px;
     margin: 2rem 1rem;
     overflow: visible;
   }
-  
+
   .swiper-slide {
     width: 380px !important;
   }
-  
+
   .swiper-slide .details-container {
     max-width: 360px;
   }
-  
+
   .swiper-button-prev {
-    left: calc(50% - 220px) !important; /* Adjusted for larger container */
+    left: calc(50% - 220px) !important;
     width: 55px !important;
     height: 55px !important;
   }
-  
+
   .swiper-button-next {
-    right: calc(50% - 220px) !important; /* Adjusted for larger container */
+    right: calc(50% - 220px) !important;
     width: 55px !important;
     height: 55px !important;
   }
-  
+
   .swiper-button-prev:after,
   .swiper-button-next:after {
     font-size: 20px !important;
   }
 }
 
+/* ===== Desktop (max 1400px) ===== */
 @media screen and (max-width: 1400px) {
   #profile {
     height: 83vh;
     margin-bottom: 6rem;
   }
+
   .about-containers {
     flex-wrap: wrap;
   }
+
   #contact,
   #projects {
     height: fit-content;
   }
-  
-  /* Desktop carousel - single focused project */
+
   .swiper-container {
     padding: 0 20px;
     margin: 2rem 1rem;
     overflow: visible;
   }
-  
+
   .swiper-slide {
     width: 350px !important;
   }
-  
+
   .swiper-slide .details-container {
     max-width: 320px;
   }
-  
+
   .swiper-button-prev {
     left: calc(50% - 200px) !important;
   }
-  
+
   .swiper-button-next {
     right: calc(50% - 200px) !important;
   }
 }
 
+/* ===== Tablet (max 1200px) — hamburger nav kicks in ===== */
 @media screen and (max-width: 1200px) {
   #desktop-nav {
     display: none;
   }
+
   #hamburger-nav {
     display: flex;
   }
+
   #experience,
   .experience-details-container {
     margin-top: 2rem;
   }
+
   #profile,
   .section-container {
     display: block;
   }
+
   section,
   .section-container {
     height: fit-content;
   }
+
   section {
     margin: 0 5%;
   }
+
   .section__pic-container {
     width: 275px;
     height: 275px;
     margin: 0 auto 2rem;
   }
+
   .about-containers {
     margin-top: 0;
   }
-  
-  /* Tablet carousel - single focused project */
+
+  /* Skills grid */
+  .skills-grid {
+    gap: 0.6rem;
+  }
+
+  .skill-chip {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.82rem;
+  }
+
+  /* Swiper */
   .swiper-container {
     padding: 0 20px;
     margin: 1.5rem 0.5rem;
     overflow: visible;
     position: relative;
   }
-  
+
   .swiper-slide {
     width: 320px !important;
   }
-  
+
   .swiper-slide .details-container {
     max-width: 300px;
   }
-  
-  /* Position navigation buttons beside the focused container for tablets */
+
   .swiper-button-prev,
   .swiper-button-next {
     position: absolute !important;
@@ -132,838 +160,22 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
     border: 1px solid rgba(163, 163, 163, 0.3) !important;
   }
-  
+
   .swiper-button-prev {
-    left: calc(50% - 185px) !important; /* Adjusted for smaller container */
+    left: calc(50% - 185px) !important;
   }
-  
+
   .swiper-button-next {
-    right: calc(50% - 185px) !important; /* Adjusted for smaller container */
+    right: calc(50% - 185px) !important;
   }
-  
+
   .swiper-button-prev:after,
   .swiper-button-next:after {
     font-size: 16px !important;
     color: rgb(53, 53, 53) !important;
   }
-  
-  /* Hamburger menu responsive sizing */
-  .menu-links a {
-    font-size: 2.2rem;
-  }
-}
 
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-  /* iPad mini landscape and similar devices */
-  section {
-    margin: 0 auto;
-    padding-left: 3%;
-    padding-right: 3%;
-    max-width: 100%;
-  }
-  
-  .section-container {
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-container {
-    padding: 0 20px;
-    margin: 1.5rem auto;
-    overflow: visible;
-    position: relative;
-  }
-  
-  .swiper-slide {
-    width: 300px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  
-  .swiper-slide .details-container {
-    max-width: 280px;
-    margin: 0 auto;
-  }
-  
-  /* Position navigation buttons beside the focused container for iPad landscape */
-  .swiper-button-prev,
-  .swiper-button-next {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 15 !important;
-    width: 42px !important;
-    height: 42px !important;
-    margin-top: 0 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(163, 163, 163, 0.3) !important;
-  }
-  
-  .swiper-button-prev {
-    left: calc(50% - 170px) !important;
-  }
-  
-  .swiper-button-next {
-    right: calc(50% - 170px) !important;
-  }
-  
-  .swiper-button-prev:after,
-  .swiper-button-next:after {
-    font-size: 15px !important;
-    color: rgb(53, 53, 53) !important;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  /* Tablet/small desktop improvements */
-  .about-text-container {
-    width: 70%;
-    text-align: left;
-    text-justify: auto;
-    word-spacing: normal;
-    word-break: normal;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    line-height: 1.6;
-  }
-
-  .about-text-container p {
-    margin: 0;
-    text-align: inherit;
-  }
-  
-  #experience .about-containers .details-container {
-    flex: 0 1 80%;
-    max-width: 80%;
-  }
-  
-  #experience .about-containers .details-container:nth-child(3) {
-    flex: 0 1 80%;
-    max-width: 80%;
-  }
-  
-  /* Small tablet carousel - single focused project */
-  .swiper-container {
-    padding: 0 20px;
-    margin: 1rem 0.25rem;
-    overflow: visible;
-    position: relative;
-  }
-  
-  .swiper-slide {
-    width: 300px !important;
-  }
-  
-  .swiper-slide .details-container {
-    max-width: 280px;
-  }
-  
-  /* Position navigation buttons beside the focused container for small tablets */
-  .swiper-button-prev,
-  .swiper-button-next {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 15 !important;
-    width: 40px !important;
-    height: 40px !important;
-    margin-top: 0 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(163, 163, 163, 0.3) !important;
-  }
-  
-  .swiper-button-prev {
-    left: calc(50% - 170px) !important; /* Adjusted for smaller container */
-  }
-  
-  .swiper-button-next {
-    right: calc(50% - 170px) !important; /* Adjusted for smaller container */
-  }
-  
-  .swiper-button-prev:after,
-  .swiper-button-next:after {
-    font-size: 14px !important;
-    color: rgb(53, 53, 53) !important;
-  }
-  
-  /* Hamburger menu tablet sizing */
-  .menu-links a {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  /* iPad mini portrait and similar devices */
-  section {
-    margin: 0 auto;
-    padding-left: 4%;
-    padding-right: 4%;
-    max-width: 100%;
-  }
-  
-  .section-container {
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #profile {
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .about-text-container {
-    width: 85%;
-    margin: 0 auto;
-    text-align: left;
-    text-justify: auto;
-    word-spacing: normal;
-    line-height: 1.6;
-  }
-  
-  #experience .about-containers {
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #experience .about-containers .details-container {
-    flex: 0 1 90%;
-    max-width: 90%;
-    margin: 0 auto 1rem auto;
-  }
-  
-  #experience .about-containers .details-container:nth-child(3) {
-    flex: 0 1 90%;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-  
-  /* iPad mini carousel - optimized for smaller width */
-  .swiper-container {
-    padding: 0 15px;
-    margin: 1rem auto;
-    overflow: visible;
-    max-width: 100%;
-    position: relative;
-  }
-  
-  .swiper-slide {
-    width: 280px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  
-  .swiper-slide .details-container {
-    max-width: 260px;
-    margin: 0 auto;
-  }
-  
-  /* Position navigation buttons beside the focused container for iPad mini */
-  .swiper-button-prev,
-  .swiper-button-next {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 15 !important;
-    width: 38px !important;
-    height: 38px !important;
-    margin-top: 0 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(163, 163, 163, 0.3) !important;
-  }
-  
-  .swiper-button-prev {
-    left: calc(50% - 155px) !important;
-  }
-  
-  .swiper-button-next {
-    right: calc(50% - 155px) !important;
-  }
-  
-  .swiper-button-prev:after,
-  .swiper-button-next:after {
-    font-size: 13px !important;
-    color: rgb(53, 53, 53) !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  #contact,
-  footer {
-    height: 40vh;
-  }
-  #profile {
-    height: 83vh;
-    margin-bottom: 0;
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  /* Fix profile image on mobile */
-  .section__pic-container {
-    width: 250px;
-    height: 250px;
-    margin: 0 auto 1rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .section__pic-container img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    aspect-ratio: 1;
-  }
-  
-  /* Fix profile text centering */
-  .section__text {
-    margin: 0;
-    text-align: center;
-    width: 100%;
-  }
-  
-  /* Mobile carousel - single focused project */
-  .swiper-container {
-    margin: 1rem 0;
-    padding: 0 15px;
-    position: relative;
-    overflow: visible;
-  }
-  
-  .swiper-slide {
-    width: 280px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  
-  .swiper-slide .details-container {
-    width: 95%;
-    max-width: 260px;
-    margin: 0 auto;
-  }
-  
-  /* Navigation arrows for mobile - positioned beside container */
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: flex !important;
-    color: rgb(163, 163, 163) !important;
-    font-size: 1.2rem !important;
-    font-weight: bold !important;
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 15 !important;
-    width: 40px !important;
-    height: 40px !important;
-    margin-top: 0 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(163, 163, 163, 0.3) !important;
-  }
-  
-  .swiper-button-next {
-    right: calc(50% - 155px) !important; /* Beside mobile container */
-    right: max(10px, calc(50% - 155px)) !important; /* Prevent overflow */
-  }
-  
-  .swiper-button-prev {
-    left: calc(50% - 155px) !important; /* Beside mobile container */
-    left: max(10px, calc(50% - 155px)) !important; /* Prevent overflow */
-  }
-  
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 14px !important;
-    color: rgb(53, 53, 53) !important;
-    font-weight: bold !important;
-  }
-  
-  /* Mobile carousel - single focused project */
-  .swiper-container {
-    padding: 0 15px;
-    margin: 1rem auto;
-    overflow: visible;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  
-  .swiper-slide {
-    width: 280px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  
-  .swiper-pagination {
-    position: relative !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-    display: block !important;
-    width: 100% !important;
-  }
-
-  article {
-    font-size: 1rem;
-  }
-  footer nav {
-    height: fit-content;
-    margin-bottom: 2rem;
-  }
-  .about-containers,
-  .contact-info-upper-container,
-  .btn-container {
-    flex-wrap: wrap;
-  }
-  
-  /* About section mobile improvements */
-  .about-details-container {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .about-text-container {
-    width: 90%;
-    margin: 1rem auto 0 auto;
-    padding: 1rem;
-    text-align: left;
-    text-justify: auto;
-    word-spacing: normal;
-    line-height: 1.6;
-  }
-  
-  .details-container {
-    margin-bottom: 1rem;
-    padding: 1rem;
-  }
-  
-  /* Experience section mobile improvements */
-  .experience-details-container {
-    padding: 0 1rem;
-  }
-  
-  #experience .about-containers {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  #experience .about-containers .details-container {
-    flex: none;
-    width: 90%;
-    max-width: none;
-    margin: 0 0 1.5rem 0;
-    padding: 1.5rem 1rem;
-  }
-  
-  #experience .about-containers .details-container:nth-child(3) {
-    flex: none;
-    width: 90%;
-    max-width: none;
-    margin: 0 0 1.5rem 0;
-    padding: 1.5rem 1rem;
-  }
-  
-  .article-container {
-    gap: 1.5rem;
-    justify-content: center;
-  }
-  
-  article {
-    width: 8rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.25rem;
-  }
-  
-  .contact-info-container {
-    margin: 0;
-  }
-  .contact-info-container p,
-  .nav-links li a {
-    font-size: 1rem;
-  }
-  .experience-sub-title {
-    font-size: 1.25rem;
-  }
-  .logo {
-    font-size: 1.5rem;
-  }
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  .section__pic-container {
-    width: 46vw;
-    height: 46vw;
-    max-width: 250px;
-    max-height: 250px;
-    min-width: 180px;
-    min-height: 180px;
-    margin: 0 auto 1rem auto;
-    justify-content: center;
-  }
-  .section__text__p2 {
-    font-size: 1.25rem;
-  }
-  .title {
-    font-size: 2rem;
-  }
-  .text-container {
-    text-align: center;
-  }
-  
-  /* Hamburger menu mobile sizing */
-  .menu-links a {
-    font-size: 1.8rem;
-    gap: 2.5rem;
-  }
-  
-  .menu-links {
-    gap: 2.5rem;
-  }
-}
-
-@media screen and (max-width: 430px) {
-  /* iPhone 12 Pro Max and similar large phones */
-  .section__pic-container {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .section__text {
-    padding: 0 1rem;
-  }
-  
-  .btn-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .btn {
-    width: 100%;
-    max-width: 200px;
-  }
-  
-  /* Comprehensive button color protection for mobile */
-  button.btn,
-  button.btn-color-1,
-  button.btn-color-2,
-  .btn,
-  .btn:visited,
-  .btn:link,
-  .btn:active,
-  .btn:focus {
-    color: inherit !important;
-    text-decoration: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-  }
-  
-  button.btn-color-1,
-  .btn-color-1,
-  .btn-color-1:visited,
-  .btn-color-1:link,
-  .btn-color-1:active,
-  .btn-color-1:focus {
-    background: rgb(53, 53, 53) !important;
-    color: white !important;
-  }
-  
-  button.btn-color-2,
-  .btn-color-2,
-  .btn-color-2:visited,
-  .btn-color-2:link,
-  .btn-color-2:active,
-  .btn-color-2:focus {
-    background: none !important;
-    color: black !important;
-  }
-  
-  /* Additional padding for very small devices */
-  .about-details-container,
-  .experience-details-container {
-    padding: 0 1.5rem;
-  }
-  
-  .about-text-container,
-  #experience .about-containers .details-container {
-    width: 95%;
-    padding: 1rem 0.75rem;
-  }
-
-  .about-text-container {
-    text-align: left;
-    text-justify: auto;
-    word-spacing: normal;
-    line-height: 1.6;
-  }
-  
-  #experience .about-containers .details-container:nth-child(3) {
-    width: 95%;
-    padding: 1rem 0.75rem;
-  }
-  
-  /* Projects navigation improvements - single focused */
-  .swiper-container {
-    padding: 0 15px;
-    overflow: visible;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem auto;
-  }
-  
-  .swiper-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  
-  .swiper-slide {
-    width: 250px !important;
-  }
-  
-  .swiper-slide .details-container {
-    width: 95%;
-    max-width: 240px;
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border-radius: 50% !important;
-    width: 35px !important;
-    height: 35px !important;
-    margin-top: 0 !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(163, 163, 163, 0.3) !important;
-  }
-  
-  .swiper-button-next {
-    right: calc(50% - 140px) !important; /* Beside small mobile container */
-    right: max(10px, calc(50% - 140px)) !important; /* Ensure minimum 10px from edge */
-  }
-  
-  .swiper-button-prev {
-    left: calc(50% - 140px) !important; /* Beside small mobile container */
-    left: max(10px, calc(50% - 140px)) !important; /* Ensure minimum 10px from edge */
-  }
-  
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 12px !important;
-    color: rgb(53, 53, 53) !important;
-    font-weight: bold !important;
-  }
-  
-  .swiper-pagination {
-    position: relative !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-    display: block !important;
-    width: 100% !important;
-  }
-  
-  /* Hamburger menu small mobile sizing */
-  .menu-links a {
-    font-size: 1.6rem;
-    padding: 0.8rem 1.5rem;
-  }
-  
-  .menu-links {
-    gap: 2rem;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  /* Very small mobile devices */
-  section {
-    margin: 0 3%;
-    padding-top: 2vh;
-  }
-  
-  .title {
-    font-size: 1.5rem;
-  }
-  
-  .section__text__p2 {
-    font-size: 1rem;
-  }
-  
-  /* Extra padding for very small screens */
-  .about-details-container,
-  .experience-details-container {
-    padding: 0 0.5rem;
-  }
-  
-  .about-text-container,
-  #experience .about-containers .details-container {
-    width: 98%;
-    padding: 0.75rem 0.5rem;
-  }
-  
-  #experience .about-containers .details-container:nth-child(3) {
-    width: 98%;
-    padding: 0.75rem 0.5rem;
-  }
-  
-  .btn {
-    width: 6rem;
-    padding: 0.75rem;
-    font-size: 0.9rem;
-  }
-  
-  /* Force button colors on very small devices */
-  button.btn,
-  button.btn-color-1,
-  button.btn-color-2,
-  .btn,
-  .btn-color-1,
-  .btn-color-2 {
-    color: inherit !important;
-    text-decoration: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-  }
-  
-  button.btn-color-1,
-  .btn-color-1 {
-    background: rgb(53, 53, 53) !important;
-    color: white !important;
-  }
-  
-  button.btn-color-2,
-  .btn-color-2 {
-    background: none !important;
-    color: black !important;
-  }
-  
-  .nav-links {
-    font-size: 1.25rem;
-  }
-  
-  .experience-sub-title {
-    font-size: 1.1rem;
-  }
-  
-  article {
-    width: 7rem;
-    font-size: 0.9rem;
-  }
-  
-  .contact-info-container p {
-    font-size: 0.9rem;
-  }
-  
-  /* Hamburger menu very small mobile sizing */
-  .menu-links a {
-    font-size: 1.4rem;
-    padding: 0.6rem 1rem;
-  }
-  
-  .menu-links {
-    gap: 1.5rem;
-  }
-}
-
-/* Additional overflow protection for very small devices */
-@media screen and (max-width: 320px) {
-  section {
-    margin: 0 2% !important;
-    padding-left: 2% !important;
-    padding-right: 2% !important;
-    width: 96% !important;
-    max-width: 96vw !important;
-  }
-  
-  .swiper-container {
-    width: 100% !important;
-    max-width: 100vw !important;
-    padding: 0 5px !important;
-  }
-  
-  .swiper-slide {
-    width: 200px !important;
-  }
-  
-  .swiper-slide .details-container {
-    width: 95% !important;
-    max-width: 190px !important;
-  }
-  
-  .swiper-button-next {
-    right: 5px !important;
-  }
-  
-  .swiper-button-prev {
-    left: 5px !important;
-  }
-  
-  /* Ensure all containers fit within viewport */
-  .about-details-container,
-  .experience-details-container,
-  .contact-info-upper-container {
-    width: 100% !important;
-    max-width: 100vw !important;
-    padding: 0 1% !important;
-    overflow: hidden !important;
-  }
-  
-  .details-container {
-    width: 98% !important;
-    max-width: 98vw !important;
-  }
-}
-
-/* Ensure button visited states work on mobile */
-.btn:visited,
-.btn:link,
-.btn:active,
-.btn:focus,
-.btn-color-1:visited,
-.btn-color-1:link,
-.btn-color-1:active,
-.btn-color-1:focus {
-  background: rgb(53, 53, 53) !important;
-  color: white !important;
-  text-decoration: none !important;
-}
-
-.btn-color-2:visited,
-.btn-color-2:link,
-.btn-color-2:active,
-.btn-color-2:focus {
-  background: none !important;
-  color: black !important;
-  text-decoration: none !important;
-}
-/* Projects Redesign Overrides */
-@media screen and (max-width: 1200px) {
+  /* Projects-scoped overrides */
   #projects .swiper-container {
     padding: 0 2.4rem 2.8rem !important;
   }
@@ -984,9 +196,160 @@
   #projects .swiper-button-next {
     right: calc(50% - 205px) !important;
   }
+
+  /* Hamburger menu */
+  .menu-links a {
+    font-size: 2.2rem;
+  }
 }
 
+/* ===== iPad mini landscape (769px – 1024px) ===== */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  section {
+    margin: 0 auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    max-width: 100%;
+  }
+
+  .section-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-container {
+    padding: 0 20px;
+    margin: 1.5rem auto;
+    overflow: visible;
+    position: relative;
+  }
+
+  .swiper-slide {
+    width: 300px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .swiper-slide .details-container {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 15 !important;
+    width: 42px !important;
+    height: 42px !important;
+    margin-top: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(163, 163, 163, 0.3) !important;
+  }
+
+  .swiper-button-prev {
+    left: calc(50% - 170px) !important;
+  }
+
+  .swiper-button-next {
+    right: calc(50% - 170px) !important;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 15px !important;
+    color: rgb(53, 53, 53) !important;
+  }
+}
+
+/* ===== Small tablet (max 900px) ===== */
 @media screen and (max-width: 900px) {
+  .about-text-container {
+    width: 70%;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.6;
+  }
+
+  .about-text-container p {
+    margin: 0;
+    text-align: inherit;
+  }
+
+  #experience .about-containers .details-container {
+    flex: 0 1 80%;
+    max-width: 80%;
+  }
+
+  #experience .about-containers .details-container:nth-child(3) {
+    flex: 0 1 80%;
+    max-width: 80%;
+  }
+
+  /* Skills grid — 3 columns on small tablets */
+  .skills-grid {
+    gap: 0.5rem;
+  }
+
+  .skill-chip {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* Swiper */
+  .swiper-container {
+    padding: 0 20px;
+    margin: 1rem 0.25rem;
+    overflow: visible;
+    position: relative;
+  }
+
+  .swiper-slide {
+    width: 300px !important;
+  }
+
+  .swiper-slide .details-container {
+    max-width: 280px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 15 !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-top: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(163, 163, 163, 0.3) !important;
+  }
+
+  .swiper-button-prev {
+    left: calc(50% - 170px) !important;
+  }
+
+  .swiper-button-next {
+    right: calc(50% - 170px) !important;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 14px !important;
+    color: rgb(53, 53, 53) !important;
+  }
+
+  /* Projects-scoped overrides */
   #projects .swiper-container {
     padding: 0 2.2rem 2.6rem !important;
   }
@@ -1017,9 +380,243 @@
   #projects .swiper-button-next {
     right: calc(50% - 175px) !important;
   }
+
+  /* Hamburger menu */
+  .menu-links a {
+    font-size: 2rem;
+  }
 }
 
+/* ===== iPad mini portrait (max 768px) ===== */
+@media screen and (max-width: 768px) {
+  section {
+    margin: 0 auto;
+    padding-left: 4%;
+    padding-right: 4%;
+    max-width: 100%;
+  }
+
+  .section-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #profile {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-text-container {
+    width: 85%;
+    margin: 0 auto;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    line-height: 1.6;
+  }
+
+  #experience .about-containers {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #experience .about-containers .details-container {
+    flex: 0 1 90%;
+    max-width: 90%;
+    margin: 0 auto 1rem auto;
+  }
+
+  #experience .about-containers .details-container:nth-child(3) {
+    flex: 0 1 90%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Swiper */
+  .swiper-container {
+    padding: 0 15px;
+    margin: 1rem auto;
+    overflow: visible;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .swiper-slide {
+    width: 280px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .swiper-slide .details-container {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 15 !important;
+    width: 38px !important;
+    height: 38px !important;
+    margin-top: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(163, 163, 163, 0.3) !important;
+  }
+
+  .swiper-button-prev {
+    left: calc(50% - 155px) !important;
+  }
+
+  .swiper-button-next {
+    right: calc(50% - 155px) !important;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 13px !important;
+    color: rgb(53, 53, 53) !important;
+  }
+}
+
+/* ===== Mobile (max 600px) ===== */
 @media screen and (max-width: 600px) {
+  #profile {
+    height: 83vh;
+    margin-bottom: 0;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Fix profile image on mobile */
+  .section__pic-container {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section__pic-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  /* Fix profile text centering */
+  .section__text {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Scroll indicator — smaller on mobile */
+  .scroll-indicator {
+    font-size: 0.65rem;
+  }
+
+  .scroll-indicator svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Skills grid — wrap to 2 columns on small screens */
+  .skills-grid {
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  .skill-chip {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.75rem;
+  }
+
+  .skill-icon {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  /* Swiper */
+  .swiper-container {
+    padding: 0 15px;
+    margin: 1rem auto;
+    overflow: visible;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-slide {
+    width: 280px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .swiper-slide .details-container {
+    width: 95%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex !important;
+    color: rgb(163, 163, 163) !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 15 !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-top: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(163, 163, 163, 0.3) !important;
+  }
+
+  .swiper-button-next {
+    right: max(10px, calc(50% - 155px)) !important;
+  }
+
+  .swiper-button-prev {
+    left: max(10px, calc(50% - 155px)) !important;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 14px !important;
+    color: rgb(53, 53, 53) !important;
+    font-weight: bold !important;
+  }
+
+  .swiper-pagination {
+    position: relative !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Projects-scoped overrides */
   #projects .swiper-container {
     padding: 0 1.2rem 2.3rem !important;
   }
@@ -1068,9 +665,260 @@
   #projects .swiper-button-next {
     right: calc(50% - 144px) !important;
   }
+
+  /* General mobile layout */
+  article {
+    font-size: 1rem;
+  }
+
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+
+  .about-containers,
+  .contact-info-upper-container,
+  .btn-container {
+    flex-wrap: wrap;
+  }
+
+  .about-details-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .about-text-container {
+    width: 90%;
+    margin: 1rem auto 0 auto;
+    padding: 1rem;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    line-height: 1.6;
+  }
+
+  .details-container {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .experience-details-container {
+    padding: 0 1rem;
+  }
+
+  #experience .about-containers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #experience .about-containers .details-container {
+    flex: none;
+    width: 90%;
+    max-width: none;
+    margin: 0 0 1.5rem 0;
+    padding: 1.5rem 1rem;
+  }
+
+  #experience .about-containers .details-container:nth-child(3) {
+    flex: none;
+    width: 90%;
+    max-width: none;
+    margin: 0 0 1.5rem 0;
+    padding: 1.5rem 1rem;
+  }
+
+  .article-container {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  article {
+    width: 8rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.25rem;
+  }
+
+  .contact-info-container {
+    margin: 0;
+  }
+
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .section__pic-container {
+    width: 46vw;
+    height: 46vw;
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 180px;
+    min-height: 180px;
+    margin: 0 auto 1rem auto;
+    justify-content: center;
+  }
+
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .text-container {
+    text-align: center;
+  }
+
+  /* Hamburger menu */
+  .menu-links a {
+    font-size: 1.8rem;
+    gap: 2.5rem;
+  }
+
+  .menu-links {
+    gap: 2.5rem;
+  }
 }
 
-@media screen and (max-width: 400px) {
+/* ===== Large phones (max 430px) ===== */
+@media screen and (max-width: 430px) {
+  .section__pic-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section__text {
+    padding: 0 1rem;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* Skills grid — smaller chips */
+  .skill-chip {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.72rem;
+  }
+
+  .skill-icon {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  /* Additional padding for small devices */
+  .about-details-container,
+  .experience-details-container {
+    padding: 0 1.5rem;
+  }
+
+  .about-text-container,
+  #experience .about-containers .details-container {
+    width: 95%;
+    padding: 1rem 0.75rem;
+  }
+
+  .about-text-container {
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    line-height: 1.6;
+  }
+
+  #experience .about-containers .details-container:nth-child(3) {
+    width: 95%;
+    padding: 1rem 0.75rem;
+  }
+
+  /* Swiper */
+  .swiper-container {
+    padding: 0 15px;
+    overflow: visible;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-slide {
+    width: 250px !important;
+  }
+
+  .swiper-slide .details-container {
+    width: 95%;
+    max-width: 240px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    width: 35px !important;
+    height: 35px !important;
+    margin-top: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(163, 163, 163, 0.3) !important;
+  }
+
+  .swiper-button-next {
+    right: max(10px, calc(50% - 140px)) !important;
+  }
+
+  .swiper-button-prev {
+    left: max(10px, calc(50% - 140px)) !important;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 12px !important;
+    color: rgb(53, 53, 53) !important;
+    font-weight: bold !important;
+  }
+
+  .swiper-pagination {
+    position: relative !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Projects-scoped overrides */
   #projects .swiper-container {
     padding: 0 0.8rem 2.2rem !important;
   }
@@ -1105,5 +953,159 @@
   #projects .swiper-button-next {
     width: 34px !important;
     height: 34px !important;
+  }
+
+  /* Hamburger menu */
+  .menu-links a {
+    font-size: 1.6rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .menu-links {
+    gap: 2rem;
+  }
+}
+
+/* ===== Very small phones (max 400px) ===== */
+@media screen and (max-width: 400px) {
+  section {
+    margin: 0 3%;
+    padding-top: 2vh;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .section__text__p2 {
+    font-size: 1rem;
+  }
+
+  /* Scroll indicator — hide on very small screens */
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Skills grid */
+  .skill-chip {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.68rem;
+  }
+
+  .skill-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .about-details-container,
+  .experience-details-container {
+    padding: 0 0.5rem;
+  }
+
+  .about-text-container,
+  #experience .about-containers .details-container {
+    width: 98%;
+    padding: 0.75rem 0.5rem;
+  }
+
+  #experience .about-containers .details-container:nth-child(3) {
+    width: 98%;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .btn {
+    width: 6rem;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-links {
+    font-size: 1.25rem;
+  }
+
+  .experience-sub-title {
+    font-size: 1.1rem;
+  }
+
+  article {
+    width: 7rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-info-container p {
+    font-size: 0.9rem;
+  }
+
+  /* Hamburger menu */
+  .menu-links a {
+    font-size: 1.4rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .menu-links {
+    gap: 1.5rem;
+  }
+}
+
+/* ===== Tiny screens (max 320px) ===== */
+@media screen and (max-width: 320px) {
+  section {
+    margin: 0 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 96%;
+    max-width: 96vw;
+  }
+
+  .swiper-container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 5px !important;
+  }
+
+  .swiper-slide {
+    width: 200px !important;
+  }
+
+  .swiper-slide .details-container {
+    width: 95% !important;
+    max-width: 190px !important;
+  }
+
+  .swiper-button-next {
+    right: 5px !important;
+  }
+
+  .swiper-button-prev {
+    left: 5px !important;
+  }
+
+  .about-details-container,
+  .experience-details-container,
+  .contact-info-upper-container {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 1%;
+    overflow: hidden;
+  }
+
+  .details-container {
+    width: 98%;
+    max-width: 98vw;
+  }
+
+  /* Skills grid — single column on tiny screens */
+  .skills-grid {
+    gap: 0.3rem;
+  }
+
+  .skill-chip {
+    padding: 0.15rem 0.35rem;
+    font-size: 0.62rem;
+  }
+
+  .skill-icon {
+    width: 0.7rem;
+    height: 0.7rem;
   }
 }

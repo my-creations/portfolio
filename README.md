@@ -70,12 +70,13 @@ portfolio/
 │   │   └── favicon-48x48.svg
 │   └── general/
 │       ├── profile-pic.png     # Profile image
-│       ├── checkmark.png       # Skills icon
+│       ├── detox-icon.ico      # Detox skill icon
 │       ├── education.png       # Education section icon
 │       ├── experience.png      # Experience section icon
 │       ├── email.png           # Email contact icon
 │       ├── github.png          # GitHub social icon
-│       └── linkedin.png        # LinkedIn social icon
+│       ├── linkedin.png        # LinkedIn social icon
+│       └── playwright-logo.svg # Playwright skill icon
 └── .github/
     └── workflows/
         ├── ci.yml              # CI pipeline (unit + E2E tests)
@@ -159,20 +160,19 @@ portfolio/
    ```
 
 3. **Open locally**
-
    - Simply open `index.html` in your web browser
    - Or use a local server for optimal experience:
 
-      ```bash
-      # Using npm
-      npm run serve
+     ```bash
+     # Using npm
+     npm run serve
 
-      # Using Python 3
-      python -m http.server 8000
+     # Using Python 3
+     python -m http.server 8000
 
-      # Using Live Server (VS Code extension)
-      # Right-click index.html → "Open with Live Server"
-      ```
+     # Using Live Server (VS Code extension)
+     # Right-click index.html → "Open with Live Server"
+     ```
 
 4. **View the portfolio**
    - Navigate to `http://localhost:8080` (if using npm serve)
@@ -191,27 +191,23 @@ portfolio/
 ### Updating Personal Content
 
 1. **Personal Information & Text**
-
    - Edit `scripts/translations.js` for all text content in both English and Portuguese
    - Update personal details, descriptions, and project information
    - Modify skill levels and experience descriptions
 
 2. **Images & Documents**
-
    - Replace `assets/profile-pic.png` with your professional photo
    - Update `assets/PedroRobalo_CV.pdf` with your resume/CV
    - Add optional fallback project screenshots only if you decide to re-enable image fallback behavior
    - Ensure image optimization for web performance
 
 3. **Projects Showcase**
-
    - Add a new project entry in `scripts/swiper-init.js` inside the `PROJECTS` array (`key`, `github`, `demo`)
    - Add matching translation keys in `scripts/translations.js` under `projects`
    - Optional: provide a fallback screenshot asset if desired
    - Customize Swiper settings in `scripts/swiper-init.js` for carousel behavior
 
 4. **Styling & Design**
-
    - Modify `style.css` for colors, fonts, and general styling
    - Update `mediaqueries.css` for responsive behavior and breakpoints
    - Customize animations, transitions, and hover effects
@@ -329,10 +325,10 @@ The portfolio includes a comprehensive test suite with **142 automated tests** c
 
 ### Test Coverage
 
-| Type | Tests | Coverage |
-|------|-------|----------|
-| Unit Tests | 43 | JavaScript functions, translations, carousel logic |
-| E2E Tests | 99 | Cross-browser UI testing (Chromium, Firefox, WebKit) |
+| Type       | Tests | Coverage                                             |
+| ---------- | ----- | ---------------------------------------------------- |
+| Unit Tests | 43    | JavaScript functions, translations, carousel logic   |
+| E2E Tests  | 99    | Cross-browser UI testing (Chromium, Firefox, WebKit) |
 
 ### Running Tests Locally
 
@@ -364,18 +360,21 @@ npm run test:e2e:debug
 ### Unit Tests (43 tests)
 
 **`tests/unit/main.test.js`** - Menu and navigation functions:
+
 - `toggleMenu()` - Toggle behavior, null element handling
 - `closeMenu()` - Close behavior, graceful error handling
 - `scrollToSection()` - Smooth scroll with correct options
 - `clearLocationHash()` - URL hash cleanup
 
 **`tests/unit/translations.test.js`** - Internationalization:
+
 - `calculateExperience()` - Date calculations in EN/PT
 - `getText()` - Nested key resolution
 - `switchLanguage()` - Language switching and localStorage persistence
 - Translation structure validation (15 projects, all sections)
 
 **`tests/unit/swiper-init.test.js`** - Projects carousel:
+
 - `PROJECTS` array - 15 projects with valid URLs
 - `renderProjectSlides()` - DOM rendering
 - `setPreviewState()` / `setFallback()` - Preview state management
@@ -385,18 +384,21 @@ npm run test:e2e:debug
 ### E2E Tests (99 tests = 33 × 3 browsers)
 
 **`tests/e2e/navigation.spec.js`** - 12 tests:
+
 - Desktop navigation visibility and links
 - Smooth scroll to all sections (About, Experience, Projects, Contact)
 - Mobile hamburger menu toggle
 - Mobile language toggle
 
 **`tests/e2e/language.spec.js`** - 5 tests:
+
 - Language toggle button visibility
 - EN ↔ PT language switching
 - Language persistence across page reload
 - Mobile language toggle
 
 **`tests/e2e/projects.spec.js`** - 9 tests:
+
 - Projects section and swiper visibility
 - Navigation buttons and pagination
 - Next/previous slide navigation
@@ -404,6 +406,7 @@ npm run test:e2e:debug
 - Carousel infinite loop
 
 **`tests/e2e/accessibility.spec.js`** - 7 tests:
+
 - Page title and meta tags
 - Alt text on images
 - Semantic HTML structure
@@ -424,7 +427,7 @@ jobs:
 
   e2e-tests:
     runs-on: blacksmith-2vcpu-ubuntu-2404
-    steps: [npm run test:e2e]  # Chromium, Firefox, WebKit
+    steps: [npm run test:e2e] # Chromium, Firefox, WebKit
 ```
 
 ### Data Test Attributes
