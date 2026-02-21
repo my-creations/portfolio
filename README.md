@@ -79,8 +79,7 @@ portfolio/
 │       └── playwright-logo.svg # Playwright skill icon
 └── .github/
     └── workflows/
-        ├── ci.yml              # CI pipeline (unit + E2E tests)
-        └── build.yml           # Docker build and push
+        └── ci.yml              # CI pipeline (unit + E2E tests)
 ```
 
 ## 🎨 Sections Overview
