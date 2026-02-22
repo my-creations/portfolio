@@ -43,9 +43,7 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@11.1.15/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper@11.1.15/swiper-bundle.min.js"></script>
-    <script src="./scripts/translations.js"></script>
+    <script src="./scripts/translations.js" defer></script>
     <noscript
       ><style>
         .reveal {
@@ -120,12 +118,19 @@
     <main id="main-content" class="main-container">
       <section id="profile" data-test="profile-section">
         <div class="section__pic-container" data-test="profile-image-container">
-          <img
-            src="./assets/general/profile-pic.png"
-            alt="Pedro Robalo profile picture"
-            loading="eager"
-            data-test="profile-image"
-          />
+          <picture>
+            <source srcset="./assets/general/profile-pic.webp" type="image/webp" />
+            <img
+              src="./assets/general/profile-pic.png"
+              alt="Pedro Robalo profile picture"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="700"
+              height="700"
+              data-test="profile-image"
+            />
+          </picture>
         </div>
         <div class="section__text" data-test="profile-text">
           <p class="section__text__p1" data-translate="profile.greeting" data-test="profile-greeting"></p>
@@ -153,7 +158,7 @@
               aria-label="Visit my LinkedIn profile"
               data-test="linkedin-link"
             >
-              <img src="./assets/general/linkedin.png" alt="" class="icon" loading="lazy" />
+              <img src="./assets/general/linkedin.png" alt="" class="icon" loading="lazy" width="32" height="32" />
             </a>
             <a
               href="https://github.com/PedroRobalo1994"
@@ -162,7 +167,7 @@
               aria-label="Visit my GitHub profile"
               data-test="github-link"
             >
-              <img src="./assets/general/github.png" alt="" class="icon" loading="lazy" />
+              <img src="./assets/general/github.png" alt="" class="icon" loading="lazy" width="32" height="32" />
             </a>
           </div>
         </div>
@@ -170,7 +175,7 @@
         <a
           href="#about"
           class="scroll-indicator"
-          aria-label="Scroll to About section"
+          aria-label="Slide to About section"
           data-test="scroll-indicator-link"
         >
           <span data-translate="profile.scrollDown" data-test="scroll-indicator-text"></span>
@@ -192,7 +197,7 @@
       </section>
 
       <section id="about" class="reveal" data-test="about-section">
-        <h1 class="title" data-translate="about.sectionTitle" data-test="about-title"></h1>
+        <h2 class="title" data-translate="about.sectionTitle" data-test="about-title"></h2>
         <div class="section-container">
           <div class="about-details-container">
             <div class="about-containers" data-test="about-containers">
@@ -202,6 +207,8 @@
                   alt="Experience icon"
                   class="icon"
                   loading="lazy"
+                  width="32"
+                  height="32"
                   data-test="experience-icon"
                 />
                 <h3 data-translate="about.experienceTitle" data-test="experience-title"></h3>
@@ -213,6 +220,8 @@
                   alt="Education icon"
                   class="icon"
                   loading="lazy"
+                  width="32"
+                  height="32"
                   data-test="education-icon"
                 />
                 <h3 data-translate="about.educationTitle" data-test="education-title"></h3>
@@ -227,7 +236,7 @@
       </section>
 
       <section id="experience" class="reveal" data-test="experience-section">
-        <h1 class="title" data-translate="experience.sectionTitle" data-test="experience-title"></h1>
+        <h2 class="title" data-translate="experience.sectionTitle" data-test="experience-title"></h2>
         <div class="experience-details-container" data-test="experience-details-container">
           <div class="about-containers" data-test="experience-containers">
             <!-- Frontend Development -->
@@ -401,7 +410,14 @@
                   <span>Cypress</span>
                 </div>
                 <div class="skill-chip" data-test="detox-skill">
-                  <img src="./assets/general/detox-icon.ico" alt="Detox icon" class="skill-icon" loading="lazy" />
+                  <img
+                    src="./assets/general/detox-icon.ico"
+                    alt="Detox icon"
+                    class="skill-icon"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                  />
                   <span>Detox</span>
                 </div>
                 <div class="skill-chip" data-test="playwright-skill">
@@ -420,7 +436,7 @@
       </section>
 
       <section id="projects" class="reveal" data-test="projects-section">
-        <h1 class="title" data-translate="projects.sectionTitle" data-test="projects-title"></h1>
+        <h2 class="title" data-translate="projects.sectionTitle" data-test="projects-title"></h2>
         <div class="swiper-container" data-test="projects-carousel">
           <div class="swiper-wrapper" id="projects-wrapper" data-test="projects-wrapper"></div>
           <div class="swiper-pagination" data-test="projects-pagination"></div>
@@ -430,7 +446,7 @@
       </section>
 
       <section id="contact" class="reveal" data-test="contact-section">
-        <h1 class="title" data-translate="contact.sectionTitle" data-test="contact-title"></h1>
+        <h2 class="title" data-translate="contact.sectionTitle" data-test="contact-title"></h2>
         <div class="contact-info-upper-container" data-test="contact-info-container">
           <div class="contact-info-container" data-test="email-contact-container">
             <img
@@ -438,6 +454,8 @@
               alt="Email icon"
               class="icon email-icon"
               loading="lazy"
+              width="40"
+              height="40"
               data-test="email-icon"
             />
             <p><a href="mailto:pmrobalo@gmail.com" data-translate="contact.email" data-test="email-link"></a></p>
@@ -448,6 +466,8 @@
               alt="LinkedIn icon"
               class="icon contact-icon"
               loading="lazy"
+              width="32"
+              height="32"
               data-test="linkedin-contact-icon"
             />
             <p>
@@ -466,6 +486,8 @@
               alt="GitHub icon"
               class="icon contact-icon"
               loading="lazy"
+              width="32"
+              height="32"
               data-test="github-contact-icon"
             />
             <p>
@@ -495,7 +517,7 @@
       </nav>
       <p data-translate="footer.copyright" data-test="footer-copyright"></p>
     </footer>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/swiper-init.js"></script>
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/swiper-init.js" defer></script>
   </body>
 </html>

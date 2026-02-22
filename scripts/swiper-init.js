@@ -83,7 +83,12 @@ const PROJECTS = [
 ];
 
 const PREVIEW_TIMEOUT_MS = 5000;
+const SWIPER_CSS_URL = 'https://unpkg.com/swiper@11.1.15/swiper-bundle.min.css';
+const SWIPER_JS_URL = 'https://unpkg.com/swiper@11.1.15/swiper-bundle.min.js';
 const previewTimers = new WeakMap();
+let swiperAssetsPromise = null;
+let swiperInitPromise = null;
+let hasBootstrappedProjectsCarousel = false;
 
 function renderProjectSlides() {
   const wrapper = document.querySelector('#projects-wrapper');
@@ -277,6 +282,10 @@ function updateSlideFocus(swiperInstance) {
 }
 
 function initSwiper() {
+  if (typeof Swiper === 'undefined') {
+    return null;
+  }
+
   renderProjectSlides();
 
   const swiper = new Swiper('.swiper-container', {
@@ -342,14 +351,157 @@ function initSwiper() {
   return swiper;
 }
 
-if (typeof window !== 'undefined' && typeof Swiper !== 'undefined') {
-  initSwiper();
+function loadSwiperStylesheet() {
+  if (typeof document === 'undefined') {
+    return Promise.resolve();
+  }
+
+  const existingLink =
+    document.querySelector('link[data-swiper-stylesheet="true"]') ||
+    document.querySelector(`link[href="${SWIPER_CSS_URL}"]`);
+
+  if (existingLink) {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve, reject) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = SWIPER_CSS_URL;
+    link.dataset.swiperStylesheet = 'true';
+    link.onload = () => resolve();
+    link.onerror = () => reject(new Error('Failed to load Swiper stylesheet'));
+    document.head.appendChild(link);
+  });
+}
+
+function loadSwiperScript() {
+  if (typeof window === 'undefined') {
+    return Promise.resolve();
+  }
+
+  if (typeof window.Swiper !== 'undefined') {
+    return Promise.resolve();
+  }
+
+  const existingScript = document.querySelector('script[data-swiper-script="true"]');
+  if (existingScript) {
+    return new Promise((resolve, reject) => {
+      existingScript.addEventListener('load', resolve, { once: true });
+      existingScript.addEventListener('error', () => reject(new Error('Failed to load Swiper script')), {
+        once: true,
+      });
+    });
+  }
+
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = SWIPER_JS_URL;
+    script.async = true;
+    script.dataset.swiperScript = 'true';
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error('Failed to load Swiper script'));
+    document.head.appendChild(script);
+  });
+}
+
+function ensureSwiperAssets() {
+  if (!swiperAssetsPromise) {
+    swiperAssetsPromise = Promise.all([loadSwiperStylesheet(), loadSwiperScript()]).catch((error) => {
+      swiperAssetsPromise = null;
+      throw error;
+    });
+  }
+
+  return swiperAssetsPromise;
+}
+
+function ensureSwiperInitialized() {
+  if (!swiperInitPromise) {
+    swiperInitPromise = ensureSwiperAssets()
+      .then(() => {
+        const swiperContainer = document.querySelector('.swiper-container');
+        if (!swiperContainer) {
+          return null;
+        }
+
+        if (swiperContainer.dataset.swiperInitialized === 'true') {
+          return window.__portfolioSwiper || null;
+        }
+
+        const swiperInstance = initSwiper();
+        if (swiperInstance) {
+          swiperContainer.dataset.swiperInitialized = 'true';
+          window.__portfolioSwiper = swiperInstance;
+        }
+
+        return swiperInstance;
+      })
+      .catch((error) => {
+        swiperInitPromise = null;
+        throw error;
+      });
+  }
+
+  return swiperInitPromise;
+}
+
+function bootstrapProjectsCarousel() {
+  if (hasBootstrappedProjectsCarousel || typeof window === 'undefined' || typeof document === 'undefined') {
+    return;
+  }
+
+  hasBootstrappedProjectsCarousel = true;
+
+  const boot = () => {
+    const target = document.querySelector('#projects');
+    if (!target) {
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      ensureSwiperInitialized().catch(() => {
+        renderProjectSlides();
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const isIntersecting = entries.some((entry) => entry.isIntersecting);
+        if (!isIntersecting) {
+          return;
+        }
+
+        observer.disconnect();
+
+        ensureSwiperInitialized().catch(() => {
+          renderProjectSlides();
+        });
+      },
+      { rootMargin: '200px 0px' }
+    );
+
+    observer.observe(target);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
+  }
+}
+
+if (typeof window !== 'undefined') {
+  bootstrapProjectsCarousel();
 }
 
 try {
   module.exports = {
     PROJECTS,
     PREVIEW_TIMEOUT_MS,
+    SWIPER_CSS_URL,
+    SWIPER_JS_URL,
     renderProjectSlides,
     setPreviewState,
     setFallback,
@@ -359,5 +511,8 @@ try {
     syncVisiblePreviews,
     updateSlideFocus,
     initSwiper,
+    ensureSwiperAssets,
+    ensureSwiperInitialized,
+    bootstrapProjectsCarousel,
   };
 } catch (e) {}

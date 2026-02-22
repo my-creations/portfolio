@@ -1,12 +1,10 @@
 /* ===== Design Tokens ===== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
 :root {
   /* Colors */
   --color-text-primary: rgb(0, 0, 0);
   --color-text-secondary: rgb(85, 85, 85);
-  --color-text-muted: rgb(163, 163, 163);
+  --color-text-muted: rgb(110, 110, 110);
   --color-bg: rgb(255, 255, 255);
   --color-bg-alt: rgb(250, 250, 250);
   --color-border: rgb(163, 163, 163);
@@ -43,7 +41,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
@@ -315,6 +313,12 @@ section {
   object-position: center;
   display: block;
   border-radius: 50%;
+}
+
+.section__pic-container picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .section__text {
