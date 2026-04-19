@@ -10,6 +10,11 @@ const PROJECTS = [
     demo: 'https://my-creations.github.io/dose-segura/',
   },
   {
+    key: 'projectVestaboard',
+    github: 'https://github.com/my-creations/vestaboard',
+    demo: 'https://my-creations.github.io/vestaboard/',
+  },
+  {
     key: 'projectOne',
     github: 'https://github.com/my-creations/joke-teller',
     demo: 'https://my-creations.github.io/joke-teller/',

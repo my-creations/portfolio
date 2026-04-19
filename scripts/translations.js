@@ -114,6 +114,13 @@ var translations = {
         github: 'GitHub',
         liveDemo: 'Live Demo',
       },
+      projectVestaboard: {
+        title: 'Vestaboard Clock',
+        description:
+          'A minimal Vestaboard-inspired clock with a 6 by 22 character grid, Lisbon time, and mechanical split-flap style sound',
+        github: 'GitHub',
+        liveDemo: 'Live Demo',
+      },
       projectOne: {
         title: 'Joke Teller',
         description: 'This project is about a funny robot that tells jokes',
@@ -289,6 +296,13 @@ var translations = {
         title: 'Dose Segura',
         description:
           'Aplicação de referência rápida para enfermeiros, focada em orientação de doses seguras e apoio à decisão clínica',
+        github: 'GitHub',
+        liveDemo: 'Demo Ao Vivo',
+      },
+      projectVestaboard: {
+        title: 'Vestaboard Clock',
+        description:
+          'Um relógio minimalista inspirado no Vestaboard com grelha de 6 por 22 caracteres, hora de Lisboa e som mecânico estilo split-flap',
         github: 'GitHub',
         liveDemo: 'Demo Ao Vivo',
       },

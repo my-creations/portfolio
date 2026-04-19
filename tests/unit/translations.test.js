@@ -122,14 +122,14 @@ describe('translations.js', () => {
       expect(translations.pt).toHaveProperty('footer');
     });
 
-    it('should have all 17 projects in English', () => {
+    it('should have all 18 projects in English', () => {
       const projectKeys = Object.keys(translations.en.projects).filter((k) => k.startsWith('project'));
-      expect(projectKeys).toHaveLength(17);
+      expect(projectKeys).toHaveLength(18);
     });
 
-    it('should have all 17 projects in Portuguese', () => {
+    it('should have all 18 projects in Portuguese', () => {
       const projectKeys = Object.keys(translations.pt.projects).filter((k) => k.startsWith('project'));
-      expect(projectKeys).toHaveLength(17);
+      expect(projectKeys).toHaveLength(18);
     });
   });
 });

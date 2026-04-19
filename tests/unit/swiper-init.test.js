@@ -29,8 +29,8 @@ describe('swiper-init.js', () => {
   });
 
   describe('PROJECTS constant', () => {
-    it('should have 17 projects', () => {
-      expect(PROJECTS).toHaveLength(17);
+    it('should have 18 projects', () => {
+      expect(PROJECTS).toHaveLength(18);
     });
 
     it('should have github and demo URLs for each project', () => {
@@ -53,7 +53,7 @@ describe('swiper-init.js', () => {
     it('should create slides for all projects', () => {
       renderProjectSlides();
       const slides = wrapper.querySelectorAll('.swiper-slide');
-      expect(slides).toHaveLength(17);
+      expect(slides).toHaveLength(18);
     });
 
     it('should do nothing if wrapper does not exist', () => {
