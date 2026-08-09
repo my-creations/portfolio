@@ -1180,6 +1180,10 @@ button:focus-visible {
   margin: 0;
 }
 
+.work-card__facts + .chip-list {
+  margin-top: var(--space-4);
+}
+
 .work-card--featured .work-card__facts {
   gap: 0;
   padding: 1rem 1.05rem;
