@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+permalink: /about/
+translationKey: about
+pageType: about
+eleventyComputed:
+  title: "{{ i18n.en.about.title }}"
+  description: "{{ i18n.en.about.lede }}"
+---
+{% set t = i18n.en %}
+{% set locale = 'en' %}
+{% set copy = about.en %}
+
+<header class="page__header">
+  <p class="eyebrow">Pedro Robalo</p>
+  <h1 class="page__title">{{ t.about.title }}</h1>
+  <p class="page__lede">{{ t.about.lede }}</p>
+</header>
+
+<div class="about-layout">
+  <figure class="about-figure">
+    <img
+      class="about-portrait"
+      src="{{ '/assets/general/profile-pic.webp' }}"
+      alt="{{ copy.portraitAlt }}"
+      width="448"
+      height="560"
+      loading="eager"
+    />
+  </figure>
+
+  <div>
+    <section class="about-section" aria-labelledby="story-title">
+      <h2 id="story-title">{{ t.about.storyTitle }}</h2>
+      {% for paragraph in copy.story %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </section>
+
+    <section class="about-section" aria-labelledby="milestones-title">
+      <h2 id="milestones-title">{{ t.about.milestonesTitle }}</h2>
+      <ul class="milestone-list">
+        {% for item in copy.milestones %}
+        <li>
+          <strong>{{ item.label }}</strong>
+          <span class="muted">{{ item.detail }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="about-section" aria-labelledby="education-title">
+      <h2 id="education-title">{{ t.about.educationTitle }}</h2>
+      <ul class="plain-list">
+        {% for item in copy.education %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="about-section" aria-labelledby="toolkit-title">
+      <h2 id="toolkit-title">{{ t.about.toolkitTitle }}</h2>
+      <ul class="plain-list">
+        {% for item in copy.toolkit %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      <p>{{ copy.approachClosing }}</p>
+      <p>
+        <a class="button button--secondary" href="{{ site.resumePath }}">{{ t.about.resumeCta }}</a>
+      </p>
+    </section>
+  </div>
+</div>

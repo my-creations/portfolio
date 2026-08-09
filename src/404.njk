@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+permalink: /404.html
+translationKey: not-found
+pageType: page
+title: Page not found
+eleventyExcludeFromCollections: true
+---
+{% set t = i18n[locale or 'en'] %}
+<section class="not-found">
+  <h1>{{ t.meta.notFoundTitle }}</h1>
+  <p class="page__lede">{{ t.meta.notFoundBody }}</p>
+  <p><a class="button button--primary" href="{{ '/' }}">{{ t.meta.notFoundCta }}</a></p>
+</section>

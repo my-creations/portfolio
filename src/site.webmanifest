@@ -1,0 +1,31 @@
+{
+  "name": "Pedro Robalo — Portfolio",
+  "short_name": "Pedro Robalo",
+  "description": "Quality Engineering, test automation, and healthcare-aware product craft.",
+  "start_url": "/portfolio/",
+  "display": "standalone",
+  "background_color": "#f5f5f7",
+  "theme_color": "#ff5a00",
+  "icons": [
+    {
+      "src": "./assets/favicons/favicon-16x16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./assets/favicons/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./assets/favicons/favicon-48x48.svg",
+      "sizes": "48x48",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./assets/favicons/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

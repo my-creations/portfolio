@@ -1,0 +1,35 @@
+{% set pageLocale = locale or site.defaultLocale %}
+{% set pageTitle = title + ' · ' + site.name if title else site.name + ' · ' + site.title[pageLocale] %}
+{% set pageDescription = description or summary or site.description[pageLocale] %}
+{% set canonical = site.url + (page.url | url) %}
+
+<title>{{ site.name }}</title>
+<meta name="description" content="{{ pageDescription }}" />
+<meta name="author" content="{{ site.author }}" />
+<meta name="theme-color" content="#f5f5f7" />
+<link rel="canonical" href="{{ canonical }}" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ pageTitle }}" />
+<meta property="og:description" content="{{ pageDescription }}" />
+<meta property="og:url" content="{{ canonical }}" />
+<meta property="og:site_name" content="{{ site.name }}" />
+<meta property="og:locale" content="{{ 'pt_PT' if pageLocale == 'pt' else 'en_GB' }}" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ pageTitle }}" />
+<meta name="twitter:description" content="{{ pageDescription }}" />
+
+{% if translationKey %}
+  {% set enCounterpart = collections.all | findByTranslationKey(translationKey, 'en') %}
+  {% set ptCounterpart = collections.all | findByTranslationKey(translationKey, 'pt') %}
+  {% if enCounterpart %}
+  <link rel="alternate" hreflang="en" href="{{ site.url + (enCounterpart.url | url) }}" />
+  {% endif %}
+  {% if ptCounterpart %}
+  <link rel="alternate" hreflang="pt" href="{{ site.url + (ptCounterpart.url | url) }}" />
+  {% endif %}
+  {% if enCounterpart %}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url + (enCounterpart.url | url) }}" />
+  {% endif %}
+{% endif %}

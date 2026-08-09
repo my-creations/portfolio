@@ -1,0 +1,23 @@
+{% set t = i18n[locale] %}
+<footer class="site-footer" data-test="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__invite">
+      <p class="site-footer__lead">{{ t.footer.invitation }}</p>
+    </div>
+    <ul class="site-footer__links">
+      <li>
+        <a href="mailto:{{ site.email }}" data-test="footer-email">{{ t.footer.email }} · {{ site.email }}</a>
+      </li>
+      <li>
+        <a href="{{ site.github }}" rel="noopener noreferrer" target="_blank" data-test="footer-github">{{ t.footer.github }}</a>
+      </li>
+      <li>
+        <a href="{{ site.linkedin }}" rel="noopener noreferrer" target="_blank" data-test="footer-linkedin">{{ t.footer.linkedin }}</a>
+      </li>
+      <li>
+        <a href="{{ site.resumePath }}" data-test="footer-resume">{{ t.footer.resume }}</a>
+      </li>
+    </ul>
+    <p class="site-footer__copy mono">© {{ site.buildYear }} {{ site.name }}. {{ t.footer.copyright }}</p>
+  </div>
+</footer>

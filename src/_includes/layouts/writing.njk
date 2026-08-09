@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+pageType: writing-detail
+---
+{% set t = i18n[locale] %}
+{% set typeLabel = t.writing.article if contentType == 'article' else t.writing.note %}
+{% set minutes = content | readingTime %}
+{% set writingIndexHref = '/pt/escrita/' if locale == 'pt' else '/writing/' %}
+
+<article class="writing-detail">
+  <header class="page__header writing-detail__header">
+    <p class="eyebrow">
+      <a href="{{ writingIndexHref }}">{{ t.writing.title }}</a>
+      <span aria-hidden="true"> · </span>
+      <span class="mono">{{ typeLabel }}</span>
+    </p>
+    <h1 class="page__title">{{ title }}</h1>
+    {% if summary %}
+    <p class="page__lede">{{ summary }}</p>
+    {% endif %}
+    <p class="meta-row mono">
+      <time datetime="{{ date | isoDate }}">{{ date | displayDate(locale) }}</time>
+      <span aria-hidden="true"> · </span>
+      <span>{{ minutes }} {{ t.writing.readingTime }}</span>
+      {% if tags and tags.length %}
+      <span aria-hidden="true"> · </span>
+      <span>{{ tags | reject('equalto', 'writing') | join(', ') }}</span>
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="writing-detail__body prose prose--article">
+    {{ content | safe }}
+  </div>
+
+  <footer class="writing-detail__footer">
+    <a class="text-link" href="{{ '/feed.xml' }}">{{ t.writing.rss }}</a>
+  </footer>
+</article>

@@ -1,0 +1,55 @@
+{% set card = project.card[locale] %}
+{% set href = collections.caseStudies | caseStudyUrl(project.key, locale) %}
+
+<article class="work-card {% if featured %}work-card--featured{% endif %}" data-test="work-card-{{ project.key }}">
+  <header class="work-card__header">
+    {% if featured %}
+    <p class="work-card__kicker">{{ t.work.featuredLabel }}</p>
+    {% elif project.sanitized %}
+    <p class="work-card__kicker">{{ t.work.sanitizedLabel }}</p>
+    {% endif %}
+    <h3 class="work-card__title">
+      {% if href %}
+      <a href="{{ href }}">{{ card.title }}</a>
+      {% else %}
+      {{ card.title }}
+      {% endif %}
+    </h3>
+    <p class="work-card__subtitle">{{ card.subtitle }}</p>
+  </header>
+
+  <dl class="work-card__facts">
+    <div>
+      <dt>{{ t.work.problem }}</dt>
+      <dd>{{ card.problem }}</dd>
+    </div>
+    <div>
+      <dt>{{ t.work.approach }}</dt>
+      <dd>{{ card.approach }}</dd>
+    </div>
+    <div>
+      <dt>{{ t.work.outcome }}</dt>
+      <dd>{{ card.outcome }}</dd>
+    </div>
+  </dl>
+
+  {% if project.stack %}
+  <ul class="chip-list chip-list--compact" aria-label="{{ t.work.stack }}">
+    {% for item in project.stack %}
+    <li class="chip">{{ item }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <div class="work-card__actions">
+    {% if href %}
+    <a class="text-link" href="{{ href }}">{{ t.work.readCaseStudy }}</a>
+    {% endif %}
+    {% if project.links.source %}
+    <a class="text-link" href="{{ project.links.source }}" rel="noopener noreferrer" target="_blank">{{ t.work.source }}</a>
+    {% endif %}
+    {% if project.links.demo %}
+    <a class="text-link" href="{{ project.links.demo }}" rel="noopener noreferrer" target="_blank">{{ t.work.demo }}</a>
+    {% endif %}
+  </div>
+</article>

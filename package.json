@@ -7,6 +7,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
+    "test:redesign": "playwright test --config=playwright.redesign.config.js",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:chromium": "playwright test --project=chromium",
@@ -14,9 +15,15 @@
     "test:e2e:webkit": "playwright test --project=webkit",
     "serve": "serve -l 8080",
     "format": "prettier --write \"**/*.{html,css,js,json,md,yml,yaml}\"",
-    "format:check": "prettier --check \"**/*.{html,css,js,json,md,yml,yaml}\""
+    "format:check": "prettier --check \"**/*.{html,css,js,json,md,yml,yaml}\"",
+    "build": "rm -rf _site && eleventy",
+    "start": "rm -rf _site && eleventy --serve",
+    "dev": "rm -rf _site && eleventy --serve"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "@axe-core/playwright": "^4.12.1",
     "@playwright/test": "^1.50.0",
     "jsdom": "^26.0.0",
     "prettier": "^3.8.1",

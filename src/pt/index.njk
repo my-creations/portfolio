@@ -1,0 +1,108 @@
+---
+layout: layouts/base.njk
+permalink: /pt/
+translationKey: home
+pageType: home
+eleventyComputed:
+  title: "{{ site.title.pt }}"
+  description: "{{ site.description.pt }}"
+---
+{% set t = i18n.pt %}
+{% set locale = 'pt' %}
+
+<section class="hero" data-test="hero">
+  <div class="hero__main">
+    <p class="eyebrow">{{ t.home.eyebrow }}</p>
+    <h1 class="hero__title">Engenheiro de Software. <em>Qualidade</em> desde o início.</h1>
+    <p class="hero__lede">{{ t.home.lede }}</p>
+    <div class="hero__actions">
+      <a class="button button--primary" href="{{ '/pt/trabalho/' }}" data-test="cta-work">{{ t.home.primaryCta }}</a>
+      <a class="button button--secondary" href="{{ '/pt/escrita/' }}" data-test="cta-writing">{{ t.home.secondaryCta }}</a>
+    </div>
+  </div>
+  <div class="hero__side">
+    <figure class="hero__portrait">
+      <img
+        src="{{ '/assets/general/profile-pic.webp' }}"
+        alt="{{ about.pt.portraitAlt }}"
+        width="448"
+        height="560"
+        loading="eager"
+        decoding="async"
+      />
+    </figure>
+    <aside class="hero__rail" aria-label="Foco">
+      <p class="hero__rail-label">Foco</p>
+      <ul class="hero__rail-list">
+        <li>Quality Engineering</li>
+        <li>Automação de testes</li>
+        <li>Produtos com sensibilidade clínica</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="featured-work-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">01</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="featured-work-title">{{ t.home.featuredWorkTitle }}</h2>
+      <p class="section__lede">{{ t.home.featuredWorkLede }}</p>
+    </div>
+    <a class="text-link" href="{{ '/pt/trabalho/' }}">{{ t.home.viewAllWork }}</a>
+  </div>
+  <div class="card-grid card-grid--featured">
+    {% set project = projects | selectattr('key', 'equalto', 'cuf-prepara') | first %}
+    {% set featured = true %}
+    {% include "partials/work-card.njk" %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="featured-writing-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">02</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="featured-writing-title">{{ t.home.featuredWritingTitle }}</h2>
+      <p class="section__lede">{{ t.home.featuredWritingLede }}</p>
+    </div>
+    <a class="text-link" href="{{ '/pt/escrita/' }}">{{ t.home.viewAllWriting }}</a>
+  </div>
+  {% set featuredWriting = collections.writing | whereLocale('pt') | whereFeatured %}
+  {% if featuredWriting.length %}
+  <ul class="writing-list">
+    {% for item in featuredWriting.slice(0, 2) %}
+    <li>
+      <article class="writing-card">
+        <p class="eyebrow">{{ t.writing.article if item.data.contentType == 'article' else t.writing.note }}</p>
+        <h3 class="writing-card__title"><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+        <p class="writing-card__summary">{{ item.data.summary }}</p>
+        <p class="writing-card__meta meta-row mono">
+          <time datetime="{{ item.date | isoDate }}">{{ item.date | displayDate('pt') }}</time>
+        </p>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty-state muted">{{ t.home.emptyWriting }}</p>
+  {% endif %}
+</section>
+
+<section class="section" aria-labelledby="context-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">03</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="context-title">{{ t.home.contextTitle }}</h2>
+    </div>
+  </div>
+  <div class="context-panel">
+    <p>{{ t.home.contextBody }}</p>
+    <p><a class="text-link" href="{{ '/pt/sobre/' }}">{{ t.nav.about }}</a></p>
+  </div>
+</section>
+
+<section class="section contact-band" aria-labelledby="contact-title">
+  <h2 class="section__title" id="contact-title">{{ t.home.contactTitle }}</h2>
+  <p class="page__lede">{{ t.home.contactBody }}</p>
+  <a class="button button--primary" href="mailto:{{ site.email }}">{{ site.email }}</a>
+</section>

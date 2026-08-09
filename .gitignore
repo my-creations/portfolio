@@ -1,9 +1,12 @@
 node_modules/
+_site/
 playwright-report/
 test-results/
 coverage/
 .nyc_output/
 *.log
+.pi/tasks/
+.tmp/
 .DS_Store
 Thumbs.db
 .env

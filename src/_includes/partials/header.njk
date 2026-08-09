@@ -1,0 +1,121 @@
+{% set t = i18n[locale] %}
+{% if locale == 'pt' %}
+  {% set homeHref = '/pt/' %}
+  {% set workHref = '/pt/trabalho/' %}
+  {% set writingHref = '/pt/escrita/' %}
+  {% set aboutHref = '/pt/sobre/' %}
+  {% set fallbackLangHref = '/' %}
+  {% set writingIndexOther = '/writing/' %}
+{% else %}
+  {% set homeHref = '/' %}
+  {% set workHref = '/work/' %}
+  {% set writingHref = '/writing/' %}
+  {% set aboutHref = '/about/' %}
+  {% set fallbackLangHref = '/pt/' %}
+  {% set writingIndexOther = '/pt/escrita/' %}
+{% endif %}
+{% set langHref = collections.all | languageHref(translationKey, t.otherLocale, fallbackLangHref, writingIndexOther, pageType) %}
+
+<header class="site-header" data-test="site-header">
+  <div class="site-header__inner">
+    <div class="wordmark" data-test="wordmark" aria-label="{{ site.name }} — {{ t.nav.portfolioLabel }}">
+      <span class="wordmark__name">{{ site.name }}</span>
+      <span class="wordmark__label mono" aria-hidden="true">{{ t.nav.portfolioLabel }}</span>
+    </div>
+
+    <nav class="nav nav--desktop" aria-label="Primary" data-test="desktop-navigation">
+      <ul class="nav__list">
+        <li><a href="{{ homeHref }}" {% if pageType == 'home' %}aria-current="page"{% endif %}>{{ t.nav.home }}</a></li>
+        <li><a href="{{ workHref }}" {% if pageType == 'work' or pageType == 'case-study' %}aria-current="page"{% endif %}>{{ t.nav.work }}</a></li>
+        <li><a href="{{ writingHref }}" {% if pageType == 'writing' or pageType == 'writing-detail' %}aria-current="page"{% endif %}>{{ t.nav.writing }}</a></li>
+        <li><a href="{{ aboutHref }}" {% if pageType == 'about' %}aria-current="page"{% endif %}>{{ t.nav.about }}</a></li>
+        <li class="nav__language">
+          <div class="locale-switcher mono" role="group" aria-label="{{ t.nav.language }}">
+            {% if locale == 'pt' %}
+              <a
+                class="locale-option"
+                href="{{ langHref }}"
+                hreflang="en"
+                lang="en"
+                data-test="lang-switch"
+                aria-label="{{ t.nav.language }}: EN"
+              >EN</a>
+              <span class="locale-option is-current" lang="pt" aria-label="PT — {{ t.nav.currentLanguage }}">PT</span>
+            {% else %}
+              <span class="locale-option is-current" lang="en" aria-label="EN — {{ t.nav.currentLanguage }}">EN</span>
+              <a
+                class="locale-option"
+                href="{{ langHref }}"
+                hreflang="pt"
+                lang="pt"
+                data-test="lang-switch"
+                aria-label="{{ t.nav.language }}: PT"
+              >PT</a>
+            {% endif %}
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      data-nav-toggle
+      data-test="nav-toggle"
+      data-label-close="{{ t.nav.closeMenu }}"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label="{{ t.nav.openMenu }}"
+    >
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="nav-backdrop" data-nav-backdrop hidden></div>
+
+  <nav id="mobile-nav" class="nav nav--mobile" data-mobile-nav hidden data-test="mobile-navigation" aria-label="Primary">
+    <div class="nav--mobile__label mono" aria-hidden="true">Menu / {{ t.nav.navigationLabel }}</div>
+    <ul class="nav__list">
+      <li>
+        <a href="{{ homeHref }}" {% if pageType == 'home' %}aria-current="page"{% endif %}>
+          <span class="nav__index mono" aria-hidden="true">01</span>
+          <span>{{ t.nav.home }}</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ workHref }}" {% if pageType == 'work' or pageType == 'case-study' %}aria-current="page"{% endif %}>
+          <span class="nav__index mono" aria-hidden="true">02</span>
+          <span>{{ t.nav.work }}</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ writingHref }}" {% if pageType == 'writing' or pageType == 'writing-detail' %}aria-current="page"{% endif %}>
+          <span class="nav__index mono" aria-hidden="true">03</span>
+          <span>{{ t.nav.writing }}</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ aboutHref }}" {% if pageType == 'about' %}aria-current="page"{% endif %}>
+          <span class="nav__index mono" aria-hidden="true">04</span>
+          <span>{{ t.nav.about }}</span>
+        </a>
+      </li>
+      <li class="nav__language">
+        <div class="mobile-language-control">
+          <span class="mobile-language-control__label mono">{{ t.nav.language }}</span>
+          <div class="locale-switcher mono" role="group" aria-label="{{ t.nav.language }}">
+            {% if locale == 'pt' %}
+              <a class="locale-option" href="{{ langHref }}" hreflang="en" lang="en" aria-label="{{ t.nav.language }}: EN">EN</a>
+              <span class="locale-option is-current" lang="pt" aria-label="PT — {{ t.nav.currentLanguage }}">PT</span>
+            {% else %}
+              <span class="locale-option is-current" lang="en" aria-label="EN — {{ t.nav.currentLanguage }}">EN</span>
+              <a class="locale-option" href="{{ langHref }}" hreflang="pt" lang="pt" aria-label="{{ t.nav.language }}: PT">PT</a>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>

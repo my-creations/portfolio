@@ -4,7 +4,8 @@ test.describe('Projects Section', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(1500);
+    await page.locator('#projects').scrollIntoViewIfNeeded();
+    await expect(page.locator('.swiper-slide').first()).toBeAttached();
   });
 
   test('should display projects section', async ({ page }) => {
@@ -60,7 +61,8 @@ test.describe('Projects Swiper Navigation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(1500);
+    await page.locator('#projects').scrollIntoViewIfNeeded();
+    await expect(page.locator('.swiper-slide').first()).toBeAttached();
   });
 
   test('should loop through slides', async ({ page }) => {

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ locale or site.defaultLocale }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if pageType == 'home' and locale == 'en' %}
+    <script>
+      (() => {
+        const browserLocale = (navigator.languages?.[0] || navigator.language || '').toLowerCase();
+        let preferredLocale = browserLocale.startsWith('pt') ? 'pt' : 'en';
+
+        try {
+          const savedLocale = localStorage.getItem('portfolio:locale');
+          if (savedLocale === 'en' || savedLocale === 'pt') preferredLocale = savedLocale;
+        } catch (error) {
+          // Browser detection remains available when storage is restricted.
+        }
+
+        if (preferredLocale === 'pt') {
+          window.location.replace(new URL('pt/', window.location.href).href);
+        }
+      })();
+    </script>
+    {% endif %}
+    {% include "partials/meta.njk" %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css"
+    />
+    <link rel="stylesheet" href="{{ '/css/main.css' }}" />
+    <link rel="icon" href="{{ '/assets/favicons/favicon.ico' }}" sizes="any" />
+    <link rel="icon" href="{{ '/assets/favicons/favicon.svg' }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="{{ '/assets/favicons/favicon-48x48.svg' }}" />
+    <link rel="manifest" href="{{ '/site.webmanifest' }}" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="{{ site.name }} — Writing"
+      href="{{ '/feed.xml' }}"
+    />
+  </head>
+  <body class="site-body" data-page="{{ pageType or 'page' }}">
+    {% set t = i18n[locale or site.defaultLocale] %}
+    <a class="skip-link" href="#main-content">{{ t.meta.skipToContent }}</a>
+    {% include "partials/header.njk" %}
+    <main id="main-content" class="main" tabindex="-1">
+      {{ content | safe }}
+    </main>
+    {% include "partials/footer.njk" %}
+    <script src="{{ '/js/main.js' }}" defer></script>
+  </body>
+</html>

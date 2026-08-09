@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+permalink: /pt/escrita/
+translationKey: writing-index
+pageType: writing
+eleventyComputed:
+  title: "{{ i18n.pt.writing.title }}"
+  description: "{{ i18n.pt.writing.lede }}"
+---
+{% set t = i18n.pt %}
+{% set locale = 'pt' %}
+{% set entries = collections.writing | whereLocale('pt') %}
+
+<header class="page__header">
+  <p class="eyebrow">Notas &amp; Artigos</p>
+  <h1 class="page__title">{{ t.writing.title }}</h1>
+  <p class="page__lede">{{ t.writing.lede }}</p>
+  <p class="meta-row"><a class="text-link" href="{{ '/feed.xml' }}">{{ t.writing.rss }}</a></p>
+</header>
+
+{% if entries.length %}
+<ul class="writing-list">
+  {% for item in entries %}
+  <li>
+    <article class="writing-card">
+      <p class="eyebrow">{{ t.writing.article if item.data.contentType == 'article' else t.writing.note }}</p>
+      <h2 class="writing-card__title"><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+      <p class="writing-card__summary">{{ item.data.summary }}</p>
+      <p class="writing-card__meta meta-row mono">
+        <time datetime="{{ item.date | isoDate }}">{{ item.date | displayDate('pt') }}</time>
+        {% if item.data.tags %}
+        <span aria-hidden="true"> · </span>
+        <span>{{ item.data.tags | reject('equalto', 'writing') | join(', ') }}</span>
+        {% endif %}
+      </p>
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state muted">{{ t.writing.empty }}</p>
+{% endif %}

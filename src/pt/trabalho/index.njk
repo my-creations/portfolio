@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+permalink: /pt/trabalho/
+translationKey: work-index
+pageType: work
+eleventyComputed:
+  title: "{{ i18n.pt.work.title }}"
+  description: "{{ i18n.pt.work.lede }}"
+---
+{% set t = i18n.pt %}
+{% set locale = 'pt' %}
+
+<header class="page__header">
+  <p class="eyebrow">Portefólio</p>
+  <h1 class="page__title">{{ t.work.title }}</h1>
+  <p class="page__lede">{{ t.work.lede }}</p>
+</header>
+
+<section class="section" aria-labelledby="case-studies-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">01</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="case-studies-title">{{ t.work.caseStudiesTitle }}</h2>
+    </div>
+  </div>
+  <div class="card-grid card-grid--work">
+    {% for project in projects %}
+      {% if project.caseStudy %}
+        {% set featured = loop.first %}
+        {% include "partials/work-card.njk" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="experiments-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">02</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="experiments-title">{{ t.work.experimentsTitle }}</h2>
+      <p class="section__lede">{{ t.work.experimentsLede }}</p>
+    </div>
+  </div>
+
+  {% set highlighted = experiments.highlighted %}
+  <article class="experiment-card experiment-highlight" data-test="experiment-highlighted">
+    <h3 class="experiment-card__title">
+      <a href="{{ highlighted.demo }}" rel="noopener noreferrer" target="_blank">{{ highlighted.pt.name }}</a>
+    </h3>
+    <p class="experiment-card__summary">{{ highlighted.pt.oneLiner }}</p>
+    <div class="work-card__actions">
+      <a class="text-link" href="{{ highlighted.github }}" rel="noopener noreferrer" target="_blank">{{ t.work.source }}</a>
+      <a class="text-link" href="{{ highlighted.demo }}" rel="noopener noreferrer" target="_blank">{{ t.work.demo }}</a>
+    </div>
+  </article>
+
+  <h3 class="aside-block__title">{{ t.work.archiveTitle }}</h3>
+  <ul class="experiment-archive" data-test="experiment-archive">
+    {% for item in experiments.archive %}
+    <li>
+      <div>
+        <div class="experiment-archive__name">{{ item.pt.name }}</div>
+        <div class="muted">{{ item.pt.oneLiner }}</div>
+      </div>
+      <div class="experiment-archive__links">
+        <a href="{{ item.github }}" rel="noopener noreferrer" target="_blank">{{ t.work.source }}</a>
+        <a href="{{ item.demo }}" rel="noopener noreferrer" target="_blank">{{ t.work.demo }}</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

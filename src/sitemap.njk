@@ -1,0 +1,24 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for page in collections.all -%}
+{%- if page.data.draft != true and page.url and not page.data.eleventyExcludeFromCollections -%}
+  <url>
+    <loc>{{ site.url }}{{ page.url | url }}</loc>
+    {%- if page.data.translationKey -%}
+      {%- set enPage = collections.all | findByTranslationKey(page.data.translationKey, 'en') -%}
+      {%- set ptPage = collections.all | findByTranslationKey(page.data.translationKey, 'pt') -%}
+      {%- if enPage -%}
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ enPage.url | url }}" />
+      {%- endif -%}
+      {%- if ptPage -%}
+    <xhtml:link rel="alternate" hreflang="pt" href="{{ site.url }}{{ ptPage.url | url }}" />
+      {%- endif -%}
+    {%- endif -%}
+  </url>
+{%- endif -%}
+{%- endfor -%}
+</urlset>

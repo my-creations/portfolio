@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+pageType: case-study
+---
+{% set t = i18n[locale] %}
+{% set project = projects | selectattr('key', 'equalto', projectKey) | first %}
+{% set card = project.card[locale] if project else null %}
+{% set workIndexHref = '/pt/trabalho/' if locale == 'pt' else '/work/' %}
+
+<article class="case-study">
+  <header class="page__header case-study__header">
+    <p class="eyebrow">
+      <a href="{{ workIndexHref }}">{{ t.work.title }}</a>
+      <span aria-hidden="true"> / </span>
+      <span>{{ title }}</span>
+    </p>
+    <h1 class="page__title">{{ title }}</h1>
+    {% if summary %}
+    <p class="page__lede">{{ summary }}</p>
+    {% elif card %}
+    <p class="page__lede">{{ card.subtitle }}</p>
+    {% endif %}
+    {% if sanitized %}
+    <p class="meta-note">{{ t.work.sanitizedNote }}</p>
+    {% endif %}
+  </header>
+
+  <div class="case-study__layout">
+    <div class="case-study__content prose">
+      {{ content | safe }}
+    </div>
+
+    <aside class="case-study__aside" aria-label="{{ title }}">
+      {% if project and project.stack %}
+      <section class="aside-block">
+        <h2 class="aside-block__title">{{ t.work.stack }}</h2>
+        <ul class="chip-list">
+          {% for item in project.stack %}
+          <li class="chip">{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      <section class="aside-block">
+        <h2 class="aside-block__title">Links</h2>
+        <ul class="link-list">
+          {% if project and project.links.source %}
+          <li>
+            <a href="{{ project.links.source }}" rel="noopener noreferrer" target="_blank">{{ t.work.source }}</a>
+          </li>
+          {% else %}
+          <li class="muted">{{ t.work.noSource }}</li>
+          {% endif %}
+          {% if project and project.links.demo %}
+          <li>
+            <a href="{{ project.links.demo }}" rel="noopener noreferrer" target="_blank">{{ t.work.demo }}</a>
+          </li>
+          {% else %}
+          <li class="muted">{{ t.work.noDemo }}</li>
+          {% endif %}
+        </ul>
+      </section>
+    </aside>
+  </div>
+</article>
