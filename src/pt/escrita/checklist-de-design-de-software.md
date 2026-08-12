@@ -99,7 +99,7 @@ Nada fica local.
 Também listo:
 
 - docs a atualizar,
-- comunicação com usuários/clientes,
+- comunicação com utilizadores/clientes,
 - mudanças de processo,
 - impact em sistemas externos.
 
@@ -121,7 +121,7 @@ Nem todas viram task, mas guardam direção.
 Até este site ganhou com esta rotina:
 
 - estrutura limpa,
-- navigation previsível,
+- navegação previsível,
 - trade-offs explícitos,
 - comportamento confiável nos erros.
 

@@ -33,7 +33,7 @@ Muitas vezes, sem querer, a equipa faz assim:
 - **QA** valida no final.
 - **Falhas** ficam para “mais tarde”.
 
-É aí que o usuário nota a diferença.
+É aí que o utilizador nota a diferença.
 Ele não vê cargos, só vê comportamento.
 
 ## Um jeito mais leve de pensar qualidade
@@ -52,7 +52,7 @@ Antes de implementar, eu defino:
 
 ### 2) Usar tests como docs de comportamento
 
-Teste bom é mais do que “não quebrou”.
+Teste bom é mais do que “não falhou”.
 É uma frase simples:
 
 > “Dada esta input, o sistema faz isto.”
@@ -72,7 +72,7 @@ Pequenas decisões de error handling fazem a diferença.
 ### 4) Incluir observability no feature design
 
 Se não conseguimos responder rápido a:
-“o que mudou?”, “onde quebrou?” e “é algo visível pelo user?”,
+“o que mudou?”, “onde falhou?” e “é algo visível pelo utilizador?”,
 perdemos confiança.
 Então eu incluo desde cedo:
 
