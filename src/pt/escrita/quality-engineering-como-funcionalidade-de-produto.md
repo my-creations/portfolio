@@ -1,32 +1,98 @@
 ---
 layout: layouts/writing.njk
-permalink: false
+permalink: /pt/escrita/quality-engineering-como-funcionalidade-de-produto/
 translationKey: quality-as-product-feature
 contentType: article
 title: Quality Engineering como funcionalidade de produto
-summary: Rascunho — como as decisões de qualidade moldam o comportamento do produto em vez de aparecerem só como fase final de testes.
+summary: Penso a qualidade como uma parte do produto que o utilizador sente, não como um check no fim do ciclo.
 date: 2026-08-01
 tags:
   - writing
   - quality-engineering
 featured: true
-draft: true
+draft: false
 ---
 
-> **Rascunho.** Este artigo ainda não é público. Será escrito a partir de material verificado do repositório e revisto antes de `draft` passar a `false`.
+Eu também já tratei a qualidade como o último passo.
 
-## Argumento pretendido
+"Fiz feature → correr tests → deploy."
 
-Quality Engineering não é apenas uma fase depois da implementação. A forma como as equipas codificam risco, feedback e modos de falha muda o que o produto pode ser.
+Só que isso funciona enquanto tudo dá certo.
+Depois aparecem os casos que não estavam no happy path.
 
-## Material verificado a usar
+Desde aí, comecei a encarar quality engineering como parte do **product design**.
 
-- Testes baseados em risco e pensamento de segurança crítica a partir da prática de saúde
-- Testes unitários e end-to-end cross-browser neste portefólio
-- Feedback de CI em cada push
-- Padrões de acessibilidade e falha graciosa
-- Exemplos do portefólio, do CUF Prepara e do Dose Segura dentro dos respetivos limites de divulgação
+Quando a feature anda bem, o produto parece estável.
+Quando falha, é que o design real aparece.
 
-## Revisão necessária
+## O problema clássico (e comum)
 
-Opiniões na primeira pessoa, lições e quaisquer resultados afirmados precisam de aprovação explícita antes da publicação.
+Muitas vezes, sem querer, a equipa faz assim:
+
+- **Product** define o que vai ao lançamento.
+- **QA** valida no final.
+- **Falhas** ficam para “mais tarde”.
+
+É aí que o usuário nota a diferença.
+Ele não vê cargos, só vê comportamento.
+
+## Um jeito mais leve de pensar qualidade
+
+Eu simplifiquei para um hábito prático:
+
+### 1) Decidir onde o erro pode falhar em silêncio
+
+Nem tudo precisa gritar no error.
+Mas algumas falhas têm de travar a ação.
+Antes de implementar, eu defino:
+
+- o que pode ser retry,
+- o que deve parar a jornada,
+- o que precisa de mensagem clara.
+
+### 2) Usar tests como docs de comportamento
+
+Teste bom é mais do que “não quebrou”.
+É uma frase simples:
+
+> “Dada esta input, o sistema faz isto.”
+
+Isso mantém a equipa alinhada no que realmente importa.
+
+### 3) Designar recovery, não só sucesso
+
+Se um service falha, o que acontece?
+
+- o fluxo continua,
+- o fluxo pausa,
+- ou o sistema pede retry?
+
+Pequenas decisões de error handling fazem a diferença.
+
+### 4) Incluir observability no feature design
+
+Se não conseguimos responder rápido a:
+“o que mudou?”, “onde quebrou?” e “é algo visível pelo user?”,
+perdemos confiança.
+Então eu incluo desde cedo:
+
+- logs úteis,
+- mensagens de erro claras,
+- e checks que valem como evidence no processo.
+
+## Como isso aparece no portfólio
+
+Este portfólio também segue isso:
+
+- estrutura previsível,
+- conteúdo bilingual com regras consistentes,
+- CI + testes automáticos,
+- e estados de fallback acessíveis.
+
+Ou seja, não é só vitrine.
+É prova do meu jeito de construir.
+
+## Frase curta
+
+Não penso a qualidade como uma gate no fim.
+Penso nela como o que mantém o produto confiável quando a coisa aperta.
