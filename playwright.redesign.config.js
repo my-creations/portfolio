@@ -31,7 +31,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `npm run dev -- --port=${port}`,
+    command: `bun run dev -- --port=${port}`,
     url: `${origin}/portfolio/`,
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

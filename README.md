@@ -140,7 +140,8 @@ portfolio/
 ### Prerequisites
 
 - Web browser
-- Node.js 18+ (for running tests)
+- Node.js 18+ (for legacy support and compatibility checks)
+- Bun 1.3.10+ (runtime + package manager)
 - Local web server (optional, for development)
 
 ### Installation
@@ -156,6 +157,13 @@ portfolio/
 
    ```bash
    bun install
+   ```
+
+   If Bun is not installed yet:
+
+   ```bash
+   curl -fsSL https://bun.sh/install | bash
+   bun --version
    ```
 
 3. **Open locally**
