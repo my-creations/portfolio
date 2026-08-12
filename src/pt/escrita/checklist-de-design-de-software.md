@@ -67,7 +67,7 @@ Gosto de manter tudo simples:
 - explicit contracts,
 - poucas responsabilidades por função.
 
-Se uma função vira “faz de tudo”, eu separo.
+Se uma função passa a “fazer de tudo”, eu separo.
 
 ## 4) Testes + security no mesmo pacote
 
@@ -114,7 +114,7 @@ Antes de fechar, deixo claro:
 - constraints (time/compliance/platform).
 
 Mantenho também 2 ou 3 “moonshot notes”.
-Nem todas viram task, mas guardam direção.
+Nem todas se tornam tasks, mas ajudam a manter a direção.
 
 ## O que isto mudou no portfólio
 

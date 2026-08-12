@@ -36,7 +36,7 @@ Muitas vezes, sem querer, a equipa faz assim:
 É aí que o utilizador nota a diferença.
 Ele não vê cargos, só vê comportamento.
 
-## Um jeito mais leve de pensar qualidade
+## Uma forma mais leve de pensar a qualidade
 
 Eu simplifiquei para um hábito prático:
 
@@ -90,7 +90,7 @@ Este portfólio também segue isso:
 - e estados de fallback acessíveis.
 
 Ou seja, não é só vitrine.
-É prova do meu jeito de construir.
+É prova da forma como construo.
 
 ## Frase curta
 
