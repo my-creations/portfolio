@@ -18,6 +18,21 @@
     <p class="work-card__subtitle">{{ card.subtitle }}</p>
   </header>
 
+  {% if project.evidence %}
+  {% set evidence = project.evidence[locale] %}
+  <figure class="project-evidence project-evidence--{{ project.evidence.kind }}" aria-label="{{ evidence.label }}: {{ evidence.title }}">
+    <figcaption class="project-evidence__caption">
+      <span class="project-evidence__label mono">{{ evidence.label }}</span>
+      <strong>{{ evidence.title }}</strong>
+    </figcaption>
+    <ol class="project-evidence__track" aria-hidden="true">
+      {% for item in evidence.items %}
+      <li><span>{{ item }}</span></li>
+      {% endfor %}
+    </ol>
+  </figure>
+  {% endif %}
+
   <dl class="work-card__facts">
     <div>
       <dt>{{ t.work.problem }}</dt>
