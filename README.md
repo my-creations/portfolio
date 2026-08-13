@@ -140,7 +140,8 @@ portfolio/
 ### Prerequisites
 
 - Web browser
-- Node.js 18+ (for running tests)
+- Node.js 18+ (for legacy support and compatibility checks)
+- Bun 1.3.10+ (runtime + package manager)
 - Local web server (optional, for development)
 
 ### Installation
@@ -155,7 +156,14 @@ portfolio/
 2. **Install dependencies** (for testing)
 
    ```bash
-   npm install
+   bun install
+   ```
+
+   If Bun is not installed yet:
+
+   ```bash
+   curl -fsSL https://bun.sh/install | bash
+   bun --version
    ```
 
 3. **Open locally**
@@ -163,8 +171,8 @@ portfolio/
    - Or use a local server for optimal experience:
 
      ```bash
-     # Using npm
-     npm run serve
+     # Using Bun
+     bun run serve
 
      # Using Python 3
      python -m http.server 8000
@@ -174,15 +182,15 @@ portfolio/
      ```
 
 4. **View the portfolio**
-   - Navigate to `http://localhost:8080` (if using npm serve)
+   - Navigate to `http://localhost:8080` (if using `bun run serve`)
    - Or directly open the `index.html` file in your browser
    - Test responsiveness by resizing browser window or using developer tools
 
 5. **Run tests** (optional)
 
    ```bash
-   npm test              # Unit tests
-   npm run test:e2e      # E2E tests
+   bun run test              # Unit tests
+   bun run test:e2e      # E2E tests
    ```
 
 ## 🔧 Customization
@@ -333,27 +341,27 @@ The portfolio includes a comprehensive test suite with **142 automated tests** c
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Run unit tests
-npm test
+bun run test
 
 # Run unit tests in watch mode
-npm run test:watch
+bun run test:watch
 
 # Run E2E tests (all browsers)
-npm run test:e2e
+bun run test:e2e
 
 # Run E2E tests on specific browser
-npm run test:e2e:chromium
-npm run test:e2e:firefox
-npm run test:e2e:webkit
+bun run test:e2e:chromium
+bun run test:e2e:firefox
+bun run test:e2e:webkit
 
 # Run E2E tests with UI mode
-npm run test:e2e:ui
+bun run test:e2e:ui
 
 # Run E2E tests in debug mode
-npm run test:e2e:debug
+bun run test:e2e:debug
 ```
 
 ### Unit Tests (43 tests)
@@ -422,11 +430,11 @@ Tests run automatically on push and pull requests via GitHub Actions on [Blacksm
 jobs:
   unit-tests:
     runs-on: blacksmith-2vcpu-ubuntu-2404
-    steps: [npm test]
+    steps: [bun run test]
 
   e2e-tests:
     runs-on: blacksmith-2vcpu-ubuntu-2404
-    steps: [npm run test:e2e] # Chromium, Firefox, WebKit
+    steps: [bun run test:e2e] # Chromium, Firefox, WebKit
 ```
 
 ### Data Test Attributes
@@ -482,7 +490,7 @@ git push origin main
 
 ```bash
 # Install Vercel CLI
-npm i -g vercel
+bun install -g vercel
 
 # Deploy from project directory
 vercel --prod

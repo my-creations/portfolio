@@ -5,9 +5,9 @@ Working notes for the Eleventy multi-page redesign. Canonical product rules rema
 ## Commands
 
 ```bash
-npm run dev             # clean build + local server (respects pathPrefix /portfolio/)
-npm run build           # clean production build into _site/
-npm run test:redesign   # generated Portfolio checks in Chromium, Firefox, and WebKit
+bun run dev             # clean build + local server (respects pathPrefix /portfolio/)
+bun run build           # clean production build into _site/
+bun run test:redesign   # generated Portfolio checks in Chromium, Firefox, and WebKit
 ```
 
 Local preview with GitHub Pages path prefix:
@@ -21,7 +21,7 @@ Local preview with GitHub Pages path prefix:
 Override the prefix when needed:
 
 ```bash
-ELEVENTY_PATH_PREFIX=/ npm run dev
+ELEVENTY_PATH_PREFIX=/ bun run dev
 ```
 
 ## Layout
