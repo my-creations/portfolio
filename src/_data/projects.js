@@ -13,6 +13,19 @@ module.exports = [
       demo: null,
     },
     stack: ['Vanilla JS (ES modules)', 'Vitest', 'Playwright', 'ESLint', 'Prettier', 'Husky'],
+    evidence: {
+      kind: 'flow',
+      en: {
+        label: 'Product flow',
+        title: 'Clinical inputs become a plan patients can follow',
+        items: ['Diet', 'Medication', 'Exam day', 'Calendar'],
+      },
+      pt: {
+        label: 'Fluxo do produto',
+        title: 'Dados clínicos tornam-se num plano fácil de seguir',
+        items: ['Dieta', 'Medicação', 'Dia do exame', 'Calendário'],
+      },
+    },
     card: {
       en: {
         title: 'CUF Prepara',
@@ -51,6 +64,19 @@ module.exports = [
       demo: 'https://my-creations.github.io/dose-segura/',
     },
     stack: ['Expo / React Native', 'Expo Router', 'TypeScript', 'AsyncStorage', 'PWA', 'Jest', 'Playwright'],
+    evidence: {
+      kind: 'modes',
+      en: {
+        label: 'Delivery model',
+        title: 'A clinical reference that does not depend on the ward network',
+        items: ['Native', 'PWA', 'Offline'],
+      },
+      pt: {
+        label: 'Modelo de entrega',
+        title: 'Uma referência clínica que não depende da rede da enfermaria',
+        items: ['Nativo', 'PWA', 'Offline'],
+      },
+    },
     card: {
       en: {
         title: 'Dose Segura',
@@ -90,6 +116,19 @@ module.exports = [
       demo: 'https://my-creations.github.io/portfolio/',
     },
     stack: ['HTML', 'CSS', 'Vanilla JS', 'Vitest', 'Playwright', 'Prettier', 'GitHub Actions', 'Eleventy'],
+    evidence: {
+      kind: 'pipeline',
+      en: {
+        label: 'Quality loop',
+        title: 'Every push asks: is this safe to publish?',
+        items: ['Content', 'Build', 'Unit', 'E2E', 'Deploy'],
+      },
+      pt: {
+        label: 'Ciclo de qualidade',
+        title: 'Cada push pergunta: é seguro publicar?',
+        items: ['Conteúdo', 'Build', 'Unit', 'E2E', 'Deploy'],
+      },
+    },
     card: {
       en: {
         title: 'Portfolio quality system',

@@ -26,10 +26,6 @@ pageType: case-study
   </header>
 
   <div class="case-study__layout">
-    <div class="case-study__content prose">
-      {{ content | safe }}
-    </div>
-
     <aside class="case-study__aside" aria-label="{{ title }}">
       {% if project and project.stack %}
       <section class="aside-block">
@@ -62,5 +58,9 @@ pageType: case-study
         </ul>
       </section>
     </aside>
+
+    <div class="case-study__content prose">
+      {{ content | safe }}
+    </div>
   </div>
 </article>
