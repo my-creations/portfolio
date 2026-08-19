@@ -51,11 +51,12 @@ ELEVENTY_PATH_PREFIX=/ bun run dev
 - [x] Apple-clean light surfaces, Geist typography, and Teenage Engineering-inspired orange accents
 - [x] Header/footer, language alternates, sitemap, robots, empty RSS
 - [x] Writing briefs kept as non-public drafts
+- [x] Build-time front matter, draft exclusion, and translation-key validation
 - [x] Instrument-style hero, section indexes, featured Case Study panel, ink footer, and contact band
 - [x] Playwright coverage for navigation, locale alternates, WCAG A/AA smoke checks, and internal links
+- [x] GH Pages deploy switch from legacy root to `_site`
 - [ ] Finish Writing drafts and publish after review
 - [ ] Add redesign unit coverage where browser behavior benefits from a smaller seam
-- [ ] GH Pages deploy switch from legacy root to `_site`
 - [ ] Final reduced-motion / contrast audit before cutover
 
 ## Rules while implementing
