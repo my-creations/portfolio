@@ -1,9 +1,0 @@
-node_modules
-coverage
-playwright-report
-test-results
-assets/**/*.png
-assets/**/*.jpg
-assets/**/*.jpeg
-assets/**/*.ico
-assets/**/*.pdf

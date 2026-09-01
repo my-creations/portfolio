@@ -115,7 +115,7 @@ module.exports = [
       source: 'https://github.com/my-creations/portfolio',
       demo: 'https://my-creations.github.io/portfolio/',
     },
-    stack: ['HTML', 'CSS', 'Vanilla JS', 'Vitest', 'Playwright', 'Prettier', 'GitHub Actions', 'Eleventy'],
+    stack: ['HTML', 'CSS', 'Vanilla JS', 'Vitest', 'Playwright', 'oxfmt', 'GitHub Actions', 'Eleventy'],
     evidence: {
       kind: 'pipeline',
       en: {
