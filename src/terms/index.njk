@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+permalink: /terms/
+translationKey: terms
+pageType: terms
+eleventyComputed:
+  title: "{{ i18n.en.terms.title }}"
+  description: "{{ i18n.en.terms.lede }}"
+---
+{% set t = i18n.en %}
+{% set locale = 'en' %}
+
+<header class="page__header">
+  <h1 class="page__title">{{ t.terms.title }}</h1>
+  <p class="page__lede">{{ t.terms.lede }}</p>
+</header>
+
+<section class="about-section" aria-labelledby="terms-use">
+  <h2 id="terms-use">{{ t.terms.useTitle }}</h2>
+  <p>{{ t.terms.useBody }}</p>
+</section>
+
+<section class="about-section" aria-labelledby="terms-accuracy">
+  <h2 id="terms-accuracy">{{ t.terms.accuracyTitle }}</h2>
+  <p>{{ t.terms.accuracyBody }}</p>
+</section>
+
+<section class="about-section" aria-labelledby="terms-warranty">
+  <h2 id="terms-warranty">{{ t.terms.noWarrantyTitle }}</h2>
+  <p>{{ t.terms.noWarrantyBody }}</p>
+</section>
+
+<section class="about-section" aria-labelledby="terms-contact">
+  <h2 id="terms-contact">{{ t.terms.contactTitle }}</h2>
+  <p>{{ t.terms.contactBody }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</section>
