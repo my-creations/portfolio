@@ -17,6 +17,12 @@
       <li>
         <a href="{{ site.resumePath }}" data-test="footer-resume">{{ t.footer.resume }}</a>
       </li>
+      <li>
+        <a href="{{ locale | sectionHref('privacy') }}" data-test="footer-privacy">{{ t.footer.privacy }}</a>
+      </li>
+      <li>
+        <a href="{{ locale | sectionHref('terms') }}" data-test="footer-terms">{{ t.footer.terms }}</a>
+      </li>
     </ul>
     <p class="site-footer__copy mono">© {{ site.buildYear }} {{ site.name }}. {{ t.footer.copyright }}</p>
   </div>

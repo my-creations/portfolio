@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+permalink: /privacy/
+translationKey: privacy
+pageType: privacy
+eleventyComputed:
+  title: "{{ i18n.en.privacy.title }}"
+  description: "{{ i18n.en.privacy.lede }}"
+---
+{% set t = i18n.en %}
+{% set locale = 'en' %}
+
+<header class="page__header">
+  <h1 class="page__title">{{ t.privacy.title }}</h1>
+  <p class="page__lede">{{ t.privacy.lede }}</p>
+</header>
+
+<section class="about-section" aria-labelledby="privacy-decision">
+  <h2 id="privacy-decision">{{ t.privacy.decisionTitle }}</h2>
+  <p>{{ t.privacy.decisionBody }}</p>
+</section>
+
+<section class="about-section" aria-labelledby="privacy-site">
+  <h2 id="privacy-site">{{ t.privacy.siteTitle }}</h2>
+  <p>{{ t.privacy.siteBody }}</p>
+</section>
+
+<section class="about-section" aria-labelledby="privacy-cookies">
+  <h2 id="privacy-cookies">{{ t.privacy.cookiesTitle }}</h2>
+  <p>{{ t.privacy.cookiesBody }}</p>
+</section>
+
+<section class="about-section" aria-labelledby="privacy-contact">
+  <h2 id="privacy-contact">{{ t.privacy.contactTitle }}</h2>
+  <p>{{ t.privacy.contactBody }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+</section>

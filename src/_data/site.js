@@ -19,5 +19,6 @@ module.exports = {
   buildYear: new Date().getFullYear(),
   locales: ['en', 'pt'],
   defaultLocale: 'en',
+  analytics: false,
   tools: ['Playwright', 'Cypress', 'Detox', 'Selenium', 'TypeScript', 'API testing', 'GitHub Actions', 'Accessibility'],
 };

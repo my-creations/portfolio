@@ -21,6 +21,8 @@ module.exports = {
       github: 'GitHub',
       linkedin: 'LinkedIn',
       resume: 'Résumé',
+      privacy: 'Privacy',
+      terms: 'Terms',
       copyright: 'All rights reserved.',
     },
     home: {
@@ -83,6 +85,36 @@ module.exports = {
       toolkitTitle: 'How I like to work',
       resumeCta: 'Download my résumé',
     },
+    privacy: {
+      title: 'Privacy',
+      lede: 'How this portfolio handles personal data and analytics.',
+      decisionTitle: 'Analytics decision (v1)',
+      decisionBody:
+        'This site does not use analytics, advertising pixels, or third-party tracking scripts. There is no Google Analytics, Plausible, or similar tag in the layout. The documented default is none (see docs/analytics.md).',
+      siteTitle: 'What this site is',
+      siteBody:
+        'This is a static portfolio. There are no user accounts, sign-ins, or forms that store your data on this site. Contact is by email (mailto) only.',
+      cookiesTitle: 'Cookies',
+      cookiesBody:
+        'This static site does not set its own analytics cookies. Essential hosting or CDN behaviour may still apply at the infrastructure layer (for example GitHub Pages).',
+      contactTitle: 'Contact',
+      contactBody: 'Questions about privacy for this site:',
+    },
+    terms: {
+      title: 'Terms',
+      lede: 'A short notice for using this portfolio.',
+      useTitle: 'Using this site',
+      useBody:
+        'This site is a personal portfolio for information about Pedro Robalo’s work. Content is provided as-is for general information.',
+      accuracyTitle: 'Accuracy',
+      accuracyBody:
+        'I aim to keep project descriptions current, but details may be incomplete or change over time. Linked third-party sites have their own terms.',
+      noWarrantyTitle: 'No warranty',
+      noWarrantyBody:
+        'The site is provided without warranties of any kind. To the fullest extent allowed by law, I am not liable for decisions you make based on this content.',
+      contactTitle: 'Contact',
+      contactBody: 'For site issues or corrections:',
+    },
     meta: {
       skipToContent: 'Skip to main content',
       notFoundTitle: 'Page not found',
@@ -113,6 +145,8 @@ module.exports = {
       github: 'GitHub',
       linkedin: 'LinkedIn',
       resume: 'Currículo',
+      privacy: 'Privacidade',
+      terms: 'Termos',
       copyright: 'Todos os direitos reservados.',
     },
     home: {
@@ -175,6 +209,36 @@ module.exports = {
       educationTitle: 'Formação',
       toolkitTitle: 'Como gosto de trabalhar',
       resumeCta: 'Descarregar o meu currículo',
+    },
+    privacy: {
+      title: 'Privacidade',
+      lede: 'Como este portefólio trata dados pessoais e analytics.',
+      decisionTitle: 'Decisão de analytics (v1)',
+      decisionBody:
+        'Este site não usa analytics, pixels de publicidade nem scripts de tracking de terceiros. Não há Google Analytics, Plausible nem tags semelhantes no layout. A opção por omissão documentada é nenhuma (ver docs/analytics.md).',
+      siteTitle: 'O que é este site',
+      siteBody:
+        'Este é um portefólio estático. Não existem contas de utilizador, autenticação nem formulários que guardem os seus dados neste site. O contacto é apenas por email (mailto).',
+      cookiesTitle: 'Cookies',
+      cookiesBody:
+        'Este site estático não define cookies próprios de analytics. Pode ainda aplicar-se comportamento essencial de hosting ou CDN ao nível da infraestrutura (por exemplo GitHub Pages).',
+      contactTitle: 'Contacto',
+      contactBody: 'Questões sobre privacidade neste site:',
+    },
+    terms: {
+      title: 'Termos',
+      lede: 'Uma nota breve sobre a utilização deste portefólio.',
+      useTitle: 'Utilização do site',
+      useBody:
+        'Este site é um portefólio pessoal com informação sobre o trabalho de Pedro Robalo. O conteúdo é fornecido tal como está, apenas para informação geral.',
+      accuracyTitle: 'Exactidão',
+      accuracyBody:
+        'Procuro manter as descrições de projectos actualizadas, mas os detalhes podem estar incompletos ou mudar com o tempo. Sites de terceiros ligados daqui têm os seus próprios termos.',
+      noWarrantyTitle: 'Sem garantia',
+      noWarrantyBody:
+        'O site é fornecido sem garantias de qualquer tipo. Na máxima medida permitida por lei, não sou responsável por decisões tomadas com base neste conteúdo.',
+      contactTitle: 'Contacto',
+      contactBody: 'Para problemas no site ou correcções:',
     },
     meta: {
       skipToContent: 'Saltar para o conteúdo principal',

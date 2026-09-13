@@ -2,6 +2,7 @@
 {% set pageTitle = title + ' · ' + site.name if title else site.name + ' · ' + site.title[pageLocale] %}
 {% set pageDescription = description or summary or site.description[pageLocale] %}
 {% set canonical = site.url + (page.url | url) %}
+{% set ogImage = site.url + ('/assets/og-default.png' | url) %}
 
 <title>{{ pageTitle }}</title>
 <meta name="description" content="{{ pageDescription }}" />
@@ -15,10 +16,14 @@
 <meta property="og:url" content="{{ canonical }}" />
 <meta property="og:site_name" content="{{ site.name }}" />
 <meta property="og:locale" content="{{ 'pt_PT' if pageLocale == 'pt' else 'en_GB' }}" />
+<meta property="og:image" content="{{ ogImage }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ pageTitle }}" />
 <meta name="twitter:description" content="{{ pageDescription }}" />
+<meta name="twitter:image" content="{{ ogImage }}" />
 
 {% if translationKey %}
   {% set enCounterpart = collections.all | findByTranslationKey(translationKey, 'en') %}
