@@ -60,7 +60,10 @@ test.describe('reduced motion', () => {
       };
     });
     expect(scrollBehavior).toBe('auto');
-    // 0.01ms from the CSS kill-switch serializes as 1e-05s in Chromium.
-    expect(['0s', '0.01ms', '1e-05s']).toContain(transitionDuration);
+    // The 0.01ms kill-switch serializes differently per engine
+    // (0s, 0.01ms, 1e-05s, 0.00001s, or a comma-separated repeat).
+    const toMs = (t) => (t.endsWith('ms') ? parseFloat(t) : parseFloat(t) * 1000);
+    const maxMs = Math.max(...transitionDuration.split(',').map((t) => toMs(t.trim())));
+    expect(maxMs).toBeLessThanOrEqual(0.011);
   });
 });
