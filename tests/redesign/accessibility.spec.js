@@ -13,6 +13,10 @@ const representativeRoutes = [
   ['Portuguese Writing', '/pt/escrita/'],
   ['English About', '/about/'],
   ['Portuguese About', '/pt/sobre/'],
+  ['English Privacy', '/privacy/'],
+  ['English Terms', '/terms/'],
+  ['Portuguese Privacy', '/pt/privacidade/'],
+  ['Portuguese Terms', '/pt/termos/'],
 ];
 
 for (const [name, route] of representativeRoutes) {
