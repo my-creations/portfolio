@@ -55,18 +55,18 @@ node .cursor/skills/verify-portfolio/scripts/drive.mjs locale-switch
 
 Stable handles (from redesign templates / e2e):
 
-| Surface | Handle |
-| ------- | ------ |
-| Header / wordmark | `getByTestId('site-header')`, `getByTestId('wordmark')` |
-| Desktop nav | `getByRole('navigation', { name: 'Primary' })` or `getByTestId('desktop-navigation')` |
-| Nav links (EN) | `Work`, `Writing`, `About` (exact); Home via wordmark / Home link |
-| Nav links (PT) | `Trabalho`, `Escrita`, `Sobre` |
-| Locale switch | `getByTestId('lang-switch')` (desktop); also `.nav--desktop .locale-option[hreflang]` |
-| Mobile toggle | `getByTestId('nav-toggle')` (`Open menu` / `Close menu`) |
-| Mobile nav | `getByTestId('mobile-navigation')` |
-| Hero / CTAs | `getByTestId('hero')`, `getByTestId('cta-work')`, `getByTestId('cta-writing')` |
-| Work cards | `getByTestId('work-card-<project.key>')` e.g. `work-card-cuf-prepara` |
-| Footer | `getByTestId('site-footer')`, `footer-email`, `footer-github`, `footer-linkedin`, `footer-resume` |
+| Surface           | Handle                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| Header / wordmark | `getByTestId('site-header')`, `getByTestId('wordmark')`                                           |
+| Desktop nav       | `getByRole('navigation', { name: 'Primary' })` or `getByTestId('desktop-navigation')`             |
+| Nav links (EN)    | `Work`, `Writing`, `About` (exact); Home via wordmark / Home link                                 |
+| Nav links (PT)    | `Trabalho`, `Escrita`, `Sobre`                                                                    |
+| Locale switch     | `getByTestId('lang-switch')` (desktop); also `.nav--desktop .locale-option[hreflang]`             |
+| Mobile toggle     | `getByTestId('nav-toggle')` (`Open menu` / `Close menu`)                                          |
+| Mobile nav        | `getByTestId('mobile-navigation')`                                                                |
+| Hero / CTAs       | `getByTestId('hero')`, `getByTestId('cta-work')`, `getByTestId('cta-writing')`                    |
+| Work cards        | `getByTestId('work-card-<project.key>')` e.g. `work-card-cuf-prepara`                             |
+| Footer            | `getByTestId('site-footer')`, `footer-email`, `footer-github`, `footer-linkedin`, `footer-resume` |
 
 Base path for every goto: **`/portfolio/`** (Eleventy `pathPrefix`). English home can redirect to `/portfolio/pt/` when the browser locale starts with `pt` and `localStorage['portfolio:locale']` is unset — Drive helpers use `locale: 'en-US'` unless the recipe needs PT detection.
 
@@ -118,12 +118,12 @@ Run Cleanup after every verification session and after failed Launch/Drive itera
 
 All under `.cursor/skills/verify-portfolio/scripts/` (executable):
 
-| Script | Role |
-| ------ | ---- |
-| `launch.sh` | Start Eleventy `--serve`; write `.run/state.env`; wait until `/portfolio/` ready |
-| `doctor.sh` | Read-only health of that instance |
-| `drive.mjs` | Drive one mapped feature; write `evidence/<feature>/` |
-| `cleanup.sh` | Stop Launch PID; keep evidence |
+| Script       | Role                                                                             |
+| ------------ | -------------------------------------------------------------------------------- |
+| `launch.sh`  | Start Eleventy `--serve`; write `.run/state.env`; wait until `/portfolio/` ready |
+| `doctor.sh`  | Read-only health of that instance                                                |
+| `drive.mjs`  | Drive one mapped feature; write `evidence/<feature>/`                            |
+| `cleanup.sh` | Stop Launch PID; keep evidence                                                   |
 
 Env knobs: `VERIFY_PORT` (default `4177`), `VERIFY_HOST` (default `127.0.0.1`), `VERIFY_RUN_DIR`, `VERIFY_READY_TIMEOUT_SEC` (default `120`).
 

@@ -9,10 +9,7 @@ const FRONT_MATTER_OPTIONS = {
   },
 };
 
-const {
-  getContentDirectories,
-  getPermalinkPrefixes,
-} = require('../lib/locale-routes');
+const { getContentDirectories, getPermalinkPrefixes } = require('../lib/locale-routes');
 
 const CONTENT_DIRECTORIES = getContentDirectories();
 

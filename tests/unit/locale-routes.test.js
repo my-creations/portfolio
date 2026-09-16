@@ -23,7 +23,7 @@ describe('locale-routes', () => {
   });
 
   describe('section map', () => {
-    it('maps home, work, writing, and about for en and pt', () => {
+    it('maps home, work, writing, about, privacy, and terms for en and pt', () => {
       expect(homeHref('en')).toBe('/');
       expect(homeHref('pt')).toBe('/pt/');
 
@@ -38,6 +38,12 @@ describe('locale-routes', () => {
 
       expect(sectionHref('en', 'about')).toBe('/about/');
       expect(sectionHref('pt', 'about')).toBe('/pt/sobre/');
+
+      expect(sectionHref('en', 'privacy')).toBe('/privacy/');
+      expect(sectionHref('pt', 'privacy')).toBe('/pt/privacidade/');
+
+      expect(sectionHref('en', 'terms')).toBe('/terms/');
+      expect(sectionHref('pt', 'terms')).toBe('/pt/termos/');
     });
   });
 

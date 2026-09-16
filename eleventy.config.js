@@ -1,10 +1,5 @@
 const pluginRss = require('@11ty/eleventy-plugin-rss').default || require('@11ty/eleventy-plugin-rss');
-const {
-  homeHref,
-  sectionHref,
-  languageHref,
-  caseStudyUrl,
-} = require('./lib/locale-routes');
+const { homeHref, sectionHref, languageHref, caseStudyUrl } = require('./lib/locale-routes');
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
