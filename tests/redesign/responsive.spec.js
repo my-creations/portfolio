@@ -42,7 +42,9 @@ for (const { name, width, height } of viewports) {
 }
 
 test.describe('reduced motion', () => {
-  test.use({ reducedMotion: 'reduce' });
+  // NOTE: reducedMotion is not a top-level use fixture in this Playwright
+  // version — it must ride inside contextOptions or it is silently ignored.
+  test.use({ contextOptions: { reducedMotion: 'reduce' } });
 
   test('media query matches and transitions are neutralized', async ({ page }) => {
     await page.goto(`${basePath}/`);
