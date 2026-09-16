@@ -50,6 +50,9 @@ jobs:
       - name: Run E2E tests
         run: bun run test:e2e
 
+      - name: Run redesign E2E tests
+        run: bun run test:redesign
+
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: always()
