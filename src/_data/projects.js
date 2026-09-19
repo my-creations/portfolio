@@ -156,4 +156,56 @@ module.exports = [
       },
     },
   },
+  {
+    key: 'pkd-digest',
+    kind: 'project',
+    featured: true,
+    caseStudy: true,
+    order: 4,
+    sanitized: false,
+    links: {
+      source: 'https://github.com/my-creations/pkd-digest',
+      demo: 'https://my-creations.github.io/pkd-digest/',
+    },
+    stack: ['Eleventy 3', 'Bun', 'Vitest', 'Playwright', 'Lighthouse CI', 'oxlint', 'oxfmt', 'GitHub Actions'],
+    evidence: {
+      kind: 'curation',
+      en: {
+        label: 'Curation loop',
+        title: 'Draft shortlists become human-reviewed digests',
+        items: ['PubMed', 'Draft', 'Review', 'Publish'],
+      },
+      pt: {
+        label: 'Ciclo de curadoria',
+        title: 'Listas provisórias tornam-se digests revistos por humanos',
+        items: ['PubMed', 'Rascunho', 'Revisão', 'Publicação'],
+      },
+    },
+    card: {
+      en: {
+        title: 'PKD Digest',
+        subtitle: 'Weekly bilingual digest on cystic kidney disease',
+        summary:
+          'A weekly bilingual (EN+PT) curated digest on cystic kidney disease — plain language for patients and families, clinical notes for clinicians, with human review before anything publishes.',
+        problem:
+          'Patients, families, and clinicians need trustworthy, readable updates on cystic kidney disease — not raw paper feeds, and never advice disguised as curation.',
+        approach:
+          'Built an Eleventy publication with dual framing per item (summary plus clinical note), PubMed-assisted draft shortlists, and a strict human-publish gate with an explicit not-medical-advice boundary.',
+        outcome:
+          'A live digest with timeline, guides, glossary, and search — backed by content validation, unit and end-to-end tests, Lighthouse checks, and CI on every push.',
+      },
+      pt: {
+        title: 'PKD Digest',
+        subtitle: 'Digest bilingue semanal sobre doença renal poliquística',
+        summary:
+          'Um digest bilingue (EN+PT) com curadoria semanal sobre doença renal poliquística — linguagem simples para doentes e famílias, notas clínicas para profissionais de saúde, com revisão humana antes de publicar.',
+        problem:
+          'Doentes, famílias e clínicos precisam de atualizações fiáveis e legíveis sobre doença renal poliquística — não de listas de artigos em bruto, nem de conselhos disfarçados de curadoria.',
+        approach:
+          'Construí uma publicação em Eleventy com enquadramento duplo por item (resumo mais nota clínica), listas provisórias assistidas via PubMed e uma barreira estrita de publicação humana, com fronteira explícita: não é aconselhamento médico.',
+        outcome:
+          'Um digest publicado com cronologia, guias, glossário e pesquisa — suportado por validação de conteúdo, testes unitários e end-to-end, verificações Lighthouse e CI em cada push.',
+      },
+    },
+  },
 ];

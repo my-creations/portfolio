@@ -119,5 +119,18 @@ module.exports = {
       en: { name: 'Calculator', oneLiner: 'Basic operations calculator.' },
       pt: { name: 'Calculator', oneLiner: 'Calculadora de operações básicas.' },
     },
+    {
+      key: 'space-breaks',
+      github: 'https://github.com/PedroRobalo1994/space-breaks',
+      demo: 'https://pedrorobalo1994.github.io/space-breaks/',
+      en: {
+        name: 'Space Breaks',
+        oneLiner: 'Space-themed brick breaker: 8 sectors, combos, and power-ups in zero-dependency vanilla JS.',
+      },
+      pt: {
+        name: 'Space Breaks',
+        oneLiner: 'Brick breaker espacial: 8 setores, combos e power-ups em vanilla JS sem dependências.',
+      },
+    },
   ],
 };
