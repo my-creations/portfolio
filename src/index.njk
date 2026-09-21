@@ -14,7 +14,7 @@ pageType: home
     <p class="hero__lede">{{ t.home.lede }}</p>
     <div class="hero__actions">
       <a class="button button--primary" href="{{ '/work/' }}" data-test="cta-work">{{ t.home.primaryCta }}</a>
-      <a class="button button--secondary" href="{{ '/writing/' }}" data-test="cta-writing">{{ t.home.secondaryCta }}</a>
+      <a class="text-link" href="{{ '/writing/' }}" data-test="cta-writing">{{ t.home.secondaryCta }}</a>
     </div>
   </div>
   <div class="hero__side">
@@ -25,6 +25,7 @@ pageType: home
         width="448"
         height="560"
         loading="eager"
+        fetchpriority="high"
         decoding="async"
       />
     </figure>

@@ -1,0 +1,24 @@
+# Static-site server for the Raspberry Pi stage (see docs/deployment-plan.md).
+# Serves only the Eleventy build output. Browser-facing TLS terminates at
+# Cloudflare Tunnel; these headers harden the responses end to end.
+:80 {
+	root * /srv
+	encode gzip zstd
+	file_server
+
+	handle /healthz {
+		respond "OK" 200
+	}
+
+	# Never cache the service-worker-adjacent manifests aggressively; HTML is
+	# immutable per deploy because each release is an immutable image digest.
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		X-Frame-Options "DENY"
+		-Server
+	}
+}
