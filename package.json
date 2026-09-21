@@ -17,6 +17,11 @@
     "format": "oxfmt \"**/*.{html,css,js,json,md,yml,yaml}\"",
     "format:check": "oxfmt --check \"**/*.{html,css,js,json,md,yml,yaml}\"",
     "validate:content": "bun scripts/validate-content.js",
+    "check:images": "bun scripts/check-images.js",
+    "check:links": "bun scripts/check-links.js",
+    "check:performance": "bun scripts/check-performance.js",
+    "check:no-tracking": "bun scripts/check-no-tracking.js",
+    "check:launch": "bun run check:images && bun run check:links && bun run check:performance && bun run check:no-tracking",
     "build": "bun run validate:content && rm -rf _site && eleventy",
     "start": "rm -rf _site && eleventy --serve",
     "dev": "rm -rf _site && eleventy --serve"

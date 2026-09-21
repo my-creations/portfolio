@@ -1,5 +1,15 @@
-# Static site (HTML/CSS/JS) served by Caddy
+# Production image for the Raspberry Pi stage (see docs/deployment-plan.md).
+# Stage 1 builds the Eleventy static site; the runtime serves only _site plus
+# the Caddyfile — no source, tooling, credentials, or Docker socket access.
+
+FROM oven/bun:1 AS builder
+WORKDIR /app
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
+COPY . .
+RUN bun run build
+
 FROM caddy:2-alpine
-# Copy everything in the repo (filtered by .dockerignore) to the web root
-COPY . /usr/share/caddy
-# Caddy serves /usr/share/caddy by default on port 80 (no need to expose here)
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY --from=builder /app/_site /srv
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 CMD wget -qO- http://127.0.0.1/healthz || exit 1
