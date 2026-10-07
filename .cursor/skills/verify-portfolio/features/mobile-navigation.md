@@ -24,7 +24,7 @@ Preconditions:
 - **Open.** Click toggle. `aria-expanded="true"`; name **Close menu**; mobile nav visible.
 - **Escape.** Press Escape. `aria-expanded="false"`; mobile nav hidden.
 - **Proof.** `node .cursor/skills/verify-portfolio/scripts/drive.mjs mobile-navigation` → `evidence/mobile-navigation/02-open.png`.
-- **Suite mirror:** `tests/redesign/navigation.spec.js` (`mobile navigation`).
+- **Suite mirror:** `tests/e2e/navigation.spec.js` (`mobile navigation`).
 
 ## Gotchas
 

@@ -2,13 +2,13 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    environment: 'jsdom',
+    environment: 'node',
     globals: true,
     include: ['tests/unit/**/*.test.js'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov'],
-      include: ['scripts/**/*.js'],
+      include: ['scripts/**/*.js', 'lib/**/*.js'],
     },
     poolOptions: {
       threads: {

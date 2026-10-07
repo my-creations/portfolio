@@ -1,74 +1,63 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Navigation', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-  });
+const basePath = '/portfolio';
 
-  test('should display desktop navigation', async ({ page }) => {
-    const desktopNav = page.locator('#desktop-nav');
-    await expect(desktopNav).toBeVisible();
-  });
+test('English primary navigation reaches each Portfolio section', async ({ page }) => {
+  await page.goto(`${basePath}/`);
 
-  test('should have all navigation links', async ({ page }) => {
-    const navLinks = page.locator('#desktop-nav .nav-links a');
-    await expect(navLinks).toHaveCount(4);
-  });
+  const navigation = page.getByRole('navigation', { name: 'Primary' });
+  const destinations = [
+    ['Work', `${basePath}/work/`],
+    ['Writing', `${basePath}/writing/`],
+    ['About', `${basePath}/about/`],
+  ];
 
-  test('should scroll to about section on click', async ({ page }) => {
-    await page.locator('a[href="#about"]').first().click();
-    await page.waitForTimeout(500);
-    const aboutSection = page.locator('#about');
-    await expect(aboutSection).toBeInViewport();
-  });
-
-  test('should scroll to experience section on click', async ({ page }) => {
-    await page.locator('a[href="#experience"]').first().click();
-    await page.waitForTimeout(500);
-    const experienceSection = page.locator('#experience');
-    await expect(experienceSection).toBeInViewport();
-  });
-
-  test('should scroll to projects section on click', async ({ page }) => {
-    await page.locator('a[href="#projects"]').first().click();
-    await page.waitForTimeout(500);
-    const projectsSection = page.locator('#projects');
-    await expect(projectsSection).toBeInViewport();
-  });
-
-  test('should scroll to contact section on click', async ({ page }) => {
-    await page.locator('a[href="#contact"]').first().click();
-    await page.waitForTimeout(500);
-    const contactSection = page.locator('#contact');
-    await expect(contactSection).toBeInViewport();
-  });
+  for (const [name, pathname] of destinations) {
+    const link = navigation.getByRole('link', { name, exact: true });
+    await expect(link).toHaveAttribute('href', pathname);
+    await link.click();
+    await expect(page).toHaveURL(new RegExp(`${pathname}$`));
+    await page.goBack();
+  }
 });
 
-test.describe('Mobile Navigation', () => {
-  test.use({ viewport: { width: 375, height: 667 } });
+test('Portuguese primary navigation reaches each localized Portfolio section', async ({ page }) => {
+  await page.goto(`${basePath}/pt/`);
 
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-  });
+  const navigation = page.getByRole('navigation', { name: 'Primary' });
+  const destinations = [
+    ['Trabalho', `${basePath}/pt/trabalho/`],
+    ['Escrita', `${basePath}/pt/escrita/`],
+    ['Sobre', `${basePath}/pt/sobre/`],
+  ];
 
-  test('should display hamburger menu on mobile', async ({ page }) => {
-    const hamburgerNav = page.locator('#hamburger-nav');
-    await expect(hamburgerNav).toBeVisible();
-  });
+  for (const [name, pathname] of destinations) {
+    const link = navigation.getByRole('link', { name, exact: true });
+    await expect(link).toHaveAttribute('href', pathname);
+    await link.click();
+    await expect(page).toHaveURL(new RegExp(`${pathname}$`));
+    await page.goBack();
+  }
+});
 
-  test('should have hamburger icon visible', async ({ page }) => {
-    const hamburgerIcon = page.locator('.hamburger-icon');
-    await expect(hamburgerIcon).toBeVisible();
-  });
+test.describe('mobile navigation', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
 
-  test('should have mobile language toggle in menu', async ({ page }) => {
-    const hamburgerIcon = page.locator('.hamburger-icon');
-    await hamburgerIcon.click();
-    await page.waitForTimeout(300);
+  test('opens with the menu button and closes with Escape', async ({ page }) => {
+    await page.goto(`${basePath}/`);
 
-    const langToggle = page.locator('#mobile-lang-toggle');
-    await expect(langToggle).toBeVisible();
+    const toggle = page.locator('[data-test="nav-toggle"]');
+    const mobileNavigation = page.locator('[data-test="mobile-navigation"]');
+
+    await expect(toggle).toHaveAccessibleName('Open menu');
+    await expect(mobileNavigation).toBeHidden();
+    await toggle.click();
+    await expect(toggle).toHaveAccessibleName('Close menu');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(mobileNavigation).toBeVisible();
+
+    await page.keyboard.press('Escape');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(mobileNavigation).toBeHidden();
   });
 });

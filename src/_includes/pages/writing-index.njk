@@ -1,0 +1,14 @@
+{#- Writing index body shared by every locale. -#}
+{% set t = i18n[locale] %}
+
+<header class="page__header">
+  <p class="eyebrow">{{ t.writing.eyebrow }}</p>
+  <h1 class="page__title">{{ t.writing.title }}</h1>
+  <p class="page__lede">{{ t.writing.lede }}</p>
+  <p class="meta-row"><a class="text-link" href="{{ '/feed.xml' }}">{{ t.writing.rss }}</a></p>
+</header>
+
+{% set entries = collections.writing | whereLocale(locale) %}
+{% set headingLevel = 2 %}
+{% set emptyMessage = t.writing.empty %}
+{% include "partials/writing-list.njk" %}
