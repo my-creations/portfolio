@@ -237,7 +237,16 @@ button:focus-visible {
   font-weight: 680;
   color: var(--color-ink);
   letter-spacing: -0.03em;
+  text-decoration: none;
   user-select: none;
+}
+
+.wordmark:hover {
+  color: var(--color-ink);
+}
+
+.wordmark:hover::before {
+  transform: translateY(-50%) rotate(-12deg);
 }
 
 .wordmark::before {
@@ -252,6 +261,7 @@ button:focus-visible {
   background: var(--color-accent);
   transform: translateY(-50%) rotate(12deg);
   box-shadow: 1px 1px 0 color-mix(in srgb, var(--color-ink) 22%, transparent);
+  transition: transform var(--transition-med);
 }
 
 .wordmark__label {
@@ -993,12 +1003,20 @@ button:focus-visible {
 
 @media (max-width: 700px) {
   .section__header {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
   }
 
+  .section__index {
+    grid-row: auto;
+    min-width: 0;
+    font-size: 1rem;
+  }
+
+  .section__header-copy,
   .section__header .text-link {
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 1;
+    grid-row: auto;
     justify-self: start;
   }
 }
@@ -1070,7 +1088,8 @@ button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .card-grid--work .work-card--featured:first-child {
+  .card-grid--work .work-card--featured:first-child,
+  .card-grid--work .work-card--featured:first-child ~ .work-card:last-child:nth-child(even) {
     grid-column: 1 / -1;
   }
 }
@@ -1751,6 +1770,65 @@ button:focus-visible {
   font-weight: 600;
 }
 
+/* Case study pager */
+.pager {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 720px) {
+  .pager {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pager__link--next {
+    grid-column: 2;
+    text-align: right;
+  }
+}
+
+.pager__link {
+  display: grid;
+  gap: var(--space-2);
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  box-shadow: var(--shadow-soft);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.pager__link:hover {
+  color: var(--color-ink);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+  box-shadow: 3px 3px 0 color-mix(in srgb, var(--color-accent) 45%, transparent);
+}
+
+.pager__label {
+  color: var(--color-accent-text);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pager__link--previous .pager__label::before {
+  content: '← ';
+}
+
+.pager__link--next .pager__label::after {
+  content: ' →';
+}
+
+.pager__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
 /* About */
 .about-layout {
   display: grid;
@@ -1793,6 +1871,14 @@ button:focus-visible {
   border-radius: 0.55rem 0 0 0;
   z-index: 2;
   pointer-events: none;
+}
+
+/* Keep the portrait beside the long story column on wide screens. */
+@media (min-width: 860px) {
+  .about-figure {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-6));
+  }
 }
 
 .about-portrait {
@@ -1838,26 +1924,17 @@ button:focus-visible {
   margin-top: 0.55rem;
 }
 
-@media (min-width: 760px) {
-  .prose p,
-  .about-section > p {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-  }
+/* Ragged-right body copy: justified text opened uneven word gaps ("rivers")
+   in the narrow measure, which hurts readability (WCAG 1.4.8). */
+.prose p,
+.about-section > p {
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
 }
 
 @media (max-width: 720px) {
   .about-figure {
     margin-inline: auto;
-  }
-
-  .about-section > p {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
   }
 }
 

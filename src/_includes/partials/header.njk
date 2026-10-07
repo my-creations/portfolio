@@ -9,10 +9,10 @@
 
 <header class="site-header" data-test="site-header">
   <div class="site-header__inner">
-    <div class="wordmark" data-test="wordmark" aria-label="{{ site.name }} — {{ t.nav.portfolioLabel }}">
+    <a class="wordmark" href="{{ homeHref }}" data-test="wordmark" aria-label="{{ site.name }} — {{ t.nav.home }}">
       <span class="wordmark__name">{{ site.name }}</span>
       <span class="wordmark__label mono" aria-hidden="true">{{ t.nav.portfolioLabel }}</span>
-    </div>
+    </a>
 
     <nav class="nav nav--desktop" aria-label="Primary" data-test="desktop-navigation">
       <ul class="nav__list">

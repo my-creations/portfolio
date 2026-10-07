@@ -63,4 +63,24 @@ pageType: case-study
       {{ content | safe }}
     </div>
   </div>
+
+  {% set siblings = collections.caseStudies | whereLocale(locale) %}
+  {% set previousStudy = siblings | getPreviousCollectionItem(page) %}
+  {% set nextStudy = siblings | getNextCollectionItem(page) %}
+  {% if previousStudy or nextStudy %}
+  <nav class="pager" aria-label="{{ t.work.caseStudyNav }}" data-test="case-study-pager">
+    {% if previousStudy %}
+    <a class="pager__link pager__link--previous" href="{{ previousStudy.url }}" rel="prev">
+      <span class="pager__label mono">{{ t.work.previousCaseStudy }}</span>
+      <span class="pager__title">{{ previousStudy.data.title }}</span>
+    </a>
+    {% endif %}
+    {% if nextStudy %}
+    <a class="pager__link pager__link--next" href="{{ nextStudy.url }}" rel="next">
+      <span class="pager__label mono">{{ t.work.nextCaseStudy }}</span>
+      <span class="pager__title">{{ nextStudy.data.title }}</span>
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
 </article>

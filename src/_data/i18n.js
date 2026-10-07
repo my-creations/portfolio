@@ -69,6 +69,9 @@ module.exports = {
       noDemo: 'No public demo for this one yet.',
       noSource: 'The code for this one is private.',
       links: 'Links',
+      caseStudyNav: 'More case studies',
+      previousCaseStudy: 'Previous case study',
+      nextCaseStudy: 'Next case study',
     },
     writing: {
       title: 'Writing',
@@ -198,6 +201,9 @@ module.exports = {
       noDemo: 'Este ainda não tem demo pública.',
       noSource: 'O código deste projeto é privado.',
       links: 'Ligações',
+      caseStudyNav: 'Mais casos de estudo',
+      previousCaseStudy: 'Caso de estudo anterior',
+      nextCaseStudy: 'Caso de estudo seguinte',
     },
     writing: {
       title: 'Escrita',
