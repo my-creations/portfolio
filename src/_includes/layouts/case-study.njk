@@ -3,9 +3,9 @@ layout: layouts/base.njk
 pageType: case-study
 ---
 {% set t = i18n[locale] %}
-{% set project = projects | selectattr('key', 'equalto', projectKey) | first %}
+{% set project = projects | findByKey(projectKey) %}
 {% set card = project.card[locale] if project else null %}
-{% set workIndexHref = '/pt/trabalho/' if locale == 'pt' else '/work/' %}
+{% set workIndexHref = locale | sectionHref('work') %}
 
 <article class="case-study">
   <header class="page__header case-study__header">
@@ -39,7 +39,7 @@ pageType: case-study
       {% endif %}
 
       <section class="aside-block">
-        <h2 class="aside-block__title">Links</h2>
+        <h2 class="aside-block__title">{{ t.work.links }}</h2>
         <ul class="link-list">
           {% if project and project.links.source %}
           <li>

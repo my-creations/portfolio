@@ -5,7 +5,7 @@ pageType: writing-detail
 {% set t = i18n[locale] %}
 {% set typeLabel = t.writing.article if contentType == 'article' else t.writing.note %}
 {% set minutes = content | readingTime %}
-{% set writingIndexHref = '/pt/escrita/' if locale == 'pt' else '/writing/' %}
+{% set writingIndexHref = locale | sectionHref('writing') %}
 
 <article class="writing-detail">
   <header class="page__header writing-detail__header">

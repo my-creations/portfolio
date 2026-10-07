@@ -54,6 +54,10 @@ module.exports = function (eleventyConfig) {
     )
   );
 
+  // Nunjucks' selectattr only supports the one-argument truthy form, so key
+  // lookups in data arrays need an explicit filter.
+  eleventyConfig.addFilter('findByKey', (items = [], key) => items.find((item) => item.key === key));
+
   eleventyConfig.addFilter('homeHref', (locale) => homeHref(locale));
 
   eleventyConfig.addFilter('sectionHref', (locale, section) => sectionHref(locale, section));

@@ -1,0 +1,86 @@
+{#- Landing Page body shared by every locale; `locale` comes from directory data. -#}
+{% set t = i18n[locale] %}
+{% set copy = about[locale] %}
+
+<section class="hero" data-test="hero">
+  <div class="hero__main">
+    <p class="eyebrow">{{ t.home.eyebrow }}</p>
+    <h1 class="hero__title">{{ t.home.headlineLead }} <em>{{ t.home.headlineAccent }}</em> {{ t.home.headlineTail }}</h1>
+    <p class="hero__lede">{{ t.home.lede }}</p>
+    <div class="hero__actions">
+      <a class="button button--primary" href="{{ locale | sectionHref('work') }}" data-test="cta-work">{{ t.home.primaryCta }}</a>
+      <a class="text-link" href="{{ locale | sectionHref('writing') }}" data-test="cta-writing">{{ t.home.secondaryCta }}</a>
+    </div>
+  </div>
+  <div class="hero__side">
+    <figure class="hero__portrait">
+      <img
+        src="{{ '/assets/general/profile-pic.webp' }}"
+        alt="{{ copy.portraitAlt }}"
+        width="448"
+        height="560"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </figure>
+    <aside class="hero__rail" aria-label="{{ t.home.focusLabel }}">
+      <p class="hero__rail-label">{{ t.home.focusLabel }}</p>
+      <ul class="hero__rail-list">
+        {% for item in t.home.focusItems %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="featured-work-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">01</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="featured-work-title">{{ t.home.featuredWorkTitle }}</h2>
+      <p class="section__lede">{{ t.home.featuredWorkLede }}</p>
+    </div>
+    <a class="text-link" href="{{ locale | sectionHref('work') }}">{{ t.home.viewAllWork }}</a>
+  </div>
+  <div class="card-grid card-grid--featured">
+    {% set project = projects | selectattr('caseStudy') | first %}
+    {% set featured = true %}
+    {% include "partials/work-card.njk" %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="featured-writing-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">02</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="featured-writing-title">{{ t.home.featuredWritingTitle }}</h2>
+      <p class="section__lede">{{ t.home.featuredWritingLede }}</p>
+    </div>
+    <a class="text-link" href="{{ locale | sectionHref('writing') }}">{{ t.home.viewAllWriting }}</a>
+  </div>
+  {% set entries = (collections.writing | whereLocale(locale) | whereFeatured).slice(0, 2) %}
+  {% set headingLevel = 3 %}
+  {% set emptyMessage = t.home.emptyWriting %}
+  {% include "partials/writing-list.njk" %}
+</section>
+
+<section class="section" aria-labelledby="context-title">
+  <div class="section__header">
+    <span class="section__index" aria-hidden="true">03</span>
+    <div class="section__header-copy">
+      <h2 class="section__title" id="context-title">{{ t.home.contextTitle }}</h2>
+    </div>
+  </div>
+  <div class="context-panel">
+    <p>{{ t.home.contextBody }}</p>
+    <p><a class="text-link" href="{{ locale | sectionHref('about') }}">{{ t.nav.about }}</a></p>
+  </div>
+</section>
+
+<section class="section contact-band" aria-labelledby="contact-title">
+  <h2 class="section__title" id="contact-title">{{ t.home.contactTitle }}</h2>
+  <p class="page__lede">{{ t.home.contactBody }}</p>
+  <a class="button button--primary" href="mailto:{{ site.email }}">{{ site.email }}</a>
+</section>

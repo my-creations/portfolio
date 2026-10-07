@@ -1,0 +1,24 @@
+{#- Expects: entries, locale, t, headingLevel (2|3), emptyMessage. -#}
+{% if entries.length %}
+<ul class="writing-list">
+  {% for item in entries %}
+  <li>
+    <article class="writing-card">
+      <p class="eyebrow">{{ t.writing.article if item.data.contentType == 'article' else t.writing.note }}</p>
+      <h{{ headingLevel }} class="writing-card__title"><a href="{{ item.url }}">{{ item.data.title }}</a></h{{ headingLevel }}>
+      <p class="writing-card__summary">{{ item.data.summary }}</p>
+      <p class="writing-card__meta meta-row mono">
+        <time datetime="{{ item.date | isoDate }}">{{ item.date | displayDate(locale) }}</time>
+        {% set topics = item.data.tags | reject('equalto', 'writing') if item.data.tags else [] %}
+        {% if topics.length %}
+        <span aria-hidden="true"> · </span>
+        <span>{{ topics | join(', ') }}</span>
+        {% endif %}
+      </p>
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state muted">{{ emptyMessage }}</p>
+{% endif %}
