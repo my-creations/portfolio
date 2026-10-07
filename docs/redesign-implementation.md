@@ -7,7 +7,7 @@ Working notes for the Eleventy multi-page redesign. Canonical product rules rema
 ```bash
 bun run dev             # clean build + local server (respects pathPrefix /portfolio/)
 bun run build           # clean production build into _site/
-bun run test:redesign   # generated Portfolio checks in Chromium, Firefox, and WebKit
+bun run test:e2e        # generated Portfolio checks in Chromium, Firefox, and WebKit
 ```
 
 Local preview with GitHub Pages path prefix:
@@ -26,21 +26,20 @@ ELEVENTY_PATH_PREFIX=/ bun run dev
 
 ## Layout
 
-| Path                            | Role                                                                    |
-| ------------------------------- | ----------------------------------------------------------------------- |
-| `src/`                          | Eleventy input                                                          |
-| `src/_data/`                    | Site, i18n, projects, experiments, about                                |
-| `src/_includes/`                | Layouts and partials                                                    |
-| `src/css/main.css`              | Design tokens + editorial styles                                        |
-| `src/js/main.js`                | Mobile nav only                                                         |
-| `tests/redesign/`               | Generated-site navigation, localization, accessibility, and link checks |
-| `playwright.redesign.config.js` | Redesign server and cross-browser test configuration                    |
-| `src/work/*.md`                 | EN Case Studies                                                         |
-| `src/pt/trabalho/*.md`          | PT Case Studies                                                         |
-| `src/writing/*.md`              | EN Writing (drafts use `permalink: false`)                              |
-| `src/pt/escrita/*.md`           | PT Writing drafts                                                       |
-| `_site/`                        | Generated output (gitignored)                                           |
-| repo root `index.html`          | Legacy single-page site still live                                      |
+| Path                   | Role                                                                    |
+| ---------------------- | ----------------------------------------------------------------------- |
+| `src/`                 | Eleventy input                                                          |
+| `src/_data/`           | Site, i18n, projects, experiments, about                                |
+| `src/_includes/`       | Layouts, partials, and locale-agnostic page bodies (`pages/`)           |
+| `src/css/main.css`     | Design tokens + editorial styles                                        |
+| `src/js/main.js`       | Mobile nav only                                                         |
+| `tests/e2e/`           | Generated-site navigation, localization, accessibility, and link checks |
+| `playwright.config.js` | Redesign server and cross-browser test configuration                    |
+| `src/work/*.md`        | EN Case Studies                                                         |
+| `src/pt/trabalho/*.md` | PT Case Studies                                                         |
+| `src/writing/*.md`     | EN Writing (drafts use `permalink: false`)                              |
+| `src/pt/escrita/*.md`  | PT Writing drafts                                                       |
+| `_site/`               | Generated output (gitignored)                                           |
 
 ## Current progress
 
@@ -55,6 +54,7 @@ ELEVENTY_PATH_PREFIX=/ bun run dev
 - [x] Instrument-style hero, section indexes, featured Case Study panel, ink footer, and contact band
 - [x] Playwright coverage for navigation, locale alternates, WCAG A/AA smoke checks, and internal links
 - [x] GH Pages deploy switch from legacy root to `_site`
+- [x] Legacy single-page site, its assets, and its test suite removed after cutover
 - [ ] Finish Writing drafts and publish after review
 - [ ] Add redesign unit coverage where browser behavior benefits from a smaller seam
 - [ ] Final reduced-motion / contrast audit before cutover
@@ -64,4 +64,6 @@ ELEVENTY_PATH_PREFIX=/ bun run dev
 - Do not invent outcomes, metrics, or employer details.
 - Do not hard-code a test count as a Proof Signal.
 - Prefer HtmlBase-managed root-relative URLs in HTML templates (avoid `| url` there; keep `| url` for XML/absolute meta construction).
-- Keep the legacy site and its tests green until cutover.
+- Page bodies live once in `src/_includes/pages/`; `src/**/index.njk` per locale holds only front matter (permalink, translationKey, title) and an include.
+- Resolve section links with `sectionHref` / `homeHref` (LocaleRoutes), never hard-coded `/pt/...` literals.
+- Nunjucks `selectattr` only supports the one-argument form; use `findByKey` for keyed lookups in `_data` arrays.

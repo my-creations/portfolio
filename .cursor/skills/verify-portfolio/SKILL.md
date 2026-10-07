@@ -7,11 +7,11 @@ description: "Drive Pedro Robalo's Eleventy Portfolio the way a visitor would �
 
 Primary surface: **web** — the Eleventy redesign under `src/` (Landing Page, Work/case studies, Writing, About), bilingual EN/PT, served with `pathPrefix` `/portfolio/`.
 
-Legacy root `index.html` + `bun run serve` (port 8080) still powers `tests/e2e/`. This skill targets the **redesign** path used by `tests/redesign/` and `bun run dev` / `bun run build`. Do not drive the live Pages URL for proofs unless a feature file says so.
+This skill targets the same Eleventy build that `tests/e2e/` and `bun run dev` / `bun run build` use. Do not drive the live Pages URL for proofs unless a feature file says so.
 
 Harness: **Playwright** (`@playwright/test` already in the repo) plus helpers under `.cursor/skills/verify-portfolio/scripts/`. `drive.mjs` sets `selectors.setTestIdAttribute('data-test')` so `getByTestId` matches the templates. Prefer `data-test` attributes, `getByRole('navigation', { name: 'Primary' })`, and locale link `data-test="lang-switch"` — redesign specs already encode them.
 
-**Isolation:** default verification port is `4177` so it does not collide with redesign Playwright (`4173`) or legacy `serve` (`8080`). Never attach to an instance you did not start with Launch. Never kill by process name.
+**Isolation:** default verification port is `4177` so it does not collide with E2E Playwright (`4173`) or a default `bun run dev` (`8080`). Never attach to an instance you did not start with Launch. Never kill by process name.
 
 ## Launch
 
@@ -28,7 +28,7 @@ From the repo root:
 
 Teardown is Cleanup (below), not Ctrl-C by guesswork.
 
-Optional: redesign suite independently via `bun run test:redesign` (its config defaults to port `4173` and may reuse an existing server when not in CI).
+Optional: E2E suite independently via `bun run test:e2e` (its config defaults to port `4173` and may reuse an existing server when not in CI).
 
 ## Doctor
 
@@ -74,8 +74,8 @@ Alternative: reuse redesign Playwright specs against the Launch port:
 
 ```bash
 # Point a one-off config or temporarily set the redesign webServer to reuse 4177.
-bunx playwright test --config=playwright.redesign.config.js \
-  tests/redesign/localization.spec.js --project=chromium
+bunx playwright test --config=playwright.config.js \
+  tests/e2e/localization.spec.js --project=chromium
 ```
 
 (`reuseExistingServer` is true locally; if something else owns 4173 the suite may attach there instead — prefer `drive.mjs` against Launch.)

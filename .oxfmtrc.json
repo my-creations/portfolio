@@ -5,15 +5,5 @@
   "trailingComma": "es5",
   "printWidth": 120,
   "sortPackageJson": false,
-  "ignorePatterns": [
-    "node_modules",
-    "coverage",
-    "playwright-report",
-    "test-results",
-    "assets/**/*.png",
-    "assets/**/*.jpg",
-    "assets/**/*.jpeg",
-    "assets/**/*.ico",
-    "assets/**/*.pdf"
-  ]
+  "ignorePatterns": ["node_modules", "coverage", "playwright-report", "test-results", "_site"]
 }

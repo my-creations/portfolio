@@ -1,6 +1,6 @@
 # Portfolio Redesign Specification
 
-**Status:** Approved. Implementation started — Eleventy scaffold, bilingual core pages, Case Studies, and design tokens land in `src/` and build to `_site/`. The legacy single-page site at the repo root remains public until cutover.
+**Status:** Approved. Implementation started — Eleventy scaffold, bilingual core pages, Case Studies, and design tokens land in `src/` and build to `_site/`. The legacy single-page site has been retired; GitHub Pages serves `_site/`.
 
 This document defines the agreed redesign of Pedro's Portfolio from a single scrolling page into a multi-page, bilingual publication for Work and Writing.
 

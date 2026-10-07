@@ -1,13 +1,18 @@
-# don't ship dev stuff into the image
+# Keep the build context to what `bun run build` needs. Content lives in
+# src/**/*.md, so Markdown must NOT be ignored wholesale.
 .git
 .github
+.cursor
 .gitignore
-Dockerfile
-dockerfile
 .dockerignore
-README.md
-LICENSE
+dockerfile
+Dockerfile
 node_modules
+_site
+coverage
+playwright-report
+test-results
+tests
+docs
 *.log
 .vscode
-*.md

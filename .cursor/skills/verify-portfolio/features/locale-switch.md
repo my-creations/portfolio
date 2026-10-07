@@ -26,10 +26,10 @@ Preconditions:
 - **Switch to PT.** Click desktop `data-test="lang-switch"`. URL `/portfolio/pt/`; `html[lang=pt]`; `localStorage['portfolio:locale'] === 'pt'`; Primary shows **Trabalho**.
 - **Switch back to EN.** Click desktop `data-test="lang-switch"` again. URL `/portfolio/`; `html[lang=en]`; storage `en`.
 - **Proof.** `node .cursor/skills/verify-portfolio/scripts/drive.mjs locale-switch` → `evidence/locale-switch/02-pt-home.png` and `03-en-again.png`.
-- **Suite mirror:** `tests/redesign/localization.spec.js`.
+- **Suite mirror:** `tests/e2e/localization.spec.js`.
 
 ## Gotchas
 
 - Only the **non-current** locale is a link with `data-test="lang-switch"`; the current one is a `<span class="locale-option is-current">`.
-- English home may auto-redirect to `/pt/` for `pt*` browser locales when storage is empty — keep Drive locale `en-US` unless testing detection (`tests/redesign/browser-locale.spec.js`).
+- English home may auto-redirect to `/pt/` for `pt*` browser locales when storage is empty — keep Drive locale `en-US` unless testing detection (`tests/e2e/browser-locale.spec.js`).
 - Reciprocal `hreflang` alternates exist per page; asserting storage + URL is enough for this feature.

@@ -27,7 +27,7 @@ Preconditions:
 - **Writing.** Return home, click `Writing`. URL `/portfolio/writing/`; `h1` visible.
 - **About.** Return home, click `About`. URL `/portfolio/about/`; `h1` visible.
 - **Proof.** `node .cursor/skills/verify-portfolio/scripts/drive.mjs primary-navigation` → `evidence/primary-navigation/02-work.png` … `04-about.png`.
-- **Suite mirror:** `tests/redesign/navigation.spec.js` (English primary navigation).
+- **Suite mirror:** `tests/e2e/navigation.spec.js` (English primary navigation).
 
 ## Gotchas
 
